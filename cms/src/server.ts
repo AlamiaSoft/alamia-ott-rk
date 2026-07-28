@@ -5,18 +5,17 @@ import configPromise from '../payload.config.js';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Redirect root GET requests to /admin interface
-app.get('/', (_req, res) => {
-  res.redirect('/admin');
-});
-
 const start = async () => {
   await payload.init({
     config: configPromise,
     express: app,
-    onInit: async () => {
-      payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+    onInit: async (cms) => {
+      cms.logger.info(`Payload Admin URL: ${cms.getAdminURL()}`);
     },
+  });
+
+  app.get('/', (_req, res) => {
+    res.redirect('/admin');
   });
 
   app.listen(PORT, async () => {
