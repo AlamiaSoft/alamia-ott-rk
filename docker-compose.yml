@@ -12,7 +12,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - rk_network
+      - alamia-network
 
   rk_storage:
     image: minio/minio:RELEASE.2024-05-10T01-41-38Z
@@ -28,7 +28,7 @@ services:
     volumes:
       - miniodata:/data
     networks:
-      - rk_network
+      - alamia-network
 
   rk_cms:
     build:
@@ -46,7 +46,7 @@ services:
       - rk_db
       - rk_storage
     networks:
-      - rk_network
+      - alamia-network
 
   rk_web:
     build:
@@ -55,13 +55,13 @@ services:
     container_name: rk_web
     restart: unless-stopped
     environment:
-      NEXT_PUBLIC_CMS_URL: ${NEXT_PUBLIC_CMS_URL:-http://rk_cms:4000}
+      NEXT_PUBLIC_CMS_URL: ${NEXT_PUBLIC_CMS_URL:-http://cmmadmin.alamiaai.com}
     ports:
       - "23000:3000"
     depends_on:
       - rk_cms
     networks:
-      - rk_network
+      - alamia-network
 
   rk_worker:
     build:
@@ -75,11 +75,11 @@ services:
       - rk_storage
       - rk_db
     networks:
-      - rk_network
+      - alamia-network
 
 networks:
-  rk_network:
-    driver: bridge
+  alamia-network:
+    external: true
 
 volumes:
   pgdata:
