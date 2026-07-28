@@ -1,21 +1,13 @@
 # Project Conventions — Alamia OTT / RK Portal
 
-## Language & Framework
-- **Frontend**: Next.js (App Router), TypeScript (Strict mode), Tailwind CSS / Vanilla CSS modules.
-- **Content Management**: Payload CMS (TypeScript), PostgreSQL.
-- **Object Storage**: MinIO (development), Cloudflare R2 (production).
-- **Video Pipeline**: FFmpeg HLS Transcoder worker pool, RabbitMQ / Redis task queue.
-- **Ingress Gateway**: Caddy / Cloudflare Tunnel.
+## Deployment Infrastructure
+- **Hosting Target**: Oracle VPS running Docker + Portainer.
+- **Ingress & Domain**: Cloudflare Tunnel mapping `checkmatemedia.alamiaai.com` to `http://rk_proxy:80`.
+- **Deployment Method**: Portainer Stack creation pulling directly from GitHub (`docker-compose.yml`).
 
-## Code Style
-- **API-First**: Frontend strictly consumes backend REST / GraphQL endpoints.
-- **Strict Typing**: All API request/response objects, CMS collections, and component props must be explicitly typed.
-- **UI Aesthetics**: Modern digital news outlet theme, dark mode support, smooth micro-animations, responsive layout.
-
-## Testing & Containerization
-- **Docker-First**: All services run in Docker Compose (`docker compose up -d`).
-- **Transcoding Output**: HLS packaging (`playlist.m3u8` with target segment duration 4-6s) + thumbnail keyframe extraction.
-
-## Architecture
-- **BBC Model**: Editorial-first hybrid news and video platform (articles, opinion columns, HLS video streams).
-- **Paywall & Auth**: JWT authorization, role-based access (Admin, Editor, Subscriber, Guest), short-lived signed media URLs.
+## Subsystem Stack
+- **Frontend**: Next.js (App Router), TypeScript (Strict mode), Tailwind CSS.
+- **CMS**: Payload CMS (TypeScript) + PostgreSQL 16.
+- **Storage**: MinIO S3 object storage (buckets: `raw-uploads`, `hls-media`).
+- **Transcoder**: FFmpeg worker pool (HLS `.m3u8` playlist + `.ts` segment generation).
+- **Proxy**: Caddy (`rk_proxy`) routing `/` to `web:3000`, `/admin` to `cms:4000`, `/media` to `storage:9000`.
