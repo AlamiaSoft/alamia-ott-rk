@@ -27,3 +27,12 @@ This repository uses **RepoBrain** in **Standalone Static Mode**. AI agents read
 ## 3. Documentation Ownership & Rules
 - Maintain `.ai/` documentation integrity. Never delete architectural intent, invariants, or failure modes.
 - Keep codebase modifications aligned with the **BBC Model** hybrid OTT & News platform requirements in `docs/`.
+
+---
+
+## 4. End-of-Session RepoBrain Handoff & Refresh Workflow
+At the end of every task or session prior to handing off to the user, AI agents **MUST** execute the following RepoBrain refresh sequence:
+1. **Update Transient Sprint State**: Document completed tasks and next-session objectives in [.ai/transient/sprint/00-current-state.md](file:///d:/MyApps/alamia-ott-rk/.ai/transient/sprint/00-current-state.md).
+2. **Record Architecture Decisions**: Log major ADRs in [.repobrain/decisions/log.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/decisions/log.md).
+3. **Execute RepoBrain Memory Capture**: Run `npx --yes repobrain@latest extract-commit` to extract durable lessons from git history into `.brain/`.
+4. **Push Knowledge Base**: Commit and push `.ai/`, `.repobrain/`, and `.brain/` to GitHub `main` branch.

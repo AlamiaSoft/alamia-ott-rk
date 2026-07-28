@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "generated_at": "2026-07-28T15:52:00.518Z",
+  "entry_count": 1,
+  "entries": [
+    {
+      "id": "2026-07-28-docs-update-ai-knowledge-base-and-repobrain-deci-155200478",
+      "relativePath": "decisions/2026-07-28-docs-update-ai-knowledge-base-and-repobrain-deci-155200478.md",
+      "title": "docs: update AI knowledge base and RepoBrain decision log for session handoff",
+      "summary": "docs: update AI knowledge base and RepoBrain decision log for session handoff",
+      "tags": [
+        "auth",
+        "decision",
+        "decisions",
+        "repobrain",
+        "sprint",
+        "transient"
+      ],
+      "risk_level": "low",
+      "path_scope": [
+        ".ai/transient/sprint/**",
+        ".repobrain/**",
+        ".repobrain/decisions/**"
+      ],
+      "files": [
+        ".ai/transient/sprint/00-current-state.md",
+        ".repobrain/decisions/log.md",
+        ".repobrain/status.json"
+      ],
+      "token_size": 67,
+      "updated_at": "2026-07-28",
+      "date": "2026-07-28T15:52:00.478Z",
+      "type": "decision",
+      "status": "active",
+      "stale": false,
+      "review_state": "unset",
+      "superseded_by": null,
+      "valid_from": "2026-07-28",
+      "valid_until": null,
+      "expires": null,
+      "source_mtime_ms": 1785253920504.114
+    }
+  ]
+}
