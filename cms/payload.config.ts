@@ -16,9 +16,9 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_CMS_URL || 'https://cmmadmin.alamiaai.com',
   admin: {
     user: Users.slug,
-  },
-  routes: {
-    admin: '/admin',
+    importMap: {
+      baseDir: path.resolve(dirname),
+    },
   },
   collections: [Users, Articles, Videos, Categories],
   editor: lexicalEditor({}),
