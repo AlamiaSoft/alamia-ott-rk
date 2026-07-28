@@ -1,34 +1,29 @@
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
+# AI Workspace Instructions (AGENTS.md)
 
-## RepoBrain Knowledge Hub (Standalone / Static Mode)
+This file contains foundational workspace rules and knowledge routing for AI agents working in this repository.
 
-This repository uses **RepoBrain** in **Standalone Static Mode** (no external API keys required).
+## 1. The AI Bootstrap Sequence
+If you are entering a fresh conversation and do not have full context of this project, follow this read order:
+1. Read [.ai/README.md](file:///d:/MyApps/alamia-ott-rk/.ai/README.md) (Master Index)
+2. Read [.ai/transient/sprint/00-current-state.md](file:///d:/MyApps/alamia-ott-rk/.ai/transient/sprint/00-current-state.md) (Current Sprint Focus)
+3. Read [.ai/permanent/architecture/01-system-architecture.md](file:///d:/MyApps/alamia-ott-rk/.ai/permanent/architecture/01-system-architecture.md) (System Architecture)
+4. Read [.ai/indexes/repository.md](file:///d:/MyApps/alamia-ott-rk/.ai/indexes/repository.md) (Concept & Code Map)
 
-AI agents (Antigravity, Cursor, Windsurf, Claude Code, Copilot) read grounded repository context directly from the `.repobrain/` static knowledge layer:
+---
 
-- [.repobrain/conventions.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/conventions.md) — Tech stack, frameworks, coding conventions, and architectural standards.
-- [.repobrain/structure.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/structure.md) — Language-agnostic file tree, module layouts, and line counts.
-- [.repobrain/module_registry.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/module_registry.md) — Responsibilities and boundaries for each subsystem module.
+## 2. RepoBrain Knowledge Layer (Standalone / Static Mode)
+
+This repository uses **RepoBrain** in **Standalone Static Mode**. AI agents read grounded context directly from the `.repobrain/` directory:
+
+- [.repobrain/conventions.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/conventions.md) — Tech stack, frameworks, coding conventions, and standards.
+- [.repobrain/structure.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/structure.md) — File tree, directory layouts, and module boundaries.
+- [.repobrain/module_registry.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/module_registry.md) — Subsystem module responsibilities.
 - [.repobrain/map.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/map.md) — Module keyword and routing map.
-- [.repobrain/decisions/log.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/decisions/log.md) — Historical architectural decisions (ADRs).
+- [.repobrain/decisions/log.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/decisions/log.md) — Architecture decision records (ADRs).
 - [.repobrain/rules.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/rules.md) — Dynamic context guidelines.
 
-For architecture, module boundaries, or onboarding questions, inspect the `.repobrain/` files directly.
+---
+
+## 3. Documentation Ownership & Rules
+- Maintain `.ai/` documentation integrity. Never delete architectural intent, invariants, or failure modes.
+- Keep codebase modifications aligned with the **BBC Model** hybrid OTT & News platform requirements in `docs/`.
