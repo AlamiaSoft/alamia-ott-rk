@@ -18,28 +18,17 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 
-## RepoBrain Knowledge Hub
+## RepoBrain Knowledge Hub (Standalone / Static Mode)
 
-For broad codebase questions, architecture questions, "where is X implemented",
-"how does X work", dependency or impact analysis, or onboarding questions, prefer:
+This repository uses **RepoBrain** in **Standalone Static Mode** (no external API keys required).
 
-```bash
-rb-ask "<question>" --workspace .
-```
+AI agents (Antigravity, Cursor, Windsurf, Claude Code, Copilot) read grounded repository context directly from the `.repobrain/` static knowledge layer:
 
-Use this before broad grep, rg, or file search when `.repobrain/` exists.
+- [.repobrain/conventions.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/conventions.md) — Tech stack, frameworks, coding conventions, and architectural standards.
+- [.repobrain/structure.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/structure.md) — Language-agnostic file tree, module layouts, and line counts.
+- [.repobrain/module_registry.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/module_registry.md) — Responsibilities and boundaries for each subsystem module.
+- [.repobrain/map.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/map.md) — Module keyword and routing map.
+- [.repobrain/decisions/log.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/decisions/log.md) — Historical architectural decisions (ADRs).
+- [.repobrain/rules.md](file:///d:/MyApps/alamia-ott-rk/.repobrain/rules.md) — Dynamic context guidelines.
 
-Run:
-
-```bash
-rb-refresh --workspace .
-```
-
-when `.repobrain/` is missing, stale, or after significant code changes.
-
-Use direct file reads or rg only for:
-
-- verifying exact lines after `rb-ask` gives candidate files
-- narrow symbol or string searches
-- editing or debugging specific files
-- cases where `rb-ask` is unavailable or fails
+For architecture, module boundaries, or onboarding questions, inspect the `.repobrain/` files directly.
