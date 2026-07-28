@@ -5,6 +5,11 @@ import configPromise from '../payload.config.js';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Redirect root GET requests to /admin interface
+app.get('/', (_req, res) => {
+  res.redirect('/admin');
+});
+
 const start = async () => {
   await payload.init({
     config: configPromise,
