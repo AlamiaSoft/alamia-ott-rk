@@ -1,1 +1,106 @@
-/* Custom Payload Admin Styles */
+/* Alamia OTT / RK Portal Custom Payload Admin Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-family-base: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --theme-bg: #090d16;
+  --theme-input-bg: #131a2a;
+  --theme-elevation-100: #101625;
+  --theme-elevation-150: #151d30;
+  --theme-elevation-200: #1c263e;
+  --theme-elevation-300: #263352;
+  --theme-elevation-400: #33446b;
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+  --theme-accent-500: #e50914;
+  --theme-accent-600: #b80710;
+  --theme-text: #f3f4f6;
+  --theme-text-subtle: #9ca3af;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar Custom Styling */
+.nav {
+  background: linear-gradient(180deg, #0d1322 0%, #080b14 100%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.nav__brand {
+  padding: 1.5rem 1.25rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  background: linear-gradient(135deg, #e50914 0%, #ff4b55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card & Dashboard Styling */
+.card, .collection-list, .dashboard__card {
+  background: var(--theme-elevation-150) !important;
+  border: 1px solid var(--theme-border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.card:hover, .dashboard__card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(229, 9, 20, 0.4) !important;
+  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.15) !important;
+}
+
+/* Buttons Styling */
+.btn--style-primary {
+  background: linear-gradient(135deg, #e50914 0%, #b80710 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn--style-primary:hover {
+  background: linear-gradient(135deg, #ff1e27 0%, #d60812 100%) !important;
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.5) !important;
+}
+
+/* Table Styling */
+.table {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.table th {
+  background: #111726 !important;
+  color: #9ca3af !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #263352;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e50914;
+}

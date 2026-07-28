@@ -5,10 +5,10 @@ import { buildConfig } from 'payload';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { Articles } from './src/collections/Articles';
-import { Categories } from './src/collections/Categories';
-import { Users } from './src/collections/Users';
-import { Videos } from './src/collections/Videos';
+import { Articles } from './collections/Articles';
+import { Categories } from './collections/Categories';
+import { Users } from './collections/Users';
+import { Videos } from './collections/Videos';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -22,12 +22,16 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      titleSuffix: ' — Alamia OTT Admin',
+    },
+    theme: 'dark',
   },
   collections: [Users, Articles, Videos, Categories],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'dev_secret_key_change_in_production',
   typescript: {
-    outputFile: path.resolve(dirname, 'src/payload-types.ts'),
+    outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: usePostgres
     ? postgresAdapter({
