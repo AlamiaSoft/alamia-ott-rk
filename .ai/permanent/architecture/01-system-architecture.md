@@ -5,49 +5,17 @@
 
 ### Production Infrastructure Model
 * **Hosting Platform**: Oracle VPS running Docker + Portainer.
-* **Ingress & Domain Gateway**: Cloudflare Tunnel routing traffic directly to container ports (e.g. `http://rk_web:3000` & `http://rk_cms:4000`). No internal Caddy/Nginx reverse proxy container needed.
-* **Deployment Workflow**: Single-click Portainer Stack deployment directly pulling from GitHub (`docker-compose.yml`).
+* **Ingress & Domain Gateway**: Cloudflare Tunnel routing traffic directly to host ports or container network names (`http://rk_web:3000` / `http://localhost:23000`).
+* **Custom Non-Standard Ports**: Host ports configured in the high `20000+` range to prevent any port collisions with other existing VPS workloads.
 
 ---
 
-## 2. High-Level System Architecture Diagram
+## 2. Container Topology & Port Allocation
 
-```mermaid
-graph TD
-    subgraph Edge["Cloudflare Network & Tunnel"]
-        CF_DNS["Cloudflare DNS"]
-        CF_TUNNEL["Cloudflare Tunnel Agent"]
-    end
-
-    subgraph Portainer_Stack["Oracle VPS (Portainer Stack)"]
-        WEB["Next.js Web Portal (rk_web:3000)"]
-        CMS["Payload CMS (rk_cms:4000)"]
-        PG[("PostgreSQL Database (rk_db:5432)")]
-        MINIO[("MinIO Object Storage (rk_storage:9000)")]
-        WORKER["FFmpeg Transcoder (rk_worker)"]
-    end
-
-    %% Ingress Direct Routing via CF Tunnel
-    CF_DNS --> CF_TUNNEL
-    CF_TUNNEL -->|checkmatemedia.alamiaai.com| WEB
-    CF_TUNNEL -->|admin & api requests| CMS
-    CF_TUNNEL -->|media streams| MINIO
-
-    %% Internal Data & Storage Connections
-    CMS <-->|Read / Write| PG
-    CMS <-->|Upload Storage| MINIO
-    WORKER <-->|Read Raw / Write HLS| MINIO
-    WORKER -->|Status Webhooks| CMS
-```
-
----
-
-## 3. Container Topology
-
-| Service Name | Container Name | Port | Cloudflare Tunnel Rule | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **`rk_web`** | `rk_web` | `3000` | `checkmatemedia.alamiaai.com` $\rightarrow$ `http://rk_web:3000` | Next.js App Router public website & Video.js player. |
-| **`rk_cms`** | `rk_cms` | `4000` | `checkmatemedia.alamiaai.com/admin*` $\rightarrow$ `http://rk_cms:4000` | Payload CMS administrative backend & GraphQL/REST APIs. |
-| **`rk_storage`** | `rk_storage` | `9000` | `checkmatemedia.alamiaai.com/media*` $\rightarrow$ `http://rk_storage:9000` | MinIO S3 object storage for raw uploads and HLS streams. |
-| **`rk_db`** | `rk_db` | `5432` | Internal | PostgreSQL 16 database. |
-| **`rk_worker`** | `rk_worker` | Internal | Internal | Background FFmpeg HLS transcoding worker. |
+| Service Name | Container Name | Internal Port | Host Port | Cloudflare Tunnel Target | Purpose |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`rk_web`** | `rk_web` | `3000` | **`23000`** | `checkmatemedia.alamiaai.com` $\rightarrow$ `http://rk_web:3000` (or `http://localhost:23000`) | Next.js App Router public website & Video.js player. |
+| **`rk_cms`** | `rk_cms` | `4000` | **`24000`** | `checkmatemedia.alamiaai.com/admin*` $\rightarrow$ `http://rk_cms:4000` (or `http://localhost:24000`) | Payload CMS administrative backend & APIs. |
+| **`rk_storage`** | `rk_storage` | `9000`/`9001` | **`29000`** / **`29001`** | `checkmatemedia.alamiaai.com/media*` $\rightarrow$ `http://rk_storage:9000` (or `http://localhost:29000`) | MinIO S3 object storage for raw uploads & HLS streams. |
+| **`rk_db`** | `rk_db` | `5432` | Internal | Internal | PostgreSQL 16 database. |
+| **`rk_worker`** | `rk_worker` | Internal | Internal | Internal | Background FFmpeg HLS transcoding worker. |
