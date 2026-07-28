@@ -4,7 +4,7 @@
   "description": "Payload CMS for Alamia OTT / RK Portal",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node src/server.ts",
+    "dev": "cross-env NODE_ENV=development ts-node --transpile-only src/server.ts",
     "build:payload": "payload build",
     "build:server": "tsc",
     "build": "cross-env NODE_ENV=production npm run build:payload && npm run build:server",
