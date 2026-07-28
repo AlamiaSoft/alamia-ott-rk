@@ -10,6 +10,6 @@ COPY . .
 EXPOSE 4000
 
 ENV PORT=4000
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 CMD ["npm", "run", "dev"]

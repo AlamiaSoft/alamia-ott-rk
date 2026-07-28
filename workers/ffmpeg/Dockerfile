@@ -10,6 +10,6 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 CMD ["npm", "run", "dev"]
