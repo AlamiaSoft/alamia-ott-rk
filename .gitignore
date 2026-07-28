@@ -1,0 +1,17 @@
+# Environment Variables
+.env
+.env.local
+*.env
+
+# Dependencies & Build Outputs
+node_modules/
+.next/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# Local Data & Logs
+.repobrain/cache/
+artifacts/logs/
+*.log
