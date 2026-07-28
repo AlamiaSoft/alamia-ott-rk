@@ -4,10 +4,10 @@ import { buildConfig } from 'payload';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { Articles } from './src/collections/Articles.js';
-import { Categories } from './src/collections/Categories.js';
-import { Users } from './src/collections/Users.js';
-import { Videos } from './src/collections/Videos.js';
+import { Articles } from './src/collections/Articles';
+import { Categories } from './src/collections/Categories';
+import { Users } from './src/collections/Users';
+import { Videos } from './src/collections/Videos';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
