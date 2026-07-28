@@ -2,9 +2,10 @@
   "name": "alamia-ott-cms",
   "version": "1.0.0",
   "description": "Payload CMS for Alamia OTT / RK Portal",
+  "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node --transpile-only src/server.ts",
+    "dev": "cross-env NODE_ENV=development tsx src/server.ts",
     "build:payload": "payload build",
     "build:server": "tsc",
     "build": "cross-env NODE_ENV=production npm run build:payload && npm run build:server",
@@ -25,7 +26,7 @@
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.11.0",
     "typescript": "^5.4.5"
   }
 }

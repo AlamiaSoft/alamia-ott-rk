@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "Node16",
-    "moduleResolution": "Node16",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "lib": ["es2022"],
     "outDir": "./dist",
     "rootDir": ".",
@@ -10,9 +10,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  },
-  "ts-node": {
-    "transpileOnly": true
   },
   "include": ["src/**/*", "payload.config.ts"]
 }
