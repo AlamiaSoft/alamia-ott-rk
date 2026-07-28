@@ -1,9 +1,9 @@
-import '@payloadcms/ui/styles.css';
-import React from 'react';
-import { RootLayout } from '@payloadcms/next/layouts';
-import { handleServerFunctions } from '@payloadcms/next/utilities';
 import config from '../../../payload.config';
-import { importMap } from './importMap';
+import '@payloadcms/ui/styles.css';
+import { RootLayout } from '@payloadcms/next/layouts';
+import React from 'react';
+
+import { importMap } from './admin/importMap.js';
 import './custom.css';
 
 type Args = {
@@ -12,6 +12,7 @@ type Args = {
 
 const serverFunction = async (args: any) => {
   'use server';
+  const { handleServerFunctions } = await import('@payloadcms/next/layouts');
   return handleServerFunctions({
     ...args,
     config,
