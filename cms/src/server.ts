@@ -1,11 +1,13 @@
 import express from 'express';
 import payload from 'payload';
+import configPromise from '../payload.config';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 const start = async () => {
   await payload.init({
+    config: configPromise,
     express: app,
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
