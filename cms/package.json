@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.85.2",
+    "@payloadcms/db-sqlite": "^3.85.2",
     "@payloadcms/next": "^3.85.2",
     "@payloadcms/richtext-lexical": "^3.85.2",
     "@payloadcms/ui": "^3.85.2",
-    "next": "^15.0.0 || ^14.2.3",
+    "graphql": "^16.8.1",
+    "next": "^15.1.0",
     "payload": "^3.85.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

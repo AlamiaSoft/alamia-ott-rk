@@ -1,4 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres';
+import { sqliteAdapter } from '@payloadcms/db-sqlite';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import path from 'path';
@@ -12,8 +13,10 @@ import { Videos } from './src/collections/Videos';
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+const usePostgres = Boolean(process.env.DATABASE_URI);
+
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_CMS_URL || 'https://cmmadmin.alamiaai.com',
+  serverURL: process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:4000',
   admin: {
     user: Users.slug,
     importMap: {
@@ -26,9 +29,15 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'src/payload-types.ts'),
   },
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URI || 'postgres://postgres:postgres_dev_password@localhost:5432/alamia_ott',
-    },
-  }),
+  db: usePostgres
+    ? postgresAdapter({
+        pool: {
+          connectionString: process.env.DATABASE_URI || '',
+        },
+      })
+    : sqliteAdapter({
+        client: {
+          url: `file:${path.resolve(dirname, 'payload.db')}`,
+        },
+      }),
 });
