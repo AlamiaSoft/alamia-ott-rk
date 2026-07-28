@@ -1,6 +1,6 @@
 import express from 'express';
 import payload from 'payload';
-import configPromise from '../payload.config';
+import configPromise from '../payload.config.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
