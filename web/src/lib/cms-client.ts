@@ -5,7 +5,8 @@ const CMS_BASE_URL =
 
 export interface CmsCategory {
   id: string;
-  name: string;
+  name?: string;
+  title?: string;
   slug: string;
   description?: string;
 }
@@ -24,7 +25,9 @@ export interface CmsArticle {
   excerpt?: string;
   content: any;
   featuredImage?: string | CmsMedia;
+  heroImage?: string | CmsMedia;
   category?: string | CmsCategory;
+  categories?: (string | CmsCategory)[];
   status: 'draft' | 'published';
   isPremium: boolean;
   publishedAt?: string;
@@ -79,7 +82,10 @@ export async function getCmsCategories(): Promise<CmsCategory[]> {
     const res = await fetch(`${CMS_BASE_URL}/api/categories?limit=100`, { cache: 'no-store' });
     if (!res.ok) return [];
     const data = await res.json();
-    return data.docs || [];
+    return (data.docs || []).map((cat: any) => ({
+      ...cat,
+      name: cat.name || cat.title,
+    }));
   } catch (error) {
     console.error('[CMS Client] Error fetching categories:', error);
     return [];
@@ -88,24 +94,30 @@ export async function getCmsCategories(): Promise<CmsCategory[]> {
 
 export async function createCmsCategory(data: { name: string; slug: string; description?: string }): Promise<{ success: boolean; data?: CmsCategory; error?: string }> {
   try {
+    const payload = {
+      title: data.name,
+      slug: data.slug,
+      description: data.description || undefined,
+    };
     const res = await fetch(`${CMS_BASE_URL}/api/categories`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
     });
     const json = await res.json();
     if (!res.ok) {
       const msg = json.errors?.[0]?.message || 'Failed to create category in Payload CMS';
       return { success: false, error: msg };
     }
-    return { success: true, data: json.doc || json };
+    const doc = json.doc || json;
+    return { success: true, data: { ...doc, name: doc.title || doc.name } };
   } catch (error: any) {
     console.error('[CMS Client] Error creating category:', error);
     return { success: false, error: error?.message || 'Connection to Payload CMS failed' };
   }
 }
 
-// Articles API
+// Articles / Posts API
 export async function getCmsArticles(options?: { publishedOnly?: boolean; categoryId?: string }): Promise<CmsArticle[]> {
   try {
     const queryParams = new URLSearchParams();
@@ -113,16 +125,25 @@ export async function getCmsArticles(options?: { publishedOnly?: boolean; catego
     queryParams.set('sort', '-createdAt');
 
     if (options?.publishedOnly) {
-      queryParams.set('where[status][equals]', 'published');
+      queryParams.set('where[_status][equals]', 'published');
     }
     if (options?.categoryId) {
-      queryParams.set('where[category][equals]', options.categoryId);
+      queryParams.set('where[categories][equals]', options.categoryId);
     }
 
-    const res = await fetch(`${CMS_BASE_URL}/api/articles?${queryParams.toString()}`, { cache: 'no-store' });
+    // Try /api/posts first (official template endpoint), fallback to /api/articles
+    let res = await fetch(`${CMS_BASE_URL}/api/posts?${queryParams.toString()}`, { cache: 'no-store' });
+    if (!res.ok) {
+      res = await fetch(`${CMS_BASE_URL}/api/articles?${queryParams.toString()}`, { cache: 'no-store' });
+    }
     if (!res.ok) return [];
     const data = await res.json();
-    return data.docs || [];
+    return (data.docs || []).map((doc: any) => ({
+      ...doc,
+      featuredImage: doc.heroImage || doc.featuredImage,
+      category: doc.categories?.[0] || doc.category,
+      status: doc._status || doc.status || 'published',
+    }));
   } catch (error) {
     console.error('[CMS Client] Error fetching articles:', error);
     return [];
@@ -173,32 +194,51 @@ export async function createCmsArticle(data: {
         },
       },
       excerpt: data.excerpt || undefined,
-      status: data.status || 'published',
+      _status: 'published',
       isPremium: Boolean(data.isPremium),
     };
 
     if (data.featuredImageId && data.featuredImageId.trim() !== '') {
+      payload.heroImage = data.featuredImageId;
       payload.featuredImage = data.featuredImageId;
     }
     if (data.categoryId && data.categoryId.trim() !== '') {
+      payload.categories = [data.categoryId];
       payload.category = data.categoryId;
     }
 
-    const res = await fetch(`${CMS_BASE_URL}/api/articles`, {
+    // Try /api/posts first, fallback to /api/articles
+    let res = await fetch(`${CMS_BASE_URL}/api/posts`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
+    if (res.status === 404) {
+      res = await fetch(`${CMS_BASE_URL}/api/articles`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    }
+
     const json = await res.json();
 
     if (!res.ok) {
-      const msg = json.errors?.[0]?.message || 'Failed to create article in Payload CMS';
+      const msg = json.errors?.[0]?.message || 'Failed to create post in Payload CMS';
       console.error('[CMS Client] Create article failed:', json);
       return { success: false, error: msg };
     }
 
-    return { success: true, data: json.doc || json };
+    const doc = json.doc || json;
+    return {
+      success: true,
+      data: {
+        ...doc,
+        featuredImage: doc.heroImage || doc.featuredImage,
+        category: doc.categories?.[0] || doc.category,
+      },
+    };
   } catch (error: any) {
     console.error('[CMS Client] Error creating article:', error);
     return { success: false, error: error?.message || 'Connection to Payload CMS failed' };
@@ -207,7 +247,10 @@ export async function createCmsArticle(data: {
 
 export async function deleteCmsArticle(id: string): Promise<boolean> {
   try {
-    const res = await fetch(`${CMS_BASE_URL}/api/articles/${id}`, { method: 'DELETE' });
+    let res = await fetch(`${CMS_BASE_URL}/api/posts/${id}`, { method: 'DELETE' });
+    if (!res.ok) {
+      res = await fetch(`${CMS_BASE_URL}/api/articles/${id}`, { method: 'DELETE' });
+    }
     return res.ok;
   } catch (error) {
     console.error('[CMS Client] Error deleting article:', error);

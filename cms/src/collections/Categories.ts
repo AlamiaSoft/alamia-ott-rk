@@ -1,32 +1,30 @@
-import type { CollectionConfig } from 'payload';
+import type { CollectionConfig } from 'payload'
+import { anyone } from '../access/anyone'
+import { slugField } from 'payload'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
-  admin: {
-    useAsTitle: 'name',
-  },
   access: {
-    read: () => true,
-    create: () => true,
-    update: () => true,
-    delete: () => true,
+    create: anyone,
+    delete: anyone,
+    read: anyone,
+    update: anyone,
+  },
+  admin: {
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: 'name',
+      name: 'title',
       type: 'text',
       required: true,
-      unique: true,
-    },
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
     },
     {
       name: 'description',
       type: 'textarea',
     },
+    slugField({
+      position: undefined,
+    }),
   ],
-};
+}

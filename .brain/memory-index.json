@@ -1,8 +1,44 @@
 {
   "version": 1,
-  "generated_at": "2026-07-29T01:26:15.193Z",
-  "entry_count": 3,
+  "generated_at": "2026-07-29T11:22:32.733Z",
+  "entry_count": 4,
   "entries": [
+    {
+      "id": "2026-07-29-docs-complete-sprint-1-handoff-and-set-sprint-2--112232575",
+      "relativePath": "patterns/2026-07-29-docs-complete-sprint-1-handoff-and-set-sprint-2--112232575.md",
+      "title": "docs: complete Sprint 1 handoff and set Sprint 2 video pipeline objectives",
+      "summary": "docs: complete Sprint 1 handoff and set Sprint 2 video pipeline objectives",
+      "tags": [
+        "brain",
+        "general",
+        "memory",
+        "pattern",
+        "sprint",
+        "transient"
+      ],
+      "risk_level": "low",
+      "path_scope": [
+        ".ai/transient/sprint/**",
+        ".brain/**"
+      ],
+      "files": [
+        ".ai/transient/sprint/00-current-state.md",
+        ".brain/index.md",
+        ".brain/memory-index.json"
+      ],
+      "token_size": 58,
+      "updated_at": "2026-07-29",
+      "date": "2026-07-29T11:22:32.575Z",
+      "type": "pattern",
+      "status": "active",
+      "stale": false,
+      "review_state": "unset",
+      "superseded_by": null,
+      "valid_from": "2026-07-29",
+      "valid_until": null,
+      "expires": null,
+      "source_mtime_ms": 1785324152684.7104
+    },
     {
       "id": "2026-07-29-docs-add-end-of-session-repobrain-handoff-refres-010029171",
       "relativePath": "patterns/2026-07-29-docs-add-end-of-session-repobrain-handoff-refres-010029171.md",

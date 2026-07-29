@@ -1,28 +1,25 @@
-import type { CollectionConfig } from 'payload';
+import type { CollectionConfig } from 'payload'
+import { anyone } from '../access/anyone'
+import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { slugField } from 'payload'
 
-export const Videos: CollectionConfig = {
+export const Videos: CollectionConfig<'videos'> = {
   slug: 'videos',
-  admin: {
-    useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'status', 'isPremium', 'publishedAt'],
-  },
   access: {
-    read: () => true,
-    create: () => true,
-    update: () => true,
-    delete: () => true,
+    create: anyone,
+    delete: anyone,
+    read: authenticatedOrPublished,
+    update: anyone,
+  },
+  admin: {
+    defaultColumns: ['title', 'status', 'isPremium', 'publishedAt', 'updatedAt'],
+    useAsTitle: 'title',
   },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
-    },
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
     },
     {
       name: 'description',
@@ -41,9 +38,6 @@ export const Videos: CollectionConfig = {
     {
       name: 'durationSeconds',
       type: 'number',
-      admin: {
-        description: 'Duration in seconds',
-      },
     },
     {
       name: 'category',
@@ -55,18 +49,18 @@ export const Videos: CollectionConfig = {
       type: 'select',
       options: [
         { label: 'Pending Transcode', value: 'pending' },
-        { label: 'Processing HLS', value: 'processing' },
-        { label: 'Ready', value: 'ready' },
+        { label: 'Processing', value: 'processing' },
+        { label: 'Ready / Published', value: 'ready' },
         { label: 'Failed', value: 'failed' },
       ],
-      defaultValue: 'pending',
+      defaultValue: 'ready',
       required: true,
     },
     {
       name: 'isPremium',
       type: 'checkbox',
       defaultValue: false,
-      label: 'Premium / Subscriber Only',
+      label: 'Premium / Member Only Video',
     },
     {
       name: 'hlsPlaylistUrl',
@@ -79,7 +73,9 @@ export const Videos: CollectionConfig = {
         date: {
           pickerAppearance: 'dayAndTime',
         },
+        position: 'sidebar',
       },
     },
+    slugField(),
   ],
-};
+}
