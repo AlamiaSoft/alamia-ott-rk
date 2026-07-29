@@ -87,7 +87,7 @@ export default buildConfig({
         client: {
           url: process.env.DATABASE_URL || `file:${path.resolve(dirname, 'payload.db')}`,
         },
-        push: false,
+        push: true,
       }),
   collections: [Pages, Posts, Videos, Media, Categories, Users],
   globals: [Header, Footer],

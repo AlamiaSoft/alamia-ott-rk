@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
     'localhost:3000',
   ],
   sassOptions: {
-    loadPaths: ['./node_modules/@payloadcms/ui/dist/scss/'],
+    loadPaths: [path.resolve(dirname, 'node_modules/@payloadcms/ui/dist/scss')],
   },
   images: {
     localPatterns: [

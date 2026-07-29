@@ -1,6 +1,5 @@
 import type { CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
-import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
 import { slugField } from 'payload'
 
 export const Videos: CollectionConfig<'videos'> = {
@@ -8,7 +7,7 @@ export const Videos: CollectionConfig<'videos'> = {
   access: {
     create: anyone,
     delete: anyone,
-    read: authenticatedOrPublished,
+    read: anyone,
     update: anyone,
   },
   admin: {
