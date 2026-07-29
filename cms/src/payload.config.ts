@@ -16,8 +16,27 @@ const dirname = path.dirname(filename);
 
 const usePostgres = Boolean(process.env.DATABASE_URI);
 
+const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL || 'https://cmmadmin.alamiaai.com';
+const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL || 'https://cmm.alamiaai.com';
+
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:4000',
+  serverURL: cmsUrl,
+  cors: [
+    cmsUrl,
+    portalUrl,
+    'http://localhost:3000',
+    'http://localhost:4000',
+    'http://rk_web:3000',
+    'http://rk_cms:4000',
+  ],
+  csrf: [
+    cmsUrl,
+    portalUrl,
+    'http://localhost:3000',
+    'http://localhost:4000',
+    'http://rk_web:3000',
+    'http://rk_cms:4000',
+  ],
   admin: {
     user: Users.slug,
     importMap: {
