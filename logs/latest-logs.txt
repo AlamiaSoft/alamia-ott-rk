@@ -1,116 +1,80 @@
-forward-logs-shared.ts:95 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
-web-socket.ts:50 WebSocket connection to 'wss://cmmadmin.alamiaai.com/_next/webpack-hmr?id=O7_tR3VdWmupDRpF0KPi4' failed: 
-init @ web-socket.ts:50
-web-socket.ts:50 WebSocket connection to 'wss://cmmadmin.alamiaai.com/_next/webpack-hmr?id=O7_tR3VdWmupDRpF0KPi4' failed: 
-init @ web-socket.ts:50
-web-socket.ts:50 WebSocket connection to 'wss://cmmadmin.alamiaai.com/_next/webpack-hmr?id=O7_tR3VdWmupDRpF0KPi4' failed: 
-init @ web-socket.ts:50
-web-socket.ts:50 WebSocket connection to 'wss://cmmadmin.alamiaai.com/_next/webpack-hmr?id=O7_tR3VdWmupDRpF0KPi4' failed: 
-init @ web-socket.ts:50
-web-socket.ts:50 WebSocket connection to 'wss://cmmadmin.alamiaai.com/_next/webpack-hmr?id=O7_tR3VdWmupDRpF0KPi4' failed: 
-init @ web-socket.ts:50
-admin:1 The resource https://cmmadmin.alamiaai.com/_next/static/chunks/_0buo1wk._.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
-web-socket.ts:50 WebSocket connection to 'wss://cmmadmin.alamiaai.com/_next/webpack-hmr?id=O7_tR3VdWmupDRpF0KPi4' failed: 
-init @ web-socket.ts:50
-
-
-              at async responseGenerator (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20051:38)
-              at async AppRouteRouteModule.handleResponse (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:1:228552)
-              at async handleResponse (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20114:32)
-              at async Module.handler (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20168:13)
-              at async DevServer.renderToResponseWithComponentsImpl (/app/node_modules/next/dist/server/base-server.js:1462:9)
-              at async DevServer.renderPageComponent (/app/node_modules/next/dist/server/base-server.js:1514:24)
-              at async DevServer.renderToResponseImpl (/app/node_modules/next/dist/server/base-server.js:1564:32)
-              at async DevServer.pipeImpl (/app/node_modules/next/dist/server/base-server.js:1044:25)
-              at async NextNodeServer.handleCatchallRenderRequest (/app/node_modules/next/dist/server/next-server.js:338:17)
-              at async DevServer.handleRequestImpl (/app/node_modules/next/dist/server/base-server.js:935:17)
-              at async /app/node_modules/next/dist/server/dev/next-dev-server.js:394:20
-              at async Span.traceAsyncFn (/app/node_modules/next/dist/trace/trace.js:164:20)
-              at async DevServer.handleRequest (/app/node_modules/next/dist/server/dev/next-dev-server.js:390:24)
-              at async invokeRender (/app/node_modules/next/dist/server/lib/router-server.js:266:21)
-              at async handleRequest (/app/node_modules/next/dist/server/lib/router-server.js:465:24)
-              at async requestHandlerImpl (/app/node_modules/next/dist/server/lib/router-server.js:514:13)
-              at async Server.requestListener (/app/node_modules/next/dist/server/lib/start-server.js:225:13)
-      "query": "select count(*) from \"posts\" where \"posts\".\"_status\" = $1",
-      "params": [
-        "published"
-      ]
-    }
- GET /api/posts?limit=100&sort=-createdAt&where%5B_status%5D%5Bequals%5D=published 500 in 4.8s (next.js: 4.7s, application-code: 76ms)
- GET /api/articles?limit=100&sort=-createdAt&where%5B_status%5D%5Bequals%5D=published 404 in 111ms (next.js: 100ms, application-code: 11ms)
-[12:40:55] ERROR: Failed query: select count(*) from "posts" where "posts"."_status" = $1
-params: published
-    err: {
-      "type": "DrizzleQueryError",
-      "message": "Failed query: select count(*) from \"posts\" where \"posts\".\"_status\" = $1\nparams: published: relation \"posts\" does not exist",
-      "stack":
-          Error: Failed query: select count(*) from "posts" where "posts"."_status" = $1
-          params: published
-              at NodePgPreparedQuery.queryWithCache (file:///app/node_modules/drizzle-orm/pg-core/session.js:41:15)
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:117:22
-              at async Object.countDistinct (file:///app/node_modules/@payloadcms/drizzle/dist/postgres/countDistinct.js:5:29)
-              at async find (file:///app/node_modules/@payloadcms/drizzle/dist/find/findMany.js:126:21)
-              at async findOperation (file:///app/node_modules/payload/dist/collections/operations/find.js:129:22)
-              at async findHandler (file:///app/node_modules/payload/dist/collections/endpoints/find.js:9:20)
-              at async handleEndpoints (file:///app/node_modules/payload/dist/utilities/handleEndpoints.js:198:26)
-              at async /app/.next/dev/server/chunks/[root-of-the-server]__00mhfb_._.js:16209:26
-              at async AppRouteRouteModule.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:5:40115)
-              at async AppRouteRouteModule.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:5:47395)
-              at async responseGenerator (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20051:38)
-              at async AppRouteRouteModule.handleResponse (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:1:228552)
-              at async handleResponse (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20114:32)
-              at async Module.handler (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20168:13)
-              at async DevServer.renderToResponseWithComponentsImpl (/app/node_modules/next/dist/server/base-server.js:1462:9)
-              at async DevServer.renderPageComponent (/app/node_modules/next/dist/server/base-server.js:1514:24)
-              at async DevServer.renderToResponseImpl (/app/node_modules/next/dist/server/base-server.js:1564:32)
-              at async DevServer.pipeImpl (/app/node_modules/next/dist/server/base-server.js:1044:25)
-              at async NextNodeServer.handleCatchallRenderRequest (/app/node_modules/next/dist/server/next-server.js:338:17)
-              at async DevServer.handleRequestImpl (/app/node_modules/next/dist/server/base-server.js:935:17)
-              at async /app/node_modules/next/dist/server/dev/next-dev-server.js:394:20
-              at async Span.traceAsyncFn (/app/node_modules/next/dist/trace/trace.js:164:20)
-              at async DevServer.handleRequest (/app/node_modules/next/dist/server/dev/next-dev-server.js:390:24)
-              at async invokeRender (/app/node_modules/next/dist/server/lib/router-server.js:266:21)
-              at async handleRequest (/app/node_modules/next/dist/server/lib/router-server.js:465:24)
-              at async requestHandlerImpl (/app/node_modules/next/dist/server/lib/router-server.js:514:13)
-              at async Server.requestListener (/app/node_modules/next/dist/server/lib/start-server.js:225:13)
-          caused by: error: relation "posts" does not exist
-              at /app/node_modules/pg-pool/index.js:45:11
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:124:18
-              at async NodePgPreparedQuery.queryWithCache (file:///app/node_modules/drizzle-orm/pg-core/session.js:39:16)
-              at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:117:22
-              at async Object.countDistinct (file:///app/node_modules/@payloadcms/drizzle/dist/postgres/countDistinct.js:5:29)
-              at async find (file:///app/node_modules/@payloadcms/drizzle/dist/find/findMany.js:126:21)
-              at async findOperation (file:///app/node_modules/payload/dist/collections/operations/find.js:129:22)
-              at async findHandler (file:///app/node_modules/payload/dist/collections/endpoints/find.js:9:20)
-              at async handleEndpoints (file:///app/node_modules/payload/dist/utilities/handleEndpoints.js:198:26)
-              at async /app/.next/dev/server/chunks/[root-of-the-server]__00mhfb_._.js:16209:26
-              at async AppRouteRouteModule.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:5:40115)
-              at async AppRouteRouteModule.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:5:47395)
-              at async responseGenerator (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20051:38)
-              at async AppRouteRouteModule.handleResponse (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js:1:228552)
-              at async handleResponse (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20114:32)
-              at async Module.handler (/app/.next/dev/server/chunks/node_modules_next_0g11z4q._.js:20168:13)
-              at async DevServer.renderToResponseWithComponentsImpl (/app/node_modules/next/dist/server/base-server.js:1462:9)
-              at async DevServer.renderPageComponent (/app/node_modules/next/dist/server/base-server.js:1514:24)
-              at async DevServer.renderToResponseImpl (/app/node_modules/next/dist/server/base-server.js:1564:32)
-              at async DevServer.pipeImpl (/app/node_modules/next/dist/server/base-server.js:1044:25)
-              at async NextNodeServer.handleCatchallRenderRequest (/app/node_modules/next/dist/server/next-server.js:338:17)
-              at async DevServer.handleRequestImpl (/app/node_modules/next/dist/server/base-server.js:935:17)
-              at async /app/node_modules/next/dist/server/dev/next-dev-server.js:394:20
-              at async Span.traceAsyncFn (/app/node_modules/next/dist/trace/trace.js:164:20)
-              at async DevServer.handleRequest (/app/node_modules/next/dist/server/dev/next-dev-server.js:390:24)
-              at async invokeRender (/app/node_modules/next/dist/server/lib/router-server.js:266:21)
-              at async handleRequest (/app/node_modules/next/dist/server/lib/router-server.js:465:24)
-              at async requestHandlerImpl (/app/node_modules/next/dist/server/lib/router-server.js:514:13)
-              at async Server.requestListener (/app/node_modules/next/dist/server/lib/start-server.js:225:13)
-      "query": "select count(*) from \"posts\" where \"posts\".\"_status\" = $1",
-      "params": [
-        "published"
-      ]
-    }
- GET /api/posts?limit=100&sort=-createdAt&where%5B_status%5D%5Bequals%5D=published 500 in 114ms (next.js: 90ms, application-code: 23ms)
- GET /api/articles?limit=100&sort=-createdAt&where%5B_status%5D%5Bequals%5D=published 404 in 10ms (next.js: 4ms, application-code: 7ms)
- GET /admin 200 in 318ms (next.js: 91ms, application-code: 227ms)
- GET /admin/login 200 in 401ms (next.js: 98ms, application-code: 302ms)
+✓ Compiled successfully in 27.2s
+  Running TypeScript ...
+Failed to type check.
+./src/Header/Component.client.tsx:36:17
+Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'loading' does not exist on type 'IntrinsicAttributes'.
+  34 |       <div className="py-8 flex justify-between">
+  35 |         <Link href="/">
+> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+     |                 ^
+  37 |         </Link>
+  38 |         <HeaderNav data={data} />
+  39 |       </div>
+Next.js build worker exited with code: 1 and signal: null
+> website@1.0.0 build:start
+> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
+▲ Next.js 16.2.6 (Turbopack)
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+  Creating an optimized production build ...
+✓ Compiled successfully in 25.2s
+  Running TypeScript ...
+Failed to type check.
+./src/Header/Component.client.tsx:36:17
+Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'loading' does not exist on type 'IntrinsicAttributes'.
+  34 |       <div className="py-8 flex justify-between">
+  35 |         <Link href="/">
+> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+     |                 ^
+  37 |         </Link>
+  38 |         <HeaderNav data={data} />
+  39 |       </div>
+Next.js build worker exited with code: 1 and signal: null
+> website@1.0.0 build:start
+> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
+▲ Next.js 16.2.6 (Turbopack)
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+  Creating an optimized production build ...
+✓ Compiled successfully in 26.3s
+  Running TypeScript ...
+Failed to type check.
+./src/Header/Component.client.tsx:36:17
+Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'loading' does not exist on type 'IntrinsicAttributes'.
+  34 |       <div className="py-8 flex justify-between">
+  35 |         <Link href="/">
+> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+     |                 ^
+  37 |         </Link>
+  38 |         <HeaderNav data={data} />
+  39 |       </div>
+Next.js build worker exited with code: 1 and signal: null
+> website@1.0.0 build:start
+> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
+▲ Next.js 16.2.6 (Turbopack)
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+  Creating an optimized production build ...
+✓ Compiled successfully in 26.2s
+  Running TypeScript ...
+Failed to type check.
+./src/Header/Component.client.tsx:36:17
+Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'loading' does not exist on type 'IntrinsicAttributes'.
+  34 |       <div className="py-8 flex justify-between">
+  35 |         <Link href="/">
+> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+     |                 ^
+  37 |         </Link>
+  38 |         <HeaderNav data={data} />
+  39 |       </div>
+Next.js build worker exited with code: 1 and signal: null
+> website@1.0.0 build:start
+> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
+▲ Next.js 16.2.6 (Turbopack)
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+  Creating an optimized production build ...

@@ -1,8 +1,14 @@
 import React from 'react'
 
-export function Logo() {
+interface LogoProps {
+  loading?: string
+  priority?: string
+  className?: string
+}
+
+export function Logo({ loading, priority, className }: LogoProps = {}) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '2px 0' }}>
+    <div className={className} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '2px 0' }}>
       <img
         src="/checkmate-logo.jpg"
         alt="Checkmate Media Logo"
