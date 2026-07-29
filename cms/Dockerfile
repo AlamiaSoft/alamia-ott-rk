@@ -11,9 +11,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_OPTIONS="--max-old-space-size=4096 --no-deprecation"
 RUN npm run build
 
-# Stage 3: Runner (Minimal ~250MB Output)
+# Stage 3: Runner (Minimal Standalone ~250MB Output)
 FROM node:20-alpine AS runner
 WORKDIR /app
 
