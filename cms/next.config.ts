@@ -14,9 +14,18 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 const nextConfig: NextConfig = {
   allowedDevOrigins: [
     'cmmadmin.alamiaai.com',
+    'http://cmmadmin.alamiaai.com',
+    'https://cmmadmin.alamiaai.com',
     'cmm.alamiaai.com',
+    'http://cmm.alamiaai.com',
+    'https://cmm.alamiaai.com',
+    '*.alamiaai.com',
     'localhost:4000',
+    'http://localhost:4000',
     'localhost:3000',
+    'http://localhost:3000',
+    '127.0.0.1:4000',
+    '127.0.0.1:3000',
   ],
   sassOptions: {
     loadPaths: [path.resolve(dirname, 'node_modules/@payloadcms/ui/dist/scss')],

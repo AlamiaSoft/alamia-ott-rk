@@ -1,18 +1,15 @@
 > website@1.0.0 dev
-> cross-env NODE_OPTIONS=--no-deprecation next dev
+> cross-env NODE_OPTIONS=--no-deprecation next dev -p 4000
 ▲ Next.js 16.2.6 (Turbopack)
 - Local:         http://localhost:4000
 - Network:       http://172.20.0.7:4000
-✓ Ready in 620ms
+✓ Ready in 617ms
 Attention: Next.js now collects completely anonymous telemetry regarding usage.
 This information is used to shape Next.js' roadmap and prioritize features.
 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 https://nextjs.org/telemetry
 - Experiments (use with caution):
   ⨯ turbopackServerFastRefresh
-○ Compiling /admin/[[...segments]] ...
-[11:37:57] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
- GET /admin 200 in 21.7s (next.js: 16.9s, application-code: 4.8s)
 ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "cmmadmin.alamiaai.com".
 Cross-origin access to Next.js dev resources is blocked by default for safety.
 To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
