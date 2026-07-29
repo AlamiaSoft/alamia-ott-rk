@@ -4,6 +4,10 @@ import { slugField } from 'payload'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
+  labels: {
+    singular: 'Category',
+    plural: 'Categories & Topics',
+  },
   access: {
     create: anyone,
     delete: anyone,
@@ -11,7 +15,7 @@ export const Categories: CollectionConfig = {
     update: anyone,
   },
   admin: {
-    group: 'Taxonomy & Metadata',
+    group: 'Taxonomy & Governance',
     useAsTitle: 'title',
   },
   fields: [

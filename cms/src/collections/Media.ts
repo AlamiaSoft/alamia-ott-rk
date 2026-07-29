@@ -17,7 +17,7 @@ export const Media: CollectionConfig = {
   slug: 'media',
   labels: {
     singular: 'Media Asset',
-    plural: 'Media & Uploads',
+    plural: 'Media Library',
   },
   folders: true,
   access: {
@@ -27,7 +27,7 @@ export const Media: CollectionConfig = {
     update: anyone,
   },
   admin: {
-    group: '🎬 OTT Streaming & Video',
+    group: 'Content Studio',
   },
   fields: [
     {

@@ -1,56 +1,54 @@
-/* RK Media OTT Creator Studio Admin Theme */
+/* Checkmate Media OTT Platform Theme */
 :root {
-  --theme-accent-500: #e50914;
-  --theme-accent-600: #b80710;
-  --theme-elevation-0: #080b12;
-  --theme-elevation-50: #0d1322;
-  --theme-elevation-100: #101625;
-  --theme-elevation-150: #151d30;
-  --theme-elevation-200: #1a243b;
+  --theme-accent-500: #3b82f6;
+  --theme-accent-600: #2563eb;
+  --theme-elevation-0: #090d16;
+  --theme-elevation-50: #0f172a;
+  --theme-elevation-100: #1e293b;
+  --theme-elevation-150: #334155;
+  --theme-elevation-200: #475569;
 }
 
 [data-theme='dark'] {
-  --theme-accent-500: #e50914;
-  --theme-accent-600: #b80710;
+  --theme-accent-500: #3b82f6;
+  --theme-accent-600: #2563eb;
 }
 
-/* Sidebar Top Logo Banner Header */
+/* Sidebar Top Logo Header Container */
 .nav__header {
-  padding: 16px 20px !important;
-  border-bottom: 1px solid rgba(229, 9, 20, 0.25) !important;
-  margin-bottom: 12px !important;
-  background: rgba(13, 19, 34, 0.6) !important;
+  padding: 14px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  margin-bottom: 8px !important;
+  background: transparent !important;
 }
 
-/* Nav Group Header Styling */
+/* Nav Group Header Styling - Clean, Subtle, Professional */
 .nav-group__toggle {
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  font-size: 0.725rem !important;
-  color: #e2e8f0 !important;
-  padding: 8px 12px !important;
-}
-
-.nav-group__content {
-  padding-left: 4px !important;
+  letter-spacing: 0.06em !important;
+  font-size: 0.7rem !important;
+  color: #64748b !important;
+  padding: 10px 12px 4px 12px !important;
 }
 
 .nav__link {
-  font-weight: 600 !important;
-  font-size: 0.875rem !important;
-  padding: 8px 14px !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  padding: 6px 12px !important;
   border-radius: 6px !important;
+  color: #cbd5e1 !important;
   transition: all 0.15s ease !important;
 }
 
 .nav__link:hover {
   color: #ffffff !important;
-  background-color: rgba(229, 9, 20, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 .nav__link.active {
   color: #ffffff !important;
-  background-color: #e50914 !important;
-  font-weight: 700 !important;
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  border-left: 2px solid #3b82f6 !important;
+  font-weight: 600 !important;
 }

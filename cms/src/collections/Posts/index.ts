@@ -40,7 +40,7 @@ export const Posts: CollectionConfig<'posts'> = {
     plural: 'Articles & Stories',
   },
   admin: {
-    group: '📰 News & Editorial',
+    group: 'Content Studio',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>

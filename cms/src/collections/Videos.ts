@@ -5,8 +5,8 @@ import { slugField } from 'payload'
 export const Videos: CollectionConfig<'videos'> = {
   slug: 'videos',
   labels: {
-    singular: 'OTT Video & Stream',
-    plural: 'OTT Videos & Streams',
+    singular: 'Video',
+    plural: 'Videos & Streams',
   },
   access: {
     create: anyone,
@@ -15,7 +15,7 @@ export const Videos: CollectionConfig<'videos'> = {
     update: anyone,
   },
   admin: {
-    group: '🎬 OTT Streaming & Video',
+    group: 'Content Studio',
     defaultColumns: ['title', 'status', 'isPremium', 'publishedAt', 'updatedAt'],
     useAsTitle: 'title',
   },
