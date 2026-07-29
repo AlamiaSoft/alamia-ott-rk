@@ -86,17 +86,17 @@ export default buildConfig({
   editor: defaultLexical,
   db: usePostgres
     ? postgresAdapter({
-        pool: {
-          connectionString: process.env.DATABASE_URI || '',
-        },
-        push: process.env.PAYLOAD_DB_PUSH !== 'false',
-      })
+      pool: {
+        connectionString: process.env.DATABASE_URI || '',
+      },
+      push: process.env.PAYLOAD_DB_PUSH !== 'false',
+    })
     : sqliteAdapter({
-        client: {
-          url: process.env.DATABASE_URL || `file:${path.resolve(dirname, 'payload.db')}`,
-        },
-        push: true,
-      }),
+      client: {
+        url: process.env.DATABASE_URL || `file:${path.resolve(dirname, 'payload.db')}`,
+      },
+      push: true,
+    }),
   collections: [Pages, Posts, Videos, Media, Categories, Users],
   globals: [Header, Footer],
   plugins: [
