@@ -1,13 +1,21 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { PlaySquare, Newspaper, User, Search } from 'lucide-react';
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-brand-border px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white">
-          <span className="bg-brand-accent px-2 py-0.5 rounded text-white font-black">RK</span>
-          <span>MEDIA</span>
+        <Link href="/" className="flex items-center gap-3 text-xl font-black tracking-tight text-white">
+          <img
+            src="/checkmate-logo.jpg"
+            alt="Checkmate Media Logo"
+            className="w-9 h-9 rounded-md object-cover border border-amber-500/40 shadow-sm"
+          />
+          <div className="flex items-center gap-1.5">
+            <span className="text-white uppercase tracking-wider font-extrabold">CHECKMATE</span>
+            <span className="text-brand-accent uppercase tracking-wider font-extrabold">MEDIA</span>
+          </div>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">

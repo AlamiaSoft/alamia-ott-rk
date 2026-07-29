@@ -52,7 +52,8 @@ export default buildConfig({
       },
     },
     meta: {
-      titleSuffix: ' — RK Media OTT Studio',
+      titleSuffix: ' — Checkmate Media OTT Studio',
+      icons: [{ rel: 'icon', type: 'image/jpeg', url: '/checkmate-logo.jpg' }],
     },
     importMap: {
       baseDir: path.resolve(dirname),

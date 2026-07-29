@@ -4,8 +4,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'RK Media — News & OTT Platform',
-  description: 'Production-grade Hybrid News + Video Platform inspired by BBC and Al Jazeera.',
+  title: 'Checkmate Media — News & OTT Platform',
+  description: 'Production-grade Hybrid News + Video Platform for Checkmate Media.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/checkmate-logo.jpg',
+    apple: '/checkmate-logo.jpg',
+  },
 };
 
 export default function RootLayout({

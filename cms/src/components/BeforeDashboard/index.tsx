@@ -20,7 +20,7 @@ const BeforeDashboard: React.FC = () => {
               ● LIVE STREAMING & BROADCAST STUDIO
             </div>
             <h2 style={{ fontSize: '2rem', fontWeight: 900, margin: '4px 0 0 0', color: '#ffffff', letterSpacing: '-0.02em' }}>
-              RK Media OTT Creator Studio
+              Checkmate Media OTT Creator Studio
             </h2>
             <p style={{ color: '#94a3b8', fontSize: '14px', margin: '6px 0 0 0', maxWidth: '600px' }}>
               Headless Content Management Engine & Adaptive HLS Video Transcoding Control Center
