@@ -1,0 +1,30 @@
+version: '3.8'
+
+# Portainer / VPS Production Overrides
+# Usage in Portainer: Set Compose path to `docker-compose.yml` and add additional path `docker-compose.prod.yml`
+
+services:
+  rk_db:
+    restart: unless-stopped
+  
+  rk_storage:
+    restart: unless-stopped
+    # Expose fallback ports on VPS host
+    ports:
+      - "29000:9000"
+      - "29001:9001"
+
+  rk_cms:
+    restart: unless-stopped
+    # Expose fallback ports on VPS host
+    ports:
+      - "24000:4000"
+
+  rk_web:
+    restart: unless-stopped
+    # Expose fallback ports on VPS host
+    ports:
+      - "23000:3000"
+
+  rk_worker:
+    restart: unless-stopped

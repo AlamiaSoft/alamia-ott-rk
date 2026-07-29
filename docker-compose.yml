@@ -4,7 +4,6 @@ services:
   rk_db:
     image: postgres:16-alpine
     container_name: rk_db
-    restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-alamia_ott}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -17,14 +16,10 @@ services:
   rk_storage:
     image: minio/minio:RELEASE.2024-05-10T01-41-38Z
     container_name: rk_storage
-    restart: unless-stopped
     command: server /data --console-address ":9001"
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadminpassword}
-    ports:
-      - "29000:9000"
-      - "29001:9001"
     volumes:
       - miniodata:/data
     networks:
@@ -35,15 +30,12 @@ services:
       context: ./cms
       dockerfile: Dockerfile
     container_name: rk_cms
-    restart: unless-stopped
     environment:
       DATABASE_URI: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres_dev_password}@rk_db:5432/${POSTGRES_DB:-alamia_ott}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dev_secret_key_change_in_production}
       S3_ENDPOINT: http://rk_storage:9000
       NEXT_PUBLIC_CMS_URL: ${NEXT_PUBLIC_CMS_URL:-https://cmmadmin.alamiaai.com}
       NEXT_PUBLIC_PORTAL_URL: ${NEXT_PUBLIC_PORTAL_URL:-https://cmm.alamiaai.com}
-    ports:
-      - "24000:4000"
     depends_on:
       - rk_db
       - rk_storage
@@ -55,12 +47,9 @@ services:
       context: ./web
       dockerfile: Dockerfile
     container_name: rk_web
-    restart: unless-stopped
     environment:
       NEXT_PUBLIC_CMS_URL: ${NEXT_PUBLIC_CMS_URL:-https://cmmadmin.alamiaai.com}
       CMS_INTERNAL_URL: http://rk_cms:4000
-    ports:
-      - "23000:3000"
     depends_on:
       - rk_cms
     networks:
@@ -71,7 +60,6 @@ services:
       context: ./workers/ffmpeg
       dockerfile: Dockerfile
     container_name: rk_worker
-    restart: unless-stopped
     environment:
       S3_ENDPOINT: http://rk_storage:9000
     depends_on:

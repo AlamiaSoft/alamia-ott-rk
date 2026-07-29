@@ -1,0 +1,33 @@
+version: '3.8'
+
+# Local Development Overrides
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d --build
+
+services:
+  rk_db:
+    ports:
+      - "5432:5432"
+
+  rk_storage:
+    ports:
+      - "29000:9000"
+      - "29001:9001"
+
+  rk_cms:
+    ports:
+      - "24000:4000"
+    environment:
+      DATABASE_URI: "postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres_dev_password}@rk_db:5432/${POSTGRES_DB:-alamia_ott}"
+      PAYLOAD_DB_PUSH: "true"
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - rk_storage
+      - rk_db
+
+  rk_web:
+    ports:
+      - "23000:3000"
+
+  rk_worker:
+    depends_on:
+      - rk_storage
