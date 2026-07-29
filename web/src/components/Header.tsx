@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PlaySquare, Newspaper, User, Search } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Header() {
   return (
@@ -28,10 +29,13 @@ export default function Header() {
           <Link href="/opinion" className="hover:text-brand-goldLight transition-colors">Opinion</Link>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
+
           <button className="p-2 text-brand-muted hover:text-white transition-colors rounded-full hover:bg-brand-card">
             <Search className="w-5 h-5" />
           </button>
+          
           <Link href="/login" className="flex items-center gap-2 text-sm font-semibold gold-gradient-bg text-brand-dark px-4 py-2 rounded-md gold-glow gold-glow-hover transition-all">
             <User className="w-4 h-4" /> Log In
           </Link>
