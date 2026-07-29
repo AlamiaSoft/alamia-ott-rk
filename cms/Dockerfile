@@ -15,5 +15,8 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_OPTIONS="--max-old-space-size=2048 --no-deprecation"
 
-# Build production bundle and start server on container launch
-CMD ["sh", "-c", "npx next build && npx next start -p 4000"]
+# Build during docker image build phase
+RUN npx next build
+
+# Fast container boot on launch
+CMD ["npx", "next", "start", "-p", "4000"]
