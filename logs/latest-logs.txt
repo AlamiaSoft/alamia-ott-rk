@@ -1,56 +1,20 @@
-## Error Type
-Recoverable Error
-
-## Error Message
-Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RenderFromTemplateContext>
-      <ScrollAndFocusHandler segmentPath={[...]}>
-        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-            <LoadingBoundary loading={null}>
-              <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
-                <HTTPAccessFallbackErrorBoundary pathname="/admin" notFound={<SegmentViewNode>} forbidden={undefined} ...>
-                  <RedirectBoundary>
-                    <RedirectErrorBoundary router={{...}}>
-                      <InnerLayoutRouter url="/admin" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
-                        <SegmentViewNode type="layout" pagePath="(payload)/...">
-                          <SegmentTrieNode>
-                          <link>
-                          <Layout>
-                            <RootLayout>
-                              <html data-theme="dark" dir="LTR" lang="en" suppressHydrationWarning={false}>
-                                <head>
-                                  <style>
-+                                   @layer payload-default, payload;
--                                   {"body {transition: opacity ease-in 0.2s; } \nbody[unresolved] {opacity: 0; disp..."}
-                                ...
-                      ...
-          ...
-
-
-
-    at style (<anonymous>:null:null)
-    at Layout (src\app\(payload)\layout.tsx:24:3)
-
-## Code Frame
-  22 |
-  23 | const Layout = ({ children }: Args) => (
-> 24 |   <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
-     |   ^
-  25 |     {children}
-  26 |   </RootLayout>
-  27 | );
-
-Next.js version: 15.5.22 (Webpack)
+> alamia-ott-cms@1.0.0 dev
+> next dev -p 4000
+   ▲ Next.js 15.5.22
+   - Local:        http://localhost:4000
+   - Network:      http://172.20.0.6:4000
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+ ✓ Ready in 2.3s
+ ○ Compiling /admin/[[...segments]] ...
+ ✓ Compiled /admin/[[...segments]] in 21.2s (3658 modules)
+[⣷] Pulling schema from database...
+[⣯] Pulling schema from database...
+[⣟] Pulling schema from database...
+[✓] Pulling schema from database...
+Is video_file_id column in videos table created or renamed from another column?
+❯ + video_file_id                 create column
+  ~ visibility › video_file_id    rename column
