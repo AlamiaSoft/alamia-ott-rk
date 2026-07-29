@@ -10,7 +10,7 @@
 | Sprint | Phase Name | Status | Key Deliverable |
 | :--- | :--- | :---: | :--- |
 | **Sprint 0** | **Project Foundation** | 🟢 **COMPLETED** | Portainer Stack (`docker-compose.yml`), Postgres, MinIO, Payload CMS 3 (Next 15), Next.js Web, FFmpeg worker |
-| **Sprint 1** | **Payload 3 Template & Checkmate Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), Checkmate Media golden king branding, clean typography (no emojis), multi-tenant SaaS metrics panel, Auto/Dark/Light theme switchers, live video stream rendering, and REST APIs. Custom Alamia Dark Theme web portal (`web/`) connected via `/api/posts`, `/api/videos`, `/api/categories`. |
+| **Sprint 1** | **Payload 3 Template & Checkmate Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), Checkmate Media golden king branding, clean typography (no emojis), multi-tenant SaaS metrics panel, Auto/Dark/Light theme switchers, live video stream rendering, multi-stage standalone builds (~220MB-250MB), and REST APIs. Custom Alamia Dark Theme web portal (`web/`) connected via `/api/posts`, `/api/videos`, `/api/categories`. |
 | **Sprint 2** | **Video Pipeline & Storage** | 🟡 **NEXT SESSION FOCUS** | Direct video uploader, MinIO S3 bucket integration, FFmpeg worker queue, HLS transcoding, video player stream page (`/videos/[slug]`). |
 | **Sprint 3** | **Public Website Polish** | ⚪ Pending | Next.js portal pages (News feed, Video player, Article reader, Search) |
 | **Sprint 4** | **Membership & Paywall** | ⚪ Pending | Auth (Login/Register), JWT tokens, subscriber middleware, premium badges |
@@ -29,4 +29,5 @@
 - [x] Added **Auto, Dark, and Light Mode Theme Switch** to top headers of both Admin Panel and Web Portal.
 - [x] Applied **Gold & Onyx Design System** tokens (`docs/design.md`) in `custom.scss` and `tailwind.config.js`.
 - [x] Connected live OTT video stream rendering on [`/videos`](http://localhost:3000/videos) page with media URL normalization (`normalizeCmsUrl`).
+- [x] Converted `web/Dockerfile` and `cms/Dockerfile` into Multi-Stage Standalone Builds (~220MB and ~250MB image sizes).
 - [x] Preserved custom **Alamia Dark Theme Web Portal UI** on [`http://localhost:3000`](http://localhost:3000).
