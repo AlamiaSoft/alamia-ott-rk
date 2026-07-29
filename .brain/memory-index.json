@@ -1,8 +1,86 @@
 {
   "version": 1,
-  "generated_at": "2026-07-28T15:52:00.518Z",
-  "entry_count": 1,
+  "generated_at": "2026-07-29T01:00:29.232Z",
+  "entry_count": 3,
   "entries": [
+    {
+      "id": "2026-07-29-docs-add-end-of-session-repobrain-handoff-refres-010029171",
+      "relativePath": "patterns/2026-07-29-docs-add-end-of-session-repobrain-handoff-refres-010029171.md",
+      "title": "docs: add End-of-Session RepoBrain Handoff & Refresh Workflow to AGENTS.md rules",
+      "summary": "docs: add End-of-Session RepoBrain Handoff & Refresh Workflow to AGENTS.md rules",
+      "tags": [
+        "agents",
+        "auth",
+        "brain",
+        "gitignore",
+        "infra",
+        "pattern"
+      ],
+      "risk_level": "low",
+      "path_scope": [
+        ".agents/**",
+        ".brain/**",
+        ".brain/decisions/**"
+      ],
+      "files": [
+        ".agents/AGENTS.md",
+        ".brain/.gitignore",
+        ".brain/config.yaml",
+        ".brain/decisions/2026-07-28-docs-update-ai-knowledge-base-and-repobrain-deci-155200478.md",
+        ".brain/index.md"
+      ],
+      "token_size": 61,
+      "updated_at": "2026-07-29",
+      "date": "2026-07-29T01:00:29.171Z",
+      "type": "pattern",
+      "status": "candidate",
+      "stale": false,
+      "review_state": "unset",
+      "superseded_by": null,
+      "valid_from": "2026-07-29",
+      "valid_until": null,
+      "expires": null,
+      "source_mtime_ms": 1785286829216.868
+    },
+    {
+      "id": "2026-07-29-docs-add-end-of-session-repobrain-handoff-refres-004647566",
+      "relativePath": "patterns/2026-07-29-docs-add-end-of-session-repobrain-handoff-refres-004647566.md",
+      "title": "docs: add End-of-Session RepoBrain Handoff & Refresh Workflow to AGENTS.md rules",
+      "summary": "docs: add End-of-Session RepoBrain Handoff & Refresh Workflow to AGENTS.md rules",
+      "tags": [
+        "agents",
+        "auth",
+        "brain",
+        "gitignore",
+        "infra",
+        "pattern"
+      ],
+      "risk_level": "low",
+      "path_scope": [
+        ".agents/**",
+        ".brain/**",
+        ".brain/decisions/**"
+      ],
+      "files": [
+        ".agents/AGENTS.md",
+        ".brain/.gitignore",
+        ".brain/config.yaml",
+        ".brain/decisions/2026-07-28-docs-update-ai-knowledge-base-and-repobrain-deci-155200478.md",
+        ".brain/index.md"
+      ],
+      "token_size": 61,
+      "updated_at": "2026-07-29",
+      "date": "2026-07-29T00:46:47.566Z",
+      "type": "pattern",
+      "status": "active",
+      "stale": false,
+      "review_state": "unset",
+      "superseded_by": null,
+      "valid_from": "2026-07-29",
+      "valid_until": null,
+      "expires": null,
+      "source_mtime_ms": 1785286007603.7454
+    },
     {
       "id": "2026-07-28-docs-update-ai-knowledge-base-and-repobrain-deci-155200478",
       "relativePath": "decisions/2026-07-28-docs-update-ai-knowledge-base-and-repobrain-deci-155200478.md",

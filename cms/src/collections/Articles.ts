@@ -1,7 +1,16 @@
-export const Articles = {
+import type { CollectionConfig } from 'payload';
+
+export const Articles: CollectionConfig = {
   slug: 'articles',
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'category', 'status', 'isPremium', 'publishedAt'],
+  },
+  access: {
+    read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     {
@@ -22,6 +31,17 @@ export const Articles = {
     {
       name: 'content',
       type: 'richText',
+      required: false,
+    },
+    {
+      name: 'featuredImage',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
+      name: 'category',
+      type: 'relationship',
+      relationTo: 'categories',
     },
     {
       name: 'status',
@@ -34,24 +54,19 @@ export const Articles = {
       required: true,
     },
     {
-      name: 'visibility',
-      type: 'select',
-      options: [
-        { label: 'Free', value: 'free' },
-        { label: 'Subscriber Only', value: 'member_only' },
-      ],
-      defaultValue: 'free',
-      required: true,
+      name: 'isPremium',
+      type: 'checkbox',
+      defaultValue: false,
+      label: 'Premium / Member Only',
     },
     {
-      name: 'featuredVideo',
-      type: 'relationship',
-      relationTo: 'videos',
-    },
-    {
-      name: 'category',
-      type: 'relationship',
-      relationTo: 'categories',
+      name: 'publishedAt',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
     },
   ],
 };

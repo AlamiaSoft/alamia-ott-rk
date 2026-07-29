@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 import { Articles } from './collections/Articles';
 import { Categories } from './collections/Categories';
+import { Media } from './collections/Media';
 import { Users } from './collections/Users';
 import { Videos } from './collections/Videos';
 
@@ -27,7 +28,7 @@ export default buildConfig({
     },
     theme: 'dark',
   },
-  collections: [Users, Articles, Videos, Categories],
+  collections: [Users, Articles, Videos, Categories, Media],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'dev_secret_key_change_in_production',
   typescript: {
@@ -43,5 +44,6 @@ export default buildConfig({
         client: {
           url: `file:${path.resolve(dirname, 'payload.db')}`,
         },
+        push: true,
       }),
 });

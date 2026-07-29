@@ -10,4 +10,4 @@ This log records major design decisions and changes in the project timeline.
 | **2026-07-28** | Eliminated Caddy reverse proxy container in favor of direct Cloudflare Tunnel container routing. | Simplified stack footprint for Oracle VPS deployment (`cmm.alamiaai.com` & `cmmadmin.alamiaai.com`). |
 | **2026-07-28** | Completed Sprint 0 Project Foundation scaffolding. | Portainer stack (`docker-compose.yml`), `cms/`, `web/`, and `workers/ffmpeg/` pushed to `main`. |
 | **2026-07-28** | Adopted Payload 3.0 Next.js 15 App Router Architecture with Dual-Database (SQLite Dev / Postgres Prod). | Resolves ESM & React 19 compiler errors. Allows local dev with zero Postgres overhead and seamless VPS production. |
-| **2026-07-28** | Queued `v0-app` Evaluation for Next Session. | User created frontend application in `v0-app` directory to evaluate for integration with Payload 3 CMS. |
+| **2026-07-29** | Adopted Headless Payload CMS 3 + `shadcn/ui` Editor Studio Architecture. | Decoupled Payload CMS 3 to act as pure headless REST API microservice; ported `shadcn/ui` Editor Studio into `web/` (`/dashboard`) for clean content management. |

@@ -71,6 +71,7 @@ export interface Config {
     articles: Article;
     videos: Video;
     categories: Category;
+    media: Media;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
     videos: VideosSelect<false> | VideosSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -172,10 +174,42 @@ export interface Article {
     };
     [k: string]: unknown;
   } | null;
-  status: 'draft' | 'published';
-  visibility: 'free' | 'member_only';
-  featuredVideo?: (number | null) | Video;
+  featuredImage?: (number | null) | Media;
   category?: (number | null) | Category;
+  status: 'draft' | 'published';
+  isPremium?: boolean | null;
+  publishedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -188,24 +222,17 @@ export interface Video {
   title: string;
   slug: string;
   description?: string | null;
-  status: 'pending' | 'processing' | 'ready' | 'failed';
-  visibility: 'free' | 'member_only';
-  hlsPlaylistUrl?: string | null;
-  thumbnailUrl?: string | null;
+  videoFile?: (number | null) | Media;
+  thumbnail?: (number | null) | Media;
+  /**
+   * Duration in seconds
+   */
   durationSeconds?: number | null;
   category?: (number | null) | Category;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  name: string;
-  slug: string;
-  description?: string | null;
+  status: 'pending' | 'processing' | 'ready' | 'failed';
+  isPremium?: boolean | null;
+  hlsPlaylistUrl?: string | null;
+  publishedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -248,6 +275,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'categories';
         value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -324,10 +355,11 @@ export interface ArticlesSelect<T extends boolean = true> {
   slug?: T;
   excerpt?: T;
   content?: T;
-  status?: T;
-  visibility?: T;
-  featuredVideo?: T;
+  featuredImage?: T;
   category?: T;
+  status?: T;
+  isPremium?: T;
+  publishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -339,12 +371,14 @@ export interface VideosSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   description?: T;
-  status?: T;
-  visibility?: T;
-  hlsPlaylistUrl?: T;
-  thumbnailUrl?: T;
+  videoFile?: T;
+  thumbnail?: T;
   durationSeconds?: T;
   category?: T;
+  status?: T;
+  isPremium?: T;
+  hlsPlaylistUrl?: T;
+  publishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -358,6 +392,24 @@ export interface CategoriesSelect<T extends boolean = true> {
   description?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
