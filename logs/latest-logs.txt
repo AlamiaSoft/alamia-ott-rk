@@ -1,16 +1,16 @@
-✓ Compiled successfully in 27.2s
+✓ Compiled successfully in 26.5s
   Running TypeScript ...
 Failed to type check.
-./src/Header/Component.client.tsx:36:17
-Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
-  Property 'loading' does not exist on type 'IntrinsicAttributes'.
-  34 |       <div className="py-8 flex justify-between">
-  35 |         <Link href="/">
-> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-     |                 ^
-  37 |         </Link>
-  38 |         <HeaderNav data={data} />
-  39 |       </div>
+./src/endpoints/seed/index.ts:152:64
+Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
+  Type 'Page' is missing the following properties from type 'User': role, email, collection
+  150 |       disableRevalidate: true,
+  151 |     },
+> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+      |                                                                ^
+  153 |   })
+  154 |
+  155 |   const post2Doc = await payload.create({
 Next.js build worker exited with code: 1 and signal: null
 > website@1.0.0 build:start
 > cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
@@ -18,19 +18,19 @@ Next.js build worker exited with code: 1 and signal: null
 - Experiments (use with caution):
   ⨯ turbopackServerFastRefresh
   Creating an optimized production build ...
-✓ Compiled successfully in 25.2s
+✓ Compiled successfully in 25.9s
   Running TypeScript ...
 Failed to type check.
-./src/Header/Component.client.tsx:36:17
-Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
-  Property 'loading' does not exist on type 'IntrinsicAttributes'.
-  34 |       <div className="py-8 flex justify-between">
-  35 |         <Link href="/">
-> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-     |                 ^
-  37 |         </Link>
-  38 |         <HeaderNav data={data} />
-  39 |       </div>
+./src/endpoints/seed/index.ts:152:64
+Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
+  Type 'Page' is missing the following properties from type 'User': role, email, collection
+  150 |       disableRevalidate: true,
+  151 |     },
+> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+      |                                                                ^
+  153 |   })
+  154 |
+  155 |   const post2Doc = await payload.create({
 Next.js build worker exited with code: 1 and signal: null
 > website@1.0.0 build:start
 > cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
@@ -38,19 +38,19 @@ Next.js build worker exited with code: 1 and signal: null
 - Experiments (use with caution):
   ⨯ turbopackServerFastRefresh
   Creating an optimized production build ...
-✓ Compiled successfully in 26.3s
+✓ Compiled successfully in 25.8s
   Running TypeScript ...
 Failed to type check.
-./src/Header/Component.client.tsx:36:17
-Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
-  Property 'loading' does not exist on type 'IntrinsicAttributes'.
-  34 |       <div className="py-8 flex justify-between">
-  35 |         <Link href="/">
-> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-     |                 ^
-  37 |         </Link>
-  38 |         <HeaderNav data={data} />
-  39 |       </div>
+./src/endpoints/seed/index.ts:152:64
+Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
+  Type 'Page' is missing the following properties from type 'User': role, email, collection
+  150 |       disableRevalidate: true,
+  151 |     },
+> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+      |                                                                ^
+  153 |   })
+  154 |
+  155 |   const post2Doc = await payload.create({
 Next.js build worker exited with code: 1 and signal: null
 > website@1.0.0 build:start
 > cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
@@ -58,19 +58,19 @@ Next.js build worker exited with code: 1 and signal: null
 - Experiments (use with caution):
   ⨯ turbopackServerFastRefresh
   Creating an optimized production build ...
-✓ Compiled successfully in 26.2s
+✓ Compiled successfully in 27.3s
   Running TypeScript ...
 Failed to type check.
-./src/Header/Component.client.tsx:36:17
-Type error: Type '{ loading: string; priority: string; className: string; }' is not assignable to type 'IntrinsicAttributes'.
-  Property 'loading' does not exist on type 'IntrinsicAttributes'.
-  34 |       <div className="py-8 flex justify-between">
-  35 |         <Link href="/">
-> 36 |           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-     |                 ^
-  37 |         </Link>
-  38 |         <HeaderNav data={data} />
-  39 |       </div>
+./src/endpoints/seed/index.ts:152:64
+Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
+  Type 'Page' is missing the following properties from type 'User': role, email, collection
+  150 |       disableRevalidate: true,
+  151 |     },
+> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+      |                                                                ^
+  153 |   })
+  154 |
+  155 |   const post2Doc = await payload.create({
 Next.js build worker exited with code: 1 and signal: null
 > website@1.0.0 build:start
 > cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
