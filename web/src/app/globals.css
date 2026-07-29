@@ -1,14 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0b0f19;
-  --foreground: #f9fafb;
+  --background: #0A0A0C;
+  --foreground: #FFFFFF;
+  --color-gold: #E5A823;
+  --color-gold-light: #FFD768;
+  --color-gold-dark: #9E7010;
+  --color-surface-card: #141311;
+  --color-surface-overlay: #1E1D19;
+  --color-border-subtle: #2E2A22;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #FFD768 0%, #E5A823 100%);
+}
+
+.gold-glow {
+  box-shadow: 0px 4px 20px rgba(229, 168, 35, 0.35);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0px 6px 24px rgba(229, 168, 35, 0.45);
 }

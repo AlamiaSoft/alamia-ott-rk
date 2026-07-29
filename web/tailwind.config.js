@@ -9,13 +9,21 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          dark: '#0B0F19',
-          card: '#111827',
-          border: '#1F2937',
-          accent: '#E11D48',
-          text: '#F9FAFB',
-          muted: '#9CA3AF',
+          dark: '#0A0A0C',
+          card: '#141311',
+          surface: '#1E1D19',
+          border: '#2E2A22',
+          accent: '#E5A823',
+          goldLight: '#FFD768',
+          goldDark: '#9E7010',
+          text: '#FFFFFF',
+          goldText: '#F0C050',
+          muted: '#A19E95',
         },
+      },
+      fontFamily: {
+        serif: ['Cinzel', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       },
     },
   },
