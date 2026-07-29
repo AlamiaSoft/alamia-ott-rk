@@ -86,19 +86,22 @@ export async function getCmsCategories(): Promise<CmsCategory[]> {
   }
 }
 
-export async function createCmsCategory(data: { name: string; slug: string; description?: string }): Promise<CmsCategory | null> {
+export async function createCmsCategory(data: { name: string; slug: string; description?: string }): Promise<{ success: boolean; data?: CmsCategory; error?: string }> {
   try {
     const res = await fetch(`${CMS_BASE_URL}/api/categories`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
-    if (!res.ok) return null;
     const json = await res.json();
-    return json.doc || json;
-  } catch (error) {
+    if (!res.ok) {
+      const msg = json.errors?.[0]?.message || 'Failed to create category in Payload CMS';
+      return { success: false, error: msg };
+    }
+    return { success: true, data: json.doc || json };
+  } catch (error: any) {
     console.error('[CMS Client] Error creating category:', error);
-    return null;
+    return { success: false, error: error?.message || 'Connection to Payload CMS failed' };
   }
 }
 
@@ -135,7 +138,7 @@ export async function createCmsArticle(data: {
   categoryId?: string;
   status?: 'draft' | 'published';
   isPremium?: boolean;
-}): Promise<CmsArticle | null> {
+}): Promise<{ success: boolean; data?: CmsArticle; error?: string }> {
   try {
     const payload: any = {
       title: data.title,
@@ -169,13 +172,17 @@ export async function createCmsArticle(data: {
           direction: 'ltr',
         },
       },
-      excerpt: data.excerpt,
-      status: data.status || 'draft',
+      excerpt: data.excerpt || undefined,
+      status: data.status || 'published',
       isPremium: Boolean(data.isPremium),
     };
 
-    if (data.featuredImageId) payload.featuredImage = data.featuredImageId;
-    if (data.categoryId) payload.category = data.categoryId;
+    if (data.featuredImageId && data.featuredImageId.trim() !== '') {
+      payload.featuredImage = data.featuredImageId;
+    }
+    if (data.categoryId && data.categoryId.trim() !== '') {
+      payload.category = data.categoryId;
+    }
 
     const res = await fetch(`${CMS_BASE_URL}/api/articles`, {
       method: 'POST',
@@ -183,16 +190,18 @@ export async function createCmsArticle(data: {
       body: JSON.stringify(payload),
     });
 
+    const json = await res.json();
+
     if (!res.ok) {
-      console.error('[CMS Client] Create article failed:', await res.text());
-      return null;
+      const msg = json.errors?.[0]?.message || 'Failed to create article in Payload CMS';
+      console.error('[CMS Client] Create article failed:', json);
+      return { success: false, error: msg };
     }
 
-    const json = await res.json();
-    return json.doc || json;
-  } catch (error) {
+    return { success: true, data: json.doc || json };
+  } catch (error: any) {
     console.error('[CMS Client] Error creating article:', error);
-    return null;
+    return { success: false, error: error?.message || 'Connection to Payload CMS failed' };
   }
 }
 
@@ -240,21 +249,21 @@ export async function createCmsVideo(data: {
   categoryId?: string;
   isPremium?: boolean;
   hlsPlaylistUrl?: string;
-}): Promise<CmsVideo | null> {
+}): Promise<{ success: boolean; data?: CmsVideo; error?: string }> {
   try {
     const payload: any = {
       title: data.title,
       slug: data.slug,
-      description: data.description,
-      durationSeconds: data.durationSeconds,
+      description: data.description || undefined,
+      durationSeconds: data.durationSeconds || undefined,
       status: data.hlsPlaylistUrl ? 'ready' : 'pending',
       isPremium: Boolean(data.isPremium),
-      hlsPlaylistUrl: data.hlsPlaylistUrl,
+      hlsPlaylistUrl: data.hlsPlaylistUrl || undefined,
     };
 
-    if (data.videoFileId) payload.videoFile = data.videoFileId;
-    if (data.thumbnailId) payload.thumbnail = data.thumbnailId;
-    if (data.categoryId) payload.category = data.categoryId;
+    if (data.videoFileId && data.videoFileId.trim() !== '') payload.videoFile = data.videoFileId;
+    if (data.thumbnailId && data.thumbnailId.trim() !== '') payload.thumbnail = data.thumbnailId;
+    if (data.categoryId && data.categoryId.trim() !== '') payload.category = data.categoryId;
 
     const res = await fetch(`${CMS_BASE_URL}/api/videos`, {
       method: 'POST',
@@ -262,12 +271,17 @@ export async function createCmsVideo(data: {
       body: JSON.stringify(payload),
     });
 
-    if (!res.ok) return null;
     const json = await res.json();
-    return json.doc || json;
-  } catch (error) {
+
+    if (!res.ok) {
+      const msg = json.errors?.[0]?.message || 'Failed to create video in Payload CMS';
+      return { success: false, error: msg };
+    }
+
+    return { success: true, data: json.doc || json };
+  } catch (error: any) {
     console.error('[CMS Client] Error creating video:', error);
-    return null;
+    return { success: false, error: error?.message || 'Connection to Payload CMS failed' };
   }
 }
 

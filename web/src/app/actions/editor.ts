@@ -23,22 +23,23 @@ export async function createArticle(data: {
   isPremium: boolean
 }) {
   try {
-    const newArticle = await createCmsArticle({
+    const res = await createCmsArticle({
       ...data,
       status: 'published',
     })
 
-    if (!newArticle) {
-      return { success: false, error: 'Failed to create article in Payload CMS' }
+    if (!res.success) {
+      return { success: false, error: res.error || 'Failed to create article in Payload CMS' }
     }
 
     revalidatePath('/dashboard/articles')
     revalidatePath('/news')
+    revalidatePath('/articles')
     revalidatePath('/')
-    return { success: true, data: newArticle }
-  } catch (error) {
+    return { success: true, data: res.data }
+  } catch (error: any) {
     console.error('[web] Error creating article:', error)
-    return { success: false, error: 'Failed to create article' }
+    return { success: false, error: error?.message || 'Failed to create article' }
   }
 }
 
@@ -48,6 +49,7 @@ export async function deleteArticle(id: string) {
     if (success) {
       revalidatePath('/dashboard/articles')
       revalidatePath('/news')
+      revalidatePath('/articles')
       revalidatePath('/')
       return { success: true }
     }
@@ -93,18 +95,18 @@ export async function createVideo(data: {
   hlsPlaylistUrl?: string
 }) {
   try {
-    const newVideo = await createCmsVideo(data)
-    if (!newVideo) {
-      return { success: false, error: 'Failed to create video in Payload CMS' }
+    const res = await createCmsVideo(data)
+    if (!res.success) {
+      return { success: false, error: res.error || 'Failed to create video in Payload CMS' }
     }
 
     revalidatePath('/dashboard/videos')
     revalidatePath('/videos')
     revalidatePath('/')
-    return { success: true, data: newVideo }
-  } catch (error) {
+    return { success: true, data: res.data }
+  } catch (error: any) {
     console.error('[web] Error creating video:', error)
-    return { success: false, error: 'Failed to create video' }
+    return { success: false, error: error?.message || 'Failed to create video' }
   }
 }
 
@@ -154,16 +156,16 @@ export async function createCategory(data: {
   description?: string
 }) {
   try {
-    const newCategory = await createCmsCategory(data)
-    if (!newCategory) {
-      return { success: false, error: 'Failed to create category in Payload CMS' }
+    const res = await createCmsCategory(data)
+    if (!res.success) {
+      return { success: false, error: res.error || 'Failed to create category in Payload CMS' }
     }
 
     revalidatePath('/dashboard/categories')
-    return { success: true, data: newCategory }
-  } catch (error) {
+    return { success: true, data: res.data }
+  } catch (error: any) {
     console.error('[web] Error creating category:', error)
-    return { success: false, error: 'Failed to create category' }
+    return { success: false, error: error?.message || 'Failed to create category' }
   }
 }
 
