@@ -55,48 +55,48 @@ export function ThemeToggle() {
   };
 
   if (!mounted) {
-    return <div className="w-24 h-8 bg-brand-surface rounded-full border border-brand-border animate-pulse" />;
+    return <div className="w-16 h-7 bg-brand-surface rounded-full border border-brand-border animate-pulse" />;
   }
 
   return (
-    <div className="flex items-center bg-brand-surface/80 p-1 rounded-full border border-brand-border text-brand-muted text-xs">
+    <div className="flex items-center bg-brand-surface p-0.5 rounded-full border border-brand-border text-brand-muted text-xs shadow-inner">
       <button
         onClick={() => handleModeChange('auto')}
         title="Auto System Mode"
-        className={`flex items-center gap-1 px-2.5 py-1 rounded-full transition-all ${
+        aria-label="Auto System Mode"
+        className={`p-1.5 rounded-full transition-all ${
           mode === 'auto'
-            ? 'bg-brand-accent text-brand-dark font-bold shadow-sm'
-            : 'hover:text-white'
+            ? 'bg-brand-accent text-brand-dark shadow'
+            : 'hover:text-white hover:bg-brand-card/50'
         }`}
       >
         <Monitor className="w-3.5 h-3.5" />
-        <span className="hidden sm:inline">Auto</span>
       </button>
 
       <button
         onClick={() => handleModeChange('dark')}
         title="Dark Mode"
-        className={`flex items-center gap-1 px-2.5 py-1 rounded-full transition-all ${
+        aria-label="Dark Mode"
+        className={`p-1.5 rounded-full transition-all ${
           mode === 'dark'
-            ? 'bg-brand-accent text-brand-dark font-bold shadow-sm'
-            : 'hover:text-white'
+            ? 'bg-brand-accent text-brand-dark shadow'
+            : 'hover:text-white hover:bg-brand-card/50'
         }`}
       >
         <Moon className="w-3.5 h-3.5" />
-        <span className="hidden sm:inline">Dark</span>
       </button>
 
       <button
         onClick={() => handleModeChange('light')}
         title="Light Mode"
-        className={`flex items-center gap-1 px-2.5 py-1 rounded-full transition-all ${
+        aria-label="Light Mode"
+        className={`p-1.5 rounded-full transition-all ${
           mode === 'light'
-            ? 'bg-brand-accent text-brand-dark font-bold shadow-sm'
-            : 'hover:text-white'
+            ? 'bg-brand-accent text-brand-dark shadow'
+            : 'hover:text-white hover:bg-brand-card/50'
         }`}
       >
         <Sun className="w-3.5 h-3.5" />
-        <span className="hidden sm:inline">Light</span>
       </button>
     </div>
   );

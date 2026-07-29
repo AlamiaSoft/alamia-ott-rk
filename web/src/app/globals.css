@@ -37,7 +37,7 @@ body {
   box-shadow: 0px 6px 24px rgba(229, 168, 35, 0.45);
 }
 
-/* Light Theme Overrides */
+/* High Contrast Light Theme System */
 html.light {
   --background: #F8FAFC;
   --foreground: #0F172A;
@@ -48,19 +48,46 @@ html.light body {
   background-color: #F8FAFC;
 }
 
+html.light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light footer {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
 html.light .bg-brand-dark {
   background-color: #F8FAFC !important;
+  color: #0F172A !important;
 }
 
 html.light .bg-brand-card {
   background-color: #FFFFFF !important;
-  border-color: #E2E8F0 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  color: #0F172A !important;
 }
 
 html.light .bg-brand-surface {
   background-color: #F1F5F9 !important;
   border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+/* High Contrast Headings & Paragraphs in Light Mode */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0F172A !important;
+}
+
+html.light p {
+  color: #334155;
 }
 
 html.light .text-white {
@@ -68,9 +95,34 @@ html.light .text-white {
 }
 
 html.light .text-brand-muted {
-  color: #64748B !important;
+  color: #475569 !important;
 }
 
 html.light .border-brand-border {
   border-color: #E2E8F0 !important;
+}
+
+/* Preserve High Contrast for Dark Hero Cards & Gold Buttons */
+html.light .gold-gradient-bg {
+  color: #0A0A0C !important;
+}
+
+html.light .bg-black,
+html.light .bg-slate-900,
+html.light [class*="bg-black"],
+html.light [class*="bg-slate-900"] {
+  color: #FFFFFF !important;
+}
+
+html.light .bg-black h1,
+html.light .bg-black h2,
+html.light .bg-black h3,
+html.light .bg-black p,
+html.light .bg-black span,
+html.light .bg-slate-900 h1,
+html.light .bg-slate-900 h2,
+html.light .bg-slate-900 h3,
+html.light .bg-slate-900 p,
+html.light .bg-slate-900 span {
+  color: #FFFFFF !important;
 }
