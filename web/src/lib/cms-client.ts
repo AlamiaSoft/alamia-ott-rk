@@ -3,6 +3,17 @@ const CMS_BASE_URL =
     ? process.env.CMS_INTERNAL_URL || process.env.NEXT_PUBLIC_CMS_URL || 'http://localhost:4000'
     : process.env.NEXT_PUBLIC_CMS_URL) || 'http://localhost:4000';
 
+export function normalizeCmsUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  if (url.startsWith('/')) {
+    return `${CMS_BASE_URL}${url}`;
+  }
+  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    return url.replace(/https?:\/\/[^\/]+/, CMS_BASE_URL);
+  }
+  return url;
+}
+
 export interface CmsCategory {
   id: string;
   name?: string;

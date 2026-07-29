@@ -21,8 +21,8 @@ const dirname = path.dirname(filename)
 
 const usePostgres = Boolean(process.env.DATABASE_URI)
 
-const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL || 'https://cmmadmin.alamiaai.com'
-const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL || 'https://cmm.alamiaai.com'
+const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL || (process.env.NODE_ENV === 'production' ? 'https://cmmadmin.alamiaai.com' : 'http://localhost:4000')
+const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL || (process.env.NODE_ENV === 'production' ? 'https://cmm.alamiaai.com' : 'http://localhost:3000')
 
 export default buildConfig({
   serverURL: cmsUrl,
