@@ -1,20 +1,43 @@
-> alamia-ott-cms@1.0.0 dev
-> next dev -p 4000
-   ▲ Next.js 15.5.22
-   - Local:        http://localhost:4000
-   - Network:      http://172.20.0.6:4000
- ✓ Starting...
+> website@1.0.0 dev
+> cross-env NODE_OPTIONS=--no-deprecation next dev
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:4000
+- Network:       http://172.20.0.7:4000
+✓ Ready in 625ms
 Attention: Next.js now collects completely anonymous telemetry regarding usage.
 This information is used to shape Next.js' roadmap and prioritize features.
 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 https://nextjs.org/telemetry
- ✓ Ready in 2.3s
- ○ Compiling /admin/[[...segments]] ...
- ✓ Compiled /admin/[[...segments]] in 21.2s (3658 modules)
-[⣷] Pulling schema from database...
-[⣯] Pulling schema from database...
-[⣟] Pulling schema from database...
-[✓] Pulling schema from database...
-Is video_file_id column in videos table created or renamed from another column?
-❯ + video_file_id                 create column
-  ~ visibility › video_file_id    rename column
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+ GET / 307 in 2.3s (next.js: 1981ms, application-code: 278ms)
+○ Compiling /admin/[[...segments]] ...
+⨯ ReferenceError: anyone is not defined
+    at <unknown> (src/collections/Posts/index.ts:33:13)
+  31 |   slug: 'posts',
+  32 |   access: {
+> 33 |     create: anyone,
+     |             ^
+  34 |     delete: anyone,
+  35 |     read: anyone,
+  36 |     update: anyone, {
+  type: 'ReferenceError',
+  page: '/admin'
+}
+ GET /admin 500 in 19.8s (next.js: 19.6s, application-code: 161ms)
+⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "cmmadmin.alamiaai.com".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['cmmadmin.alamiaai.com'],
+}
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+⚠ Blocked cross-origin request to Next.js dev resource /__nextjs_original-stack-frames from "cmmadmin.alamiaai.com".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['cmmadmin.alamiaai.com'],
+}
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
