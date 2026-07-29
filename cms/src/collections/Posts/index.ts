@@ -49,6 +49,7 @@ export const Posts: CollectionConfig<'posts'> = {
     },
   },
   admin: {
+    group: 'Content Studio',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>

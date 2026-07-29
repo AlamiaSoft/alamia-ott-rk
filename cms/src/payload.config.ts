@@ -47,6 +47,12 @@ export default buildConfig({
     components: {
       beforeLogin: ['@/components/BeforeLogin'],
       beforeDashboard: ['@/components/BeforeDashboard'],
+      graphics: {
+        logo: '@/components/Logo/Logo#Logo',
+      },
+    },
+    meta: {
+      titleSuffix: ' — RK Media OTT Studio',
     },
     importMap: {
       baseDir: path.resolve(dirname),

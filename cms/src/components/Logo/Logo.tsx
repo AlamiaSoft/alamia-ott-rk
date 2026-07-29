@@ -1,29 +1,17 @@
-import clsx from 'clsx'
 import React from 'react'
 
-interface Props {
-  className?: string
-  loading?: 'lazy' | 'eager'
-  priority?: 'auto' | 'high' | 'low'
-}
-
-export const Logo = (props: Props) => {
-  const { loading: loadingFromProps, priority: priorityFromProps, className } = props
-
-  const loading = loadingFromProps || 'lazy'
-  const priority = priorityFromProps || 'low'
-
+export function Logo() {
   return (
-    /* eslint-disable @next/next/no-img-element */
-    <img
-      alt="Payload Logo"
-      width={193}
-      height={34}
-      loading={loading}
-      fetchPriority={priority}
-      decoding="async"
-      className={clsx('max-w-[9.375rem] w-full h-[34px]', className)}
-      src="https://raw.githubusercontent.com/payloadcms/payload/3.x/packages/ui/src/assets/payload-logo-light.svg"
-    />
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.025em' }}>
+      <span style={{ backgroundColor: '#e50914', color: '#ffffff', padding: '2px 8px', borderRadius: '4px', fontWeight: 900 }}>
+        RK
+      </span>
+      <span style={{ color: '#ffffff' }}>MEDIA</span>
+      <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.7, marginLeft: '4px', fontWeight: 600 }}>
+        OTT Studio
+      </span>
+    </div>
   )
 }
+
+export default Logo

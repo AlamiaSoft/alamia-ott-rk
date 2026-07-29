@@ -11,6 +11,7 @@ export const Categories: CollectionConfig = {
     update: anyone,
   },
   admin: {
+    group: 'Taxonomy & Metadata',
     useAsTitle: 'title',
   },
   fields: [

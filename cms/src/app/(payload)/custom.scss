@@ -1,1 +1,28 @@
-/* Custom admin styles */
+/* RK Media OTT Creator Studio Admin Theme */
+:root {
+  --theme-accent-500: #e50914;
+  --theme-accent-600: #b80710;
+  --theme-elevation-0: #080b12;
+  --theme-elevation-50: #0d1322;
+  --theme-elevation-100: #101625;
+  --theme-elevation-150: #151d30;
+  --theme-elevation-200: #1a243b;
+}
+
+[data-theme='dark'] {
+  --theme-accent-500: #e50914;
+  --theme-accent-600: #b80710;
+}
+
+/* Sidebar & Nav Group Header Polish */
+.nav-group__toggle {
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-size: 0.75rem !important;
+  color: #94a3b8 !important;
+}
+
+.nav__link:hover {
+  color: #e50914 !important;
+}
