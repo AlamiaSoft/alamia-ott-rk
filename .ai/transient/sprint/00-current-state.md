@@ -10,7 +10,7 @@
 | Sprint | Phase Name | Status | Key Deliverable |
 | :--- | :--- | :---: | :--- |
 | **Sprint 0** | **Project Foundation** | 🟢 **COMPLETED** | Portainer Stack (`docker-compose.yml`), Postgres, MinIO, Payload CMS 3 (Next 15), Next.js Web, FFmpeg worker |
-| **Sprint 1** | **Payload 3 Template & RK Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), RK Media OTT Studio branding, custom dashboard background cards, OTT/News sidebar grouping, and REST APIs. Custom Alamia Dark Theme web portal (`web/`) connected via `/api/posts`, `/api/videos`, `/api/categories`. |
+| **Sprint 1** | **Payload 3 Template & Checkmate Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), Checkmate Media golden king branding, clean typography (no emojis), multi-tenant SaaS metrics panel, and REST APIs. Custom Alamia Dark Theme web portal (`web/`) connected via `/api/posts`, `/api/videos`, `/api/categories`. |
 | **Sprint 2** | **Video Pipeline & Storage** | 🟡 **NEXT SESSION FOCUS** | Direct video uploader, MinIO S3 bucket integration, FFmpeg worker queue, HLS transcoding, video player stream page (`/videos/[slug]`). |
 | **Sprint 3** | **Public Website Polish** | ⚪ Pending | Next.js portal pages (News feed, Video player, Article reader, Search) |
 | **Sprint 4** | **Membership & Paywall** | ⚪ Pending | Auth (Login/Register), JWT tokens, subscriber middleware, premium badges |
@@ -22,9 +22,9 @@
 
 - [x] Cloned and analyzed official template repo `alirazasilverantmarketing/payload-cms`.
 - [x] Replaced `cms/` with official Payload 3 website template scaffold.
-- [x] Configured `Posts`, `Videos`, `Categories`, `Media`, and `Users` collections with public REST API permissions enabled.
-- [x] Customized Admin Sidebar with OTT/News groupings (`🎬 OTT Streaming & Video`, `📰 News & Editorial`, `🏷️ Taxonomy & Governance`, `👥 Platform Access`).
-- [x] Upgraded Payload Admin Landing Dashboard (`BeforeDashboard`) with live OTT stream status cards and custom generated background images (`ott_streaming_bg.jpg`, `news_editorial_bg.jpg`, `media_storage_bg.jpg`).
-- [x] Registered custom **RK MEDIA — OTT Studio** logo and title suffix in `payload.config.ts`.
-- [x] Fixed Sass `@import` loadPaths for cross-platform Windows & Docker compatibility.
+- [x] Integrated custom **Checkmate Media** golden king logo across Admin top header, sidebar, web portal, and favicons.
+- [x] Configured `Posts`, `Videos`, `Categories`, `Media`, `Pages`, and `Users` collections with public REST API permissions enabled.
+- [x] Cleaned up sidebar hierarchy without emojis (`Content Studio`, `Taxonomy & Governance`, `Settings & Navigation`).
+- [x] Added **Multi-Tenant Creator SaaS & Operations Dashboard** with tenant channels, active stream counts, storage quotas, and subscription tier metrics.
+- [x] Cleaned up admin typography with subtle slate highlights (`custom.scss`).
 - [x] Preserved custom **Alamia Dark Theme Web Portal UI** on [`http://localhost:3000`](http://localhost:3000).
