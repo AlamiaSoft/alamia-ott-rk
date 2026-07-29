@@ -15,6 +15,10 @@ const dirname = path.dirname(filename)
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  labels: {
+    singular: 'Media Asset',
+    plural: 'Media & Uploads',
+  },
   folders: true,
   access: {
     create: anyone,
@@ -23,7 +27,7 @@ export const Media: CollectionConfig = {
     update: anyone,
   },
   admin: {
-    group: 'Content Studio',
+    group: '🎬 OTT Streaming & Video',
   },
   fields: [
     {

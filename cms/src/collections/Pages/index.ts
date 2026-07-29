@@ -36,8 +36,12 @@ export const Pages: CollectionConfig<'pages'> = {
     title: true,
     slug: true,
   },
+  labels: {
+    singular: 'Static Page',
+    plural: 'Pages & Policy',
+  },
   admin: {
-    group: 'Taxonomy & Metadata',
+    group: '🏷️ Taxonomy & Governance',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>

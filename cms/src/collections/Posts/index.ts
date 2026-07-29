@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { slugField } from 'payload'
 
 import {
   BlocksFeature,
@@ -26,8 +27,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { slugField } from 'payload'
-
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
   access: {
@@ -36,20 +35,12 @@ export const Posts: CollectionConfig<'posts'> = {
     read: anyone,
     update: anyone,
   },
-  // This config controls what's populated by default when a post is referenced
-  // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
-  // Type safe if the collection slug generic is passed to `CollectionConfig` - `CollectionConfig<'posts'>
-  defaultPopulate: {
-    title: true,
-    slug: true,
-    categories: true,
-    meta: {
-      image: true,
-      description: true,
-    },
+  labels: {
+    singular: 'Article & Story',
+    plural: 'Articles & Stories',
   },
   admin: {
-    group: 'Content Studio',
+    group: '📰 News & Editorial',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>

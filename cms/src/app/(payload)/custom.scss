@@ -14,15 +14,43 @@
   --theme-accent-600: #b80710;
 }
 
-/* Sidebar & Nav Group Header Polish */
+/* Sidebar Top Logo Banner Header */
+.nav__header {
+  padding: 16px 20px !important;
+  border-bottom: 1px solid rgba(229, 9, 20, 0.25) !important;
+  margin-bottom: 12px !important;
+  background: rgba(13, 19, 34, 0.6) !important;
+}
+
+/* Nav Group Header Styling */
 .nav-group__toggle {
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
-  font-size: 0.75rem !important;
-  color: #94a3b8 !important;
+  font-size: 0.725rem !important;
+  color: #e2e8f0 !important;
+  padding: 8px 12px !important;
+}
+
+.nav-group__content {
+  padding-left: 4px !important;
+}
+
+.nav__link {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 8px 14px !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease !important;
 }
 
 .nav__link:hover {
-  color: #e50914 !important;
+  color: #ffffff !important;
+  background-color: rgba(229, 9, 20, 0.15) !important;
+}
+
+.nav__link.active {
+  color: #ffffff !important;
+  background-color: #e50914 !important;
+  font-weight: 700 !important;
 }

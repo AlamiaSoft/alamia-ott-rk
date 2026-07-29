@@ -2,26 +2,28 @@ import React from 'react'
 
 const BeforeDashboard: React.FC = () => {
   return (
-    <div style={{ margin: '0 0 2rem 0', fontFamily: 'system-ui, sans-serif' }}>
-      {/* Studio Header Card */}
+    <div style={{ margin: '0 0 2.5rem 0', fontFamily: 'system-ui, sans-serif' }}>
+      {/* Studio Banner Header */}
       <div style={{
-        background: 'linear-gradient(135deg, #101625 0%, #151d30 100%)',
-        border: '1px solid rgba(229, 9, 20, 0.3)',
-        borderRadius: '12px',
-        padding: '24px',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+        background: `linear-gradient(135deg, rgba(8, 11, 18, 0.95) 0%, rgba(16, 22, 37, 0.9) 100%), url('/media/ott_streaming_bg.jpg') center/cover no-repeat`,
+        border: '1px solid rgba(229, 9, 20, 0.35)',
+        borderRadius: '16px',
+        padding: '28px',
+        boxShadow: '0 12px 36px rgba(0, 0, 0, 0.4)',
         color: '#ffffff',
+        position: 'relative',
+        overflow: 'hidden',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(229, 9, 20, 0.15)', border: '1px solid rgba(229, 9, 20, 0.4)', borderRadius: '20px', padding: '4px 12px', color: '#e50914', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
-              ● LIVE STREAMING STUDIO
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(229, 9, 20, 0.2)', border: '1px solid rgba(229, 9, 20, 0.5)', borderRadius: '20px', padding: '4px 14px', color: '#e50914', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px' }}>
+              ● LIVE STREAMING & BROADCAST STUDIO
             </div>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, margin: '4px 0 0 0', color: '#ffffff' }}>
+            <h2 style={{ fontSize: '2rem', fontWeight: 900, margin: '4px 0 0 0', color: '#ffffff', letterSpacing: '-0.02em' }}>
               RK Media OTT Creator Studio
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '14px', margin: '4px 0 0 0' }}>
-              Headless Content Management & HLS Video Transcoding Operations
+            <p style={{ color: '#94a3b8', fontSize: '14px', margin: '6px 0 0 0', maxWidth: '600px' }}>
+              Headless Content Management Engine & Adaptive HLS Video Transcoding Control Center
             </p>
           </div>
 
@@ -33,11 +35,12 @@ const BeforeDashboard: React.FC = () => {
               style={{
                 backgroundColor: '#e50914',
                 color: '#ffffff',
-                padding: '10px 18px',
+                padding: '12px 22px',
                 borderRadius: '8px',
-                fontWeight: 700,
+                fontWeight: 800,
                 fontSize: '13px',
                 textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(229, 9, 20, 0.4)',
                 transition: 'all 0.2s',
               }}
             >
@@ -46,25 +49,66 @@ const BeforeDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Studio Quick Stats */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginTop: '20px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-          <div style={{ background: '#0d1322', padding: '16px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <div style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.5px' }}>CONTENT ENGINE</div>
-            <div style={{ fontSize: '20px', fontWeight: 800, color: '#ffffff', marginTop: '4px' }}>Payload 3.0 API</div>
-            <div style={{ fontSize: '12px', color: '#10b981', marginTop: '4px', fontWeight: 600 }}>● Active & Healthy</div>
+        {/* Studio Cards with Custom Background Images */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+
+          {/* Card 1: News & Editorial Engine */}
+          <div style={{
+            background: `linear-gradient(180deg, rgba(13, 19, 34, 0.85) 0%, rgba(10, 14, 26, 0.95) 100%), url('/media/news_editorial_bg.jpg') center/cover no-repeat`,
+            padding: '20px',
+            borderRadius: '12px',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+          }}>
+            <div style={{ fontSize: '11px', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.8px' }}>
+              📰 NEWS & EDITORIAL ENGINE
+            </div>
+            <div style={{ fontSize: '22px', fontWeight: 800, color: '#ffffff', marginTop: '6px' }}>
+              Payload 3.0 API
+            </div>
+            <div style={{ fontSize: '12px', color: '#10b981', marginTop: '6px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span>●</span> Headless REST Endpoint Active
+            </div>
           </div>
 
-          <div style={{ background: '#0d1322', padding: '16px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <div style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.5px' }}>VIDEO PIPELINE</div>
-            <div style={{ fontSize: '20px', fontWeight: 800, color: '#ffffff', marginTop: '4px' }}>FFmpeg + HLS</div>
-            <div style={{ fontSize: '12px', color: '#38bdf8', marginTop: '4px', fontWeight: 600 }}>Multi-bitrate Ready</div>
+          {/* Card 2: Video Transcoding Pipeline */}
+          <div style={{
+            background: `linear-gradient(180deg, rgba(13, 19, 34, 0.85) 0%, rgba(10, 14, 26, 0.95) 100%), url('/media/ott_streaming_bg.jpg') center/cover no-repeat`,
+            padding: '20px',
+            borderRadius: '12px',
+            border: '1px solid rgba(229, 9, 20, 0.25)',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+          }}>
+            <div style={{ fontSize: '11px', color: '#e50914', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.8px' }}>
+              🎬 VIDEO STREAMING PIPELINE
+            </div>
+            <div style={{ fontSize: '22px', fontWeight: 800, color: '#ffffff', marginTop: '6px' }}>
+              FFmpeg HLS Pipeline
+            </div>
+            <div style={{ fontSize: '12px', color: '#e50914', marginTop: '6px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span>●</span> Adaptive Bitrate Transcode
+            </div>
           </div>
 
-          <div style={{ background: '#0d1322', padding: '16px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <div style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.5px' }}>MEDIA STORAGE</div>
-            <div style={{ fontSize: '20px', fontWeight: 800, color: '#ffffff', marginTop: '4px' }}>MinIO S3</div>
-            <div style={{ fontSize: '12px', color: '#a855f7', marginTop: '4px', fontWeight: 600 }}>Object Bucket Active</div>
+          {/* Card 3: MinIO S3 Media Storage */}
+          <div style={{
+            background: `linear-gradient(180deg, rgba(13, 19, 34, 0.85) 0%, rgba(10, 14, 26, 0.95) 100%), url('/media/media_storage_bg.jpg') center/cover no-repeat`,
+            padding: '20px',
+            borderRadius: '12px',
+            border: '1px solid rgba(168, 85, 247, 0.25)',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+          }}>
+            <div style={{ fontSize: '11px', color: '#a855f7', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '0.8px' }}>
+              ☁️ MEDIA STORAGE BUCKET
+            </div>
+            <div style={{ fontSize: '22px', fontWeight: 800, color: '#ffffff', marginTop: '6px' }}>
+              MinIO S3 Bucket
+            </div>
+            <div style={{ fontSize: '12px', color: '#a855f7', marginTop: '6px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span>●</span> High-Performance Object Storage
+            </div>
           </div>
+
         </div>
       </div>
     </div>
