@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getEditorArticles, getEditorVideos, getEditorCategories } from '@/app/actions/editor'
 import { FileText, Video, FolderOpen, Plus, ExternalLink } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export default async function DashboardPage() {
   const [articlesRes, videosRes, categoriesRes] = await Promise.all([
     getEditorArticles(),
@@ -9,9 +11,9 @@ export default async function DashboardPage() {
     getEditorCategories(),
   ])
 
-  const articles = articlesRes.success ? articlesRes.data : []
-  const videos = videosRes.success ? videosRes.data : []
-  const categories = categoriesRes.success ? categoriesRes.data : []
+  const articles = (articlesRes && articlesRes.success && Array.isArray(articlesRes.data)) ? articlesRes.data : []
+  const videos = (videosRes && videosRes.success && Array.isArray(videosRes.data)) ? videosRes.data : []
+  const categories = (categoriesRes && categoriesRes.success && Array.isArray(categoriesRes.data)) ? categoriesRes.data : []
 
   const publishedArticles = articles.filter((a: any) => a.isPublished).length
   const publishedVideos = videos.filter((v: any) => v.isPublished).length

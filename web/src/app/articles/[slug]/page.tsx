@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getArticleBySlug } from '@/app/actions/content'
 import { ArrowLeft, Calendar, Tag } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 function renderLexicalContent(content: any) {
   if (!content) return null
 
@@ -44,6 +46,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   }
 
   const article = res.data
+  const categoryName = typeof article.category === 'object' ? (article.category?.name || article.category?.title || 'General') : (article.category || 'General')
 
   return (
     <article className="max-w-4xl mx-auto px-6 py-10 space-y-8">
@@ -54,7 +57,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       <div className="space-y-4 border-b border-brand-border pb-6">
         <div className="flex items-center gap-3">
           <span className="text-xs text-brand-accent font-semibold uppercase tracking-wider flex items-center gap-1">
-            <Tag className="w-3.5 h-3.5" /> {article.category?.name || 'General'}
+            <Tag className="w-3.5 h-3.5" /> {categoryName}
           </span>
           {article.isPremium && (
             <span className="text-xs bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-2 py-0.5 rounded font-bold">

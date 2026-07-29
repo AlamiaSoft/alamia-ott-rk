@@ -2,9 +2,11 @@ import Link from 'next/link'
 import { getPublishedArticles } from '@/app/actions/content'
 import { FileText } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ArticlesPage() {
   const res = await getPublishedArticles()
-  const articles = res.success ? res.data : []
+  const articles = res.success && res.data ? res.data : []
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10 space-y-8">
@@ -20,10 +22,10 @@ export default async function ArticlesPage() {
           <FileText className="w-12 h-12 text-brand-muted opacity-40 mx-auto" />
           <p className="text-brand-muted text-sm">No articles published yet.</p>
           <Link
-            href="/dashboard/articles/new"
-            className="inline-block bg-brand-accent text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-rose-700 transition-colors"
+            href="/"
+            className="inline-block gold-gradient-bg text-brand-dark px-4 py-2 rounded-lg font-bold text-sm gold-glow"
           >
-            Create First Article in Dashboard
+            Return to Home
           </Link>
         </div>
       ) : (
