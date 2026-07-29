@@ -8,9 +8,12 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
+# Build Next.js & Payload assets for production
+ENV NODE_ENV=production
+RUN npm run build
+
 EXPOSE 4000
 
 ENV PORT=4000
-ENV NODE_ENV=development
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

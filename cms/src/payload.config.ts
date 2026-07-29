@@ -89,7 +89,7 @@ export default buildConfig({
         pool: {
           connectionString: process.env.DATABASE_URI || '',
         },
-        push: false,
+        push: process.env.PAYLOAD_DB_PUSH !== 'false',
       })
     : sqliteAdapter({
         client: {
