@@ -9,19 +9,21 @@ export default async function Header() {
   const { user } = await getCurrentUser();
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-brand-border px-6 py-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 text-xl font-black tracking-tight text-white">
-          <img
-            src="/checkmate-logo.jpg"
-            alt="Checkmate Media Logo"
-            className="w-9 h-9 rounded-md object-cover border border-brand-accent/50 shadow-sm"
-          />
-          <div className="hidden sm:flex items-center gap-1.5 font-sans">
-            <span className="text-white uppercase tracking-wider font-bold">CHECKMATE</span>
-            <span className="text-brand-accent uppercase tracking-wider font-bold">MEDIA</span>
-          </div>
-        </Link>
+    <>
+      <div className="h-[73px]" />
+      <header className="fixed top-0 w-full z-50 bg-brand-dark border-b border-brand-border px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 text-xl font-black tracking-tight text-white">
+            <img
+              src="/checkmate-logo.jpg"
+              alt="Checkmate Media Logo"
+              className="w-9 h-9 rounded-md object-cover border border-brand-accent/50 shadow-sm"
+            />
+            <div className="flex items-center gap-1.5 font-sans">
+              <span className="text-white uppercase tracking-wider font-bold">CHECKMATE</span>
+              <span className="text-brand-accent uppercase tracking-wider font-bold">MEDIA</span>
+            </div>
+          </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
           <Link href="/" className="hover:text-brand-goldLight transition-colors">Home</Link>
@@ -51,7 +53,8 @@ export default async function Header() {
             <MobileMenu user={user} />
           </div>
         </div>
-      </div>
-    </header>
+        </div>
+      </header>
+    </>
   );
 }

@@ -27,7 +27,7 @@ export default function MobileMenu({ user }: { user: any }) {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[100] bg-brand-dark/95 backdrop-blur-xl animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="fixed inset-0 z-[100] bg-brand-dark animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border">
             <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
               <img src="/checkmate-logo.jpg" alt="Logo" className="w-9 h-9 rounded-md object-cover" />
