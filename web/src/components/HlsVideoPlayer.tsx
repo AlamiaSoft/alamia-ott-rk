@@ -38,10 +38,13 @@ export default function HlsVideoPlayer({ options, isPremium = false, previewDura
       })
 
       // Add Paywall listener
-      if (isPremium) {
+      if (isPremium && playerRef.current) {
         playerRef.current.on('timeupdate', () => {
           const player = playerRef.current
-          if (player && player.currentTime() >= previewDuration) {
+          if (!player) return
+          
+          const currentTime = player.currentTime() || 0
+          if (currentTime >= previewDuration) {
             player.pause()
             player.controls(false)
             if (player.isFullscreen()) {
