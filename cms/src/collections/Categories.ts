@@ -15,7 +15,7 @@ export const Categories: CollectionConfig = {
     update: anyone,
   },
   admin: {
-    group: '1. Editorial',
+    group: 'Editorial',
     useAsTitle: 'title',
   },
   fields: [

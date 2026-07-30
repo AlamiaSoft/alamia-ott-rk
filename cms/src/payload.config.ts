@@ -98,7 +98,7 @@ export default buildConfig({
       },
       push: true,
     }),
-  collections: [Pages, Posts, Videos, Media, Categories, Users],
+  collections: [Posts, Videos, Categories, Media, Pages, Users],
   globals: [Header, Footer],
   plugins: [
     ...plugins,

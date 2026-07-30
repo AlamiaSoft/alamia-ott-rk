@@ -9,7 +9,7 @@ export const Footer: GlobalConfig = {
     read: () => true,
   },
   admin: {
-    group: '4. Navigation',
+    group: 'Navigation',
   },
   fields: [
     {

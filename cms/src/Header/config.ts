@@ -9,7 +9,7 @@ export const Header: GlobalConfig = {
     read: () => true,
   },
   admin: {
-    group: '4. Navigation',
+    group: 'Navigation',
   },
   fields: [
     {

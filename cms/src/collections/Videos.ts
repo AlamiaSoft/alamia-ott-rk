@@ -15,7 +15,7 @@ export const Videos: CollectionConfig<'videos'> = {
     update: anyone,
   },
   admin: {
-    group: '1. Editorial',
+    group: 'Editorial',
     defaultColumns: ['title', 'status', 'isPremium', 'publishedAt', 'updatedAt'],
     useAsTitle: 'title',
   },

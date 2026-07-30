@@ -16,7 +16,7 @@ export const Users: CollectionConfig = {
     plural: 'Platform Users',
   },
   admin: {
-    group: '5. Settings & Security',
+    group: 'System & Utilities',
     defaultColumns: ['name', 'email'],
     useAsTitle: 'name',
   },
