@@ -29,7 +29,7 @@ export default async function Header() {
             <Newspaper className="w-4 h-4" /> News
           </Link>
           <Link href="/videos" className="hover:text-brand-goldLight transition-colors flex items-center gap-1.5">
-            <PlaySquare className="w-4 h-4" /> Videos & OTT
+            <PlaySquare className="w-4 h-4" /> Video
           </Link>
           <Link href="/creators" className="hover:text-brand-accent transition-colors flex items-center gap-1.5 font-bold text-white">
             <User className="w-4 h-4 text-brand-accent" /> For Creators

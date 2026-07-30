@@ -47,7 +47,7 @@ export default function MobileMenu({ user }: { user: any }) {
                 <Newspaper className="w-5 h-5 text-brand-muted" /> News
               </Link>
               <Link href="/videos" onClick={() => setOpen(false)} className="text-white hover:text-brand-accent transition-colors flex items-center gap-2">
-                <PlaySquare className="w-5 h-5 text-brand-muted" /> Videos & OTT
+                <PlaySquare className="w-5 h-5 text-brand-muted" /> Video
               </Link>
               <Link href="/creators" onClick={() => setOpen(false)} className="text-white hover:text-brand-accent transition-colors flex items-center gap-2">
                 <User className="w-5 h-5 text-brand-muted" /> For Creators
