@@ -48,7 +48,11 @@ export default async function VideoPage(props: VideoPageProps) {
 
       <div className="bg-black/50 border border-brand-border rounded-xl p-2 md:p-4">
         {video.status === 'ready' && video.hlsPlaylistUrl ? (
-          <HlsVideoPlayer options={videoJsOptions} />
+          <HlsVideoPlayer 
+            options={videoJsOptions} 
+            isPremium={video.isPremium || false}
+            previewDuration={video.durationSeconds || 30}
+          />
         ) : (
           <div className="aspect-video w-full flex flex-col items-center justify-center space-y-4 bg-brand-card/50 rounded-lg">
             <p className="text-brand-muted text-sm">
