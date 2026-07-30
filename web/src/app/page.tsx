@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-10 space-y-16">
       {/* Hero Section */}
-      <section className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand-card via-brand-dark to-brand-card border border-brand-border p-8 md:p-12">
+      <section className="relative rounded-2xl overflow-hidden bg-brand-card border border-brand-border p-8 md:p-12">
         <div className="max-w-2xl space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold">
             <Flame className="w-3.5 h-3.5" /> FEATURED STORY & OTT STREAM
