@@ -18,5 +18,5 @@ ENV NODE_OPTIONS="--max-old-space-size=2048 --no-deprecation"
 # Build during docker image build phase
 RUN npx next build
 
-# Fast container boot on launch
-CMD ["npx", "next", "start", "-p", "4000"]
+# Fast container boot on launch and run db migrations
+CMD ["sh", "-c", "npx payload migrate && npx next start -p 4000"]

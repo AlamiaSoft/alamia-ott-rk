@@ -3,8 +3,13 @@
 ## 1. Executive Intent & Deployment Architecture
 **Alamia OTT / RK Portal** is a production-grade **hybrid News + Video (OTT) platform** inspired by modern digital media houses such as the BBC, Al Jazeera, DW, and TRT World.
 
+### Environment Topology
+* **Production / Staging**: Oracle VPS (A1 Flex) running Docker + Portainer.
+* **Primary Dev Machine**: Low-end laptop (No local Docker; uses SQLite for local testing).
+* **Secondary Dev Machine**: High-end workstation (`Hostname: DESKTOP-5...`) with full Docker/Container support.
+
 ### Production Infrastructure Model
-* **Hosting Platform**: Oracle VPS running Docker + Portainer.
+* **Hosting Platform**: Oracle VPS (A1 Flex) running Docker + Portainer.
 * **Network Integration**: Attached to existing external Docker network **`alamia-network`**.
 * **Ingress Domains**:
   * **Public Web Portal**: `cmm.alamiaai.com` $\rightarrow$ `http://rk_web:3000`

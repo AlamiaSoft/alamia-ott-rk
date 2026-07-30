@@ -1,7 +1,9 @@
 # Project Conventions — Alamia OTT / RK Portal
 
 ## Deployment Infrastructure
-- **Hosting Target**: Oracle VPS running Docker + Portainer.
+- **Hosting Target (Staging/Production)**: Oracle VPS (A1 Flex) running Docker + Portainer.
+- **Dev Machine (Primary)**: Low-end laptop (No local Docker; uses SQLite for local testing).
+- **Dev Machine (Secondary)**: High-end workstation (`Hostname: DESKTOP-5...`) with full Docker/Container support.
 - **Ingress & Domain**: Cloudflare Tunnel mapping `checkmatemedia.alamiaai.com` to `http://rk_proxy:80`.
 - **Deployment Method**: Portainer Stack creation pulling directly from GitHub (`docker-compose.yml`).
 

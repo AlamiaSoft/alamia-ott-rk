@@ -19,6 +19,8 @@ services:
     # Expose fallback ports on VPS host
     ports:
       - "24000:4000"
+    environment:
+      PAYLOAD_DB_PUSH: 'true'
 
   rk_web:
     restart: unless-stopped
