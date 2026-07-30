@@ -13,21 +13,21 @@ export default async function Home() {
       {/* Hero Section */}
       <section className="relative rounded-2xl overflow-hidden bg-brand-card border border-brand-border p-8 md:p-12">
         <div className="max-w-2xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold">
-            <Flame className="w-3.5 h-3.5" /> FEATURED STORY & OTT STREAM
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold uppercase tracking-wider">
+            Official Digital Platform
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-            Global Digital Media Architecture: Hybrid News & Streaming Platform
+            Stories That Matter. Conversations That Challenge. Journalism That Inspires.
           </h1>
           <p className="text-brand-muted text-base md:text-lg">
-            Experience real-time news coverage, opinion analysis, and seamlessly embedded high-definition HLS video streams.
+            Follow Reham Khan's latest reporting, exclusive interviews, documentaries, opinion pieces, and premium video content—all in one destination.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <Link href="/videos" className="flex items-center gap-2 bg-brand-accent hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
-              <Play className="w-4 h-4 fill-current" /> Watch OTT Stream
+            <Link href="/videos" className="flex items-center gap-2 bg-brand-accent hover:bg-brand-goldLight text-black px-6 py-3 rounded-lg font-extrabold transition-all gold-glow-hover">
+              <Play className="w-4 h-4 fill-current" /> Watch Latest Story
             </Link>
             <Link href="/news" className="flex items-center gap-2 bg-brand-card hover:bg-brand-border text-foreground px-6 py-3 rounded-lg font-semibold border border-brand-border transition-all">
-              Read Articles
+              Read Latest Articles
             </Link>
           </div>
         </div>
