@@ -1,7 +1,7 @@
 import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
-  await db.execute(sql`
+  const sqlString = `
    CREATE TYPE "public"."enum_pages_hero_links_link_type" AS ENUM('reference', 'custom');
   CREATE TYPE "public"."enum_pages_hero_links_link_appearance" AS ENUM('default', 'outline');
   CREATE TYPE "public"."enum_pages_blocks_cta_links_link_type" AS ENUM('reference', 'custom');
@@ -1188,7 +1188,24 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "footer_rels_parent_idx" ON "footer_rels" USING btree ("parent_id");
   CREATE INDEX "footer_rels_path_idx" ON "footer_rels" USING btree ("path");
   CREATE INDEX "footer_rels_pages_id_idx" ON "footer_rels" USING btree ("pages_id");
-  CREATE INDEX "footer_rels_posts_id_idx" ON "footer_rels" USING btree ("posts_id");`)
+  CREATE INDEX "footer_rels_posts_id_idx" ON "footer_rels" USING btree ("posts_id");`
+
+  const statements = sqlString.split(';').filter((s) => s.trim().length > 0)
+  for (const statement of statements) {
+    try {
+      await db.execute(sql.raw(statement + ';'))
+    } catch (err: any) {
+      if (
+        err.message.includes('already exists') ||
+        err.message.includes('duplicate') ||
+        err.message.includes('multiple primary keys')
+      ) {
+        console.log('Skipping existing schema element...')
+      } else {
+        throw err
+      }
+    }
+  }
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
