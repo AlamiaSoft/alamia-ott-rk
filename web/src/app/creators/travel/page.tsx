@@ -90,7 +90,7 @@ export default function TravelCreatorsPage() {
                 { title: 'Sponsored Travelogues', desc: 'Publish ad-free videos sponsored directly by tourism boards and hotels.' },
                 { title: 'Exclusive Community', desc: 'Offer premium memberships for one-on-one travel consultation and Q&A sessions.' }
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4 p-4 rounded-xl hover:bg-brand-surface/50 transition-colors border border-transparent hover:border-brand-border">
+                <li key={i} className="flex items-start gap-4 p-4 rounded-xl transition-all border border-transparent hover:border-brand-border hover:shadow-sm">
                   <div className="mt-1 bg-brand-accent/20 p-2 rounded-full">
                     <Star className="w-5 h-5 text-brand-accent" />
                   </div>
@@ -142,7 +142,7 @@ export default function TravelCreatorsPage() {
             Join the premier platform for independent travel creators and agencies. Start broadcasting your journeys today.
           </p>
           <div className="pt-8">
-            <Link href="/" className="inline-block bg-brand-accent hover:bg-brand-goldLight text-white px-10 py-5 rounded-xl font-extrabold text-lg transition-colors shadow-lg">
+            <Link href="/" className="inline-block bg-brand-accent hover:bg-brand-goldLight text-brand-dark px-10 py-5 rounded-xl font-extrabold text-lg transition-colors shadow-lg">
               Start Your Travel Channel
             </Link>
           </div>
