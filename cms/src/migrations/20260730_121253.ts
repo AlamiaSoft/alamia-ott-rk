@@ -1195,6 +1195,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
     if (statement.includes('worker_logs')) {
       await db.execute(sql.raw(statement + ';'))
     }
+  }
 }
 
 
