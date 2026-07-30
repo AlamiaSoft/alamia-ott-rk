@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Checkmate Media — News & OTT Platform',
   description: 'Production-grade Hybrid News + Video Platform for Checkmate Media.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/checkmate-logo.jpg',
     shortcut: '/checkmate-logo.jpg',
     apple: '/checkmate-logo.jpg',
   },

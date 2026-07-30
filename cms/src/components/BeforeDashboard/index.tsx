@@ -6,7 +6,7 @@ const BeforeDashboard: React.FC = () => {
       
       {/* Gold & Onyx Platform Header */}
       <div style={{
-        background: `linear-gradient(135deg, rgba(10, 10, 12, 0.95) 0%, rgba(30, 29, 25, 0.9) 100%), url('/media/ott_streaming_bg.jpg') center/cover no-repeat`,
+        background: `linear-gradient(135deg, rgba(10, 10, 12, 0.95) 0%, rgba(30, 29, 25, 0.9) 100%), url('/assets/ott_streaming_bg.jpg') center/cover no-repeat`,
         border: '1px solid rgba(229, 168, 35, 0.3)',
         borderRadius: '12px',
         padding: '24px',
@@ -98,7 +98,7 @@ const BeforeDashboard: React.FC = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px' }}>
           
           <div style={{
-            background: `linear-gradient(180deg, rgba(20, 19, 17, 0.9) 0%, rgba(20, 19, 17, 0.95) 100%), url('/media/news_editorial_bg.jpg') center/cover no-repeat`,
+            background: `linear-gradient(180deg, rgba(20, 19, 17, 0.9) 0%, rgba(20, 19, 17, 0.95) 100%), url('/assets/news_editorial_bg.jpg') center/cover no-repeat`,
             padding: '16px',
             borderRadius: '8px',
             border: '1px solid #2e2a22',
@@ -109,7 +109,7 @@ const BeforeDashboard: React.FC = () => {
           </div>
 
           <div style={{
-            background: `linear-gradient(180deg, rgba(20, 19, 17, 0.9) 0%, rgba(20, 19, 17, 0.95) 100%), url('/media/ott_streaming_bg.jpg') center/cover no-repeat`,
+            background: `linear-gradient(180deg, rgba(20, 19, 17, 0.9) 0%, rgba(20, 19, 17, 0.95) 100%), url('/assets/ott_streaming_bg.jpg') center/cover no-repeat`,
             padding: '16px',
             borderRadius: '8px',
             border: '1px solid #2e2a22',
@@ -120,7 +120,7 @@ const BeforeDashboard: React.FC = () => {
           </div>
 
           <div style={{
-            background: `linear-gradient(180deg, rgba(20, 19, 17, 0.9) 0%, rgba(20, 19, 17, 0.95) 100%), url('/media/media_storage_bg.jpg') center/cover no-repeat`,
+            background: `linear-gradient(180deg, rgba(20, 19, 17, 0.9) 0%, rgba(20, 19, 17, 0.95) 100%), url('/assets/media_storage_bg.jpg') center/cover no-repeat`,
             padding: '16px',
             borderRadius: '8px',
             border: '1px solid #2e2a22',
