@@ -33,14 +33,12 @@ export default async function Home() {
             </div>
           </div>
           
-          <div className="hidden lg:block relative h-[450px] w-full rounded-2xl overflow-hidden border border-brand-accent/20 shadow-2xl">
+          <div className="relative h-[300px] lg:h-[450px] w-full mt-8 lg:mt-0">
             <img 
               src="/reham-khan.jpg" 
               alt="Reham Khan" 
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-contain object-center lg:object-right"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60" />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-card via-transparent to-transparent opacity-60" />
           </div>
         </div>
       </section>
