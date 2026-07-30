@@ -1,15 +1,52 @@
-[12:29:44] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-[12:29:44] INFO: Reading migration files from /app/src/migrations
-[12:29:44] INFO: Migrating: 20260730_121253
-[12:29:44] ERROR: Error running migration 20260730_121253 Failed query: 
-   CREATE TYPE "public"."enum_pages_hero_links_link_type" AS ENUM('reference', 'custom');
+[12:40:13] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+[12:40:13] INFO: Reading migration files from /app/src/migrations
+[12:40:13] INFO: Migrating: 20260730_121253
+[12:40:13] ERROR: Error running migration 20260730_121253 Failed query: 
+  
+  CREATE TABLE "payload_locked_documents_rels" (
+  	"id" serial PRIMARY KEY NOT NULL,
+  	"order" integer,
+  	"parent_id" integer NOT NULL,
+  	"path" varchar NOT NULL,
+  	"pages_id" integer,
+  	"posts_id" integer,
+  	"videos_id" integer,
+  	"categories_id" integer,
+  	"media_id" integer,
+  	"users_id" integer,
+  	"worker_logs_id" integer,
+  	"redirects_id" integer,
+  	"forms_id" integer,
+  	"form_submissions_id" integer,
+  	"search_id" integer,
+  	"payload_folders_id" integer
+  );
 params: .
     err: {
       "type": "DrizzleQueryError",
-      "message": "Failed query: \n   CREATE TYPE \"public\".\"enum_pages_hero_links_link_type\" AS ENUM('reference', 'custom');\nparams: : type \"enum_pages_hero_links_link_type\" already exists",
+      "message": "Failed query: \n  \n  CREATE TABLE \"payload_locked_documents_rels\" (\n  \t\"id\" serial PRIMARY KEY NOT NULL,\n  \t\"order\" integer,\n  \t\"parent_id\" integer NOT NULL,\n  \t\"path\" varchar NOT NULL,\n  \t\"pages_id\" integer,\n  \t\"posts_id\" integer,\n  \t\"videos_id\" integer,\n  \t\"categories_id\" integer,\n  \t\"media_id\" integer,\n  \t\"users_id\" integer,\n  \t\"worker_logs_id\" integer,\n  \t\"redirects_id\" integer,\n  \t\"forms_id\" integer,\n  \t\"form_submissions_id\" integer,\n  \t\"search_id\" integer,\n  \t\"payload_folders_id\" integer\n  );\nparams: : relation \"payload_locked_documents_rels\" already exists",
       "stack":
           Error: Failed query: 
-             CREATE TYPE "public"."enum_pages_hero_links_link_type" AS ENUM('reference', 'custom');
+
+            
+            CREATE TABLE "payload_locked_documents_rels" (
+            	"id" serial PRIMARY KEY NOT NULL,
+            	"order" integer,
+            	"parent_id" integer NOT NULL,
+            	"path" varchar NOT NULL,
+            	"pages_id" integer,
+            	"posts_id" integer,
+            	"videos_id" integer,
+            	"categories_id" integer,
+            	"media_id" integer,
+            	"users_id" integer,
+            	"worker_logs_id" integer,
+            	"redirects_id" integer,
+            	"forms_id" integer,
+            	"form_submissions_id" integer,
+            	"search_id" integer,
+            	"payload_folders_id" integer
+            );
           params: 
               at NodePgPreparedQuery.queryWithCache (/app/node_modules/src/pg-core/session.ts:73:11)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
@@ -20,7 +57,7 @@ params: .
               at async runBinScript (/app/node_modules/payload/dist/bin/index.js:112:9)
               at async bin (/app/node_modules/payload/dist/bin/index.js:46:29)
               at async start (file:///app/node_modules/payload/bin.js:41:7)
-          caused by: error: type "enum_pages_hero_links_link_type" already exists
+          caused by: error: relation "payload_locked_documents_rels" already exists
               at /app/node_modules/pg/lib/client.js:631:17
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
               at async <anonymous> (/app/node_modules/src/node-postgres/session.ts:149:14)
@@ -31,6 +68,6 @@ params: .
               at async migrate (/app/node_modules/payload/src/bin/migrate.ts:97:7)
               at async runBinScript (/app/node_modules/payload/dist/bin/index.js:112:9)
               at async bin (/app/node_modules/payload/dist/bin/index.js:46:29)
-      "query": "\n   CREATE TYPE \"public\".\"enum_pages_hero_links_link_type\" AS ENUM('reference', 'custom');",
+      "query": "\n  \n  CREATE TABLE \"payload_locked_documents_rels\" (\n  \t\"id\" serial PRIMARY KEY NOT NULL,\n  \t\"order\" integer,\n  \t\"parent_id\" integer NOT NULL,\n  \t\"path\" varchar NOT NULL,\n  \t\"pages_id\" integer,\n  \t\"posts_id\" integer,\n  \t\"videos_id\" integer,\n  \t\"categories_id\" integer,\n  \t\"media_id\" integer,\n  \t\"users_id\" integer,\n  \t\"worker_logs_id\" integer,\n  \t\"redirects_id\" integer,\n  \t\"forms_id\" integer,\n  \t\"form_submissions_id\" integer,\n  \t\"search_id\" integer,\n  \t\"payload_folders_id\" integer\n  );",
       "params": []
     }

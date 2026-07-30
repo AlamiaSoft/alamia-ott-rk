@@ -1192,7 +1192,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
 
   const statements = sqlString.split(';').filter((s) => s.trim().length > 0)
   for (const statement of statements) {
-    if (statement.includes('worker_logs')) {
+    if (statement.includes('CREATE TABLE "payload_locked_documents_rels"')) {
+      await db.execute(sql.raw('ALTER TABLE "payload_locked_documents_rels" ADD COLUMN IF NOT EXISTS "worker_logs_id" integer;'))
+    } else if (statement.includes('worker_logs')) {
       await db.execute(sql.raw(statement + ';'))
     }
   }
@@ -1307,7 +1309,9 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
 
   const statements = sqlString.split(';').filter((s) => s.trim().length > 0)
   for (const statement of statements) {
-    if (statement.includes('worker_logs')) {
+    if (statement.includes('DROP TABLE "payload_locked_documents_rels"')) {
+      await db.execute(sql.raw('ALTER TABLE "payload_locked_documents_rels" DROP COLUMN IF EXISTS "worker_logs_id";'))
+    } else if (statement.includes('worker_logs')) {
       await db.execute(sql.raw(statement + ';'))
     }
   }
