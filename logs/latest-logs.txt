@@ -1,80 +1,110 @@
-✓ Compiled successfully in 26.5s
-  Running TypeScript ...
-Failed to type check.
-./src/endpoints/seed/index.ts:152:64
-Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
-  Type 'Page' is missing the following properties from type 'User': role, email, collection
-  150 |       disableRevalidate: true,
-  151 |     },
-> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
-      |                                                                ^
-  153 |   })
-  154 |
-  155 |   const post2Doc = await payload.create({
-Next.js build worker exited with code: 1 and signal: null
-> website@1.0.0 build:start
-> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
-▲ Next.js 16.2.6 (Turbopack)
-- Experiments (use with caution):
-  ⨯ turbopackServerFastRefresh
-  Creating an optimized production build ...
-✓ Compiled successfully in 25.9s
-  Running TypeScript ...
-Failed to type check.
-./src/endpoints/seed/index.ts:152:64
-Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
-  Type 'Page' is missing the following properties from type 'User': role, email, collection
-  150 |       disableRevalidate: true,
-  151 |     },
-> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
-      |                                                                ^
-  153 |   })
-  154 |
-  155 |   const post2Doc = await payload.create({
-Next.js build worker exited with code: 1 and signal: null
-> website@1.0.0 build:start
-> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
-▲ Next.js 16.2.6 (Turbopack)
-- Experiments (use with caution):
-  ⨯ turbopackServerFastRefresh
-  Creating an optimized production build ...
-✓ Compiled successfully in 25.8s
-  Running TypeScript ...
-Failed to type check.
-./src/endpoints/seed/index.ts:152:64
-Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
-  Type 'Page' is missing the following properties from type 'User': role, email, collection
-  150 |       disableRevalidate: true,
-  151 |     },
-> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
-      |                                                                ^
-  153 |   })
-  154 |
-  155 |   const post2Doc = await payload.create({
-Next.js build worker exited with code: 1 and signal: null
-> website@1.0.0 build:start
-> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
-▲ Next.js 16.2.6 (Turbopack)
-- Experiments (use with caution):
-  ⨯ turbopackServerFastRefresh
-  Creating an optimized production build ...
-✓ Compiled successfully in 27.3s
-  Running TypeScript ...
-Failed to type check.
-./src/endpoints/seed/index.ts:152:64
-Type error: Type 'DataFromCollectionSlug<"redirects" | "payload-folders" | "media" | "pages" | "posts" | "users" | "videos" | "categories" | "forms" | "form-submissions" | "search" | "payload-kv" | "payload-jobs" | "payload-locked-documents" | "payload-preferences" | "payload-migrations">' is not assignable to type 'User'.
-  Type 'Page' is missing the following properties from type 'User': role, email, collection
-  150 |       disableRevalidate: true,
-  151 |     },
-> 152 |     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
-      |                                                                ^
-  153 |   })
-  154 |
-  155 |   const post2Doc = await payload.create({
-Next.js build worker exited with code: 1 and signal: null
-> website@1.0.0 build:start
-> cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000
-▲ Next.js 16.2.6 (Turbopack)
-- Experiments (use with caution):
-  ⨯ turbopackServerFastRefresh
-  Creating an optimized production build ...
+rk_db container logs:
+PostgreSQL Database directory appears to contain a database; Skipping initialization
+2026-07-30 07:51:44.897 UTC [1] LOG:  starting PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+2026-07-30 07:51:44.897 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-07-30 07:51:44.897 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-07-30 07:51:44.902 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-07-30 07:51:44.909 UTC [29] LOG:  database system was interrupted; last known up at 2026-07-30 07:28:31 UTC
+2026-07-30 07:51:44.952 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-07-30 07:51:44.960 UTC [29] LOG:  redo starts at 0/1A200F8
+2026-07-30 07:51:44.960 UTC [29] LOG:  invalid record length at 0/1A201E0: expected at least 24, got 0
+2026-07-30 07:51:44.960 UTC [29] LOG:  redo done at 0/1A201A8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-07-30 07:51:44.968 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-07-30 07:51:44.994 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.010 s, sync=0.003 s, total=0.027 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/1A201E0, redo lsn=0/1A201E0
+2026-07-30 07:51:45.002 UTC [1] LOG:  database system is ready to accept connections
+2026-07-30 07:51:55.438 UTC [36] ERROR:  column payload_locked_documents__rels.pages_id does not exist at character 378
+2026-07-30 07:51:55.438 UTC [36] HINT:  Perhaps you meant to reference the column "payload_locked_documents__rels.parent_id".
+2026-07-30 07:51:55.438 UTC [36] STATEMENT:  select "payload_locked_documents"."id", "payload_locked_documents"."global_slug", "payload_locked_documents"."updated_at", "payload_locked_documents__rels"."data" as "_rels" from "payload_locked_documents" "payload_locked_documents" left join lateral (select coalesce(json_agg(json_build_array("payload_locked_documents__rels"."order", "payload_locked_documents__rels"."path", "payload_locked_documents__rels"."pages_id", "payload_locked_documents__rels"."posts_id", "payload_locked_documents__rels"."videos_id", "payload_locked_documents__rels"."media_id", "payload_locked_documents__rels"."categories_id", "payload_locked_documents__rels"."users_id", "payload_locked_documents__rels"."redirects_id", "payload_locked_documents__rels"."forms_id", "payload_locked_documents__rels"."form_submissions_id", "payload_locked_documents__rels"."search_id", "payload_locked_documents__rels"."payload_folders_id") order by "payload_locked_documents__rels"."order" asc), '[]'::json) as "data" from (select * from "payload_locked_documents_rels" "payload_locked_documents__rels" where "payload_locked_documents__rels"."parent_id" = "payload_locked_documents"."id" order by "payload_locked_documents__rels"."order" asc) "payload_locked_documents__rels") "payload_locked_documents__rels" on true where "payload_locked_documents"."global_slug" is not null order by "payload_locked_documents"."created_at" desc
+2026-07-30 07:52:10.801 UTC [38] ERROR:  column payload_locked_documents__rels.pages_id does not exist at character 378
+2026-07-30 07:52:10.801 UTC [38] HINT:  Perhaps you meant to reference the column "payload_locked_documents__rels.parent_id".
+2026-07-30 07:52:10.801 UTC [38] STATEMENT:  select "payload_locked_documents"."id", "payload_locked_documents"."global_slug", "payload_locked_documents"."updated_at", "payload_locked_documents__rels"."data" as "_rels" from "payload_locked_documents" "payload_locked_documents" left join lateral (select coalesce(json_agg(json_build_array("payload_locked_documents__rels"."order", "payload_locked_documents__rels"."path", "payload_locked_documents__rels"."pages_id", "payload_locked_documents__rels"."posts_id", "payload_locked_documents__rels"."videos_id", "payload_locked_documents__rels"."media_id", "payload_locked_documents__rels"."categories_id", "payload_locked_documents__rels"."users_id", "payload_locked_documents__rels"."redirects_id", "payload_locked_documents__rels"."forms_id", "payload_locked_documents__rels"."form_submissions_id", "payload_locked_documents__rels"."search_id", "payload_locked_documents__rels"."payload_folders_id") order by "payload_locked_documents__rels"."order" asc), '[]'::json) as "data" from (select * from "payload_locked_documents_rels" "payload_locked_documents__rels" where "payload_locked_documents__rels"."parent_id" = "payload_locked_documents"."id" order by "payload_locked_documents__rels"."order" asc) "payload_locked_documents__rels") "payload_locked_documents__rels" on true where "payload_locked_documents"."global_slug" is not null order by "payload_locked_documents"."created_at" desc
+
+
+
+rk_cms container logs:
+
+[07:51:50] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+[07:51:50] ERROR: No migration directory found at /app/src/migrations
+[07:51:50] INFO: No migrations to run.
+[07:51:50] INFO: Done.
+▲ Next.js 16.2.6
+- Local:         http://localhost:4000
+- Network:       http://172.20.0.7:4000
+✓ Ready in 221ms
+[07:51:55] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+⨯ Error: Failed query: select "payload_locked_documents"."id", "payload_locked_documents"."global_slug", "payload_locked_documents"."updated_at", "payload_locked_documents__rels"."data" as "_rels" from "payload_locked_documents" "payload_locked_documents" left join lateral (select coalesce(json_agg(json_build_array("payload_locked_documents__rels"."order", "payload_locked_documents__rels"."path", "payload_locked_documents__rels"."pages_id", "payload_locked_documents__rels"."posts_id", "payload_locked_documents__rels"."videos_id", "payload_locked_documents__rels"."media_id", "payload_locked_documents__rels"."categories_id", "payload_locked_documents__rels"."users_id", "payload_locked_documents__rels"."redirects_id", "payload_locked_documents__rels"."forms_id", "payload_locked_documents__rels"."form_submissions_id", "payload_locked_documents__rels"."search_id", "payload_locked_documents__rels"."payload_folders_id") order by "payload_locked_documents__rels"."order" asc), '[]'::json) as "data" from (select * from "payload_locked_documents_rels" "payload_locked_documents__rels" where "payload_locked_documents__rels"."parent_id" = "payload_locked_documents"."id" order by "payload_locked_documents__rels"."order" asc) "payload_locked_documents__rels") "payload_locked_documents__rels" on true where "payload_locked_documents"."global_slug" is not null order by "payload_locked_documents"."created_at" desc
+params: 
+    at o.queryWithCache (.next/server/chunks/ssr/_0w1m78a._.js:157:22857)
+    at async (.next/server/chunks/ssr/_0w1m78a._.js:157:26415)
+    at async k (.next/server/chunks/ssr/_0w1m78a._.js:124:2622)
+    at async lx (.next/server/chunks/ssr/_0w1m78a._.js:324:172605)
+    at async r (.next/server/chunks/ssr/_0pv6w7h._.js:5:2110)
+    at async aa (.next/server/chunks/ssr/_0bqlz9v._.js:1:22510) {
+  query: `select "payload_locked_documents"."id", "payload_locked_documents"."global_slug", "payload_locked_documents"."updated_at", "payload_locked_documents__rels"."data" as "_rels" from "payload_locked_documents" "payload_locked_documents" left join lateral (select coalesce(json_agg(json_build_array("payload_locked_documents__rels"."order", "payload_locked_documents__rels"."path", "payload_locked_documents__rels"."pages_id", "payload_locked_documents__rels"."posts_id", "payload_locked_documents__rels"."videos_id", "payload_locked_documents__rels"."media_id", "payload_locked_documents__rels"."categories_id", "payload_locked_documents__rels"."users_id", "payload_locked_documents__rels"."redirects_id", "payload_locked_documents__rels"."forms_id", "payload_locked_documents__rels"."form_submissions_id", "payload_locked_documents__rels"."search_id", "payload_locked_documents__rels"."payload_folders_id") order by "payload_locked_documents__rels"."order" asc), '[]'::json) as "data" from (select * from "payload_locked_documents_rels" "payload_locked_documents__rels" where "payload_locked_documents__rels"."parent_id" = "payload_locked_documents"."id" order by "payload_locked_documents__rels"."order" asc) "payload_locked_documents__rels") "payload_locked_documents__rels" on true where "payload_locked_documents"."global_slug" is not null order by "payload_locked_documents"."created_at" desc`,
+  params: [],
+  digest: '2305538449',
+  [cause]: error: column payload_locked_documents__rels.pages_id does not exist
+      at async (.next/server/chunks/ssr/_0w1m78a._.js:157:26630)
+      at async o.queryWithCache (.next/server/chunks/ssr/_0w1m78a._.js:157:22832)
+      at async (.next/server/chunks/ssr/_0w1m78a._.js:157:26415)
+      at async k (.next/server/chunks/ssr/_0w1m78a._.js:124:2622)
+      at async lx (.next/server/chunks/ssr/_0w1m78a._.js:324:172605)
+      at async r (.next/server/chunks/ssr/_0pv6w7h._.js:5:2110)
+      at async aa (.next/server/chunks/ssr/_0bqlz9v._.js:1:22510) {
+    length: 225,
+    severity: 'ERROR',
+    code: '42703',
+    detail: undefined,
+    hint: 'Perhaps you meant to reference the column "payload_locked_documents__rels.parent_id".',
+    position: '378',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '3729',
+    routine: 'errorMissingColumn'
+  }
+}
+⨯ Error: Failed query: select "payload_locked_documents"."id", "payload_locked_documents"."global_slug", "payload_locked_documents"."updated_at", "payload_locked_documents__rels"."data" as "_rels" from "payload_locked_documents" "payload_locked_documents" left join lateral (select coalesce(json_agg(json_build_array("payload_locked_documents__rels"."order", "payload_locked_documents__rels"."path", "payload_locked_documents__rels"."pages_id", "payload_locked_documents__rels"."posts_id", "payload_locked_documents__rels"."videos_id", "payload_locked_documents__rels"."media_id", "payload_locked_documents__rels"."categories_id", "payload_locked_documents__rels"."users_id", "payload_locked_documents__rels"."redirects_id", "payload_locked_documents__rels"."forms_id", "payload_locked_documents__rels"."form_submissions_id", "payload_locked_documents__rels"."search_id", "payload_locked_documents__rels"."payload_folders_id") order by "payload_locked_documents__rels"."order" asc), '[]'::json) as "data" from (select * from "payload_locked_documents_rels" "payload_locked_documents__rels" where "payload_locked_documents__rels"."parent_id" = "payload_locked_documents"."id" order by "payload_locked_documents__rels"."order" asc) "payload_locked_documents__rels") "payload_locked_documents__rels" on true where "payload_locked_documents"."global_slug" is not null order by "payload_locked_documents"."created_at" desc
+params: 
+    at o.queryWithCache (.next/server/chunks/ssr/_0w1m78a._.js:157:22857)
+    at async (.next/server/chunks/ssr/_0w1m78a._.js:157:26415)
+    at async k (.next/server/chunks/ssr/_0w1m78a._.js:124:2622)
+    at async lx (.next/server/chunks/ssr/_0w1m78a._.js:324:172605)
+    at async r (.next/server/chunks/ssr/_0pv6w7h._.js:5:2110)
+    at async aa (.next/server/chunks/ssr/_0bqlz9v._.js:1:22510) {
+  query: `select "payload_locked_documents"."id", "payload_locked_documents"."global_slug", "payload_locked_documents"."updated_at", "payload_locked_documents__rels"."data" as "_rels" from "payload_locked_documents" "payload_locked_documents" left join lateral (select coalesce(json_agg(json_build_array("payload_locked_documents__rels"."order", "payload_locked_documents__rels"."path", "payload_locked_documents__rels"."pages_id", "payload_locked_documents__rels"."posts_id", "payload_locked_documents__rels"."videos_id", "payload_locked_documents__rels"."media_id", "payload_locked_documents__rels"."categories_id", "payload_locked_documents__rels"."users_id", "payload_locked_documents__rels"."redirects_id", "payload_locked_documents__rels"."forms_id", "payload_locked_documents__rels"."form_submissions_id", "payload_locked_documents__rels"."search_id", "payload_locked_documents__rels"."payload_folders_id") order by "payload_locked_documents__rels"."order" asc), '[]'::json) as "data" from (select * from "payload_locked_documents_rels" "payload_locked_documents__rels" where "payload_locked_documents__rels"."parent_id" = "payload_locked_documents"."id" order by "payload_locked_documents__rels"."order" asc) "payload_locked_documents__rels") "payload_locked_documents__rels" on true where "payload_locked_documents"."global_slug" is not null order by "payload_locked_documents"."created_at" desc`,
+  params: [],
+  digest: '2305538449',
+  [cause]: error: column payload_locked_documents__rels.pages_id does not exist
+      at async (.next/server/chunks/ssr/_0w1m78a._.js:157:26630)
+      at async o.queryWithCache (.next/server/chunks/ssr/_0w1m78a._.js:157:22832)
+      at async (.next/server/chunks/ssr/_0w1m78a._.js:157:26415)
+      at async k (.next/server/chunks/ssr/_0w1m78a._.js:124:2622)
+      at async lx (.next/server/chunks/ssr/_0w1m78a._.js:324:172605)
+      at async r (.next/server/chunks/ssr/_0pv6w7h._.js:5:2110)
+      at async aa (.next/server/chunks/ssr/_0bqlz9v._.js:1:22510) {
+    length: 225,
+    severity: 'ERROR',
+    code: '42703',
+    detail: undefined,
+    hint: 'Perhaps you meant to reference the column "payload_locked_documents__rels.parent_id".',
+    position: '378',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '3729',
+    routine: 'errorMissingColumn'
+  }
+}

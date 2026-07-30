@@ -30,3 +30,6 @@ services:
 
   rk_worker:
     restart: unless-stopped
+
+  rk_redis:
+    restart: unless-stopped

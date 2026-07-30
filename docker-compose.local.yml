@@ -31,3 +31,8 @@ services:
   rk_worker:
     depends_on:
       - rk_storage
+      - rk_redis
+
+  rk_redis:
+    ports:
+      - "6379:6379"

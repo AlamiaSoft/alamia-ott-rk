@@ -11,6 +11,7 @@ import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Videos } from './collections/Videos'
+import { WorkerLogs } from './collections/WorkerLogs'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -98,7 +99,7 @@ export default buildConfig({
       },
       push: true,
     }),
-  collections: [Posts, Videos, Categories, Media, Pages, Users],
+  collections: [Pages, Posts, Videos, Categories, Media, Users, WorkerLogs],
   globals: [Header, Footer],
   plugins: [
     payloadSidebar({

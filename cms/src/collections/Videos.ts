@@ -19,6 +19,23 @@ export const Videos: CollectionConfig<'videos'> = {
     defaultColumns: ['title', 'status', 'isPremium', 'publishedAt', 'updatedAt'],
     useAsTitle: 'title',
   },
+  hooks: {
+    afterChange: [
+      async ({ doc, previousDoc, operation }) => {
+        if (
+          (operation === 'create' || operation === 'update') &&
+          doc.status === 'pending' &&
+          doc.videoFile &&
+          (!previousDoc || previousDoc.status !== 'pending' || previousDoc.videoFile !== doc.videoFile)
+        ) {
+          const { videoQueue } = await import('../queue')
+          await videoQueue.add('transcode', { videoId: doc.id })
+          console.log(`[CMS] Enqueued video transcode job for videoId: ${doc.id}`)
+        }
+        return doc
+      },
+    ],
+  },
   fields: [
     {
       name: 'title',

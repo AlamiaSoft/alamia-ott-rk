@@ -70,9 +70,10 @@ export interface Config {
     pages: Page;
     posts: Post;
     videos: Video;
-    media: Media;
     categories: Category;
+    media: Media;
     users: User;
+    'worker-logs': WorkerLog;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -93,9 +94,10 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     videos: VideosSelect<false> | VideosSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'worker-logs': WorkerLogsSelect<false> | WorkerLogsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -801,6 +803,36 @@ export interface Video {
   createdAt: string;
 }
 /**
+ * System diagnosis and FFmpeg transcoding logs emitted by background workers.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "worker-logs".
+ */
+export interface WorkerLog {
+  id: number;
+  level: 'info' | 'warn' | 'error';
+  message: string;
+  /**
+   * Optional Video ID this log pertains to
+   */
+  videoId?: string | null;
+  jobId?: string | null;
+  /**
+   * Additional diagnostic data like stack traces or ffmpeg progress objects
+   */
+  metadata?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1003,16 +1035,20 @@ export interface PayloadLockedDocument {
         value: number | Video;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
-      } | null)
-    | ({
         relationTo: 'categories';
         value: number | Category;
       } | null)
     | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'worker-logs';
+        value: number | WorkerLog;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1264,6 +1300,27 @@ export interface VideosSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  generateSlug?: T;
+  slug?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -1358,27 +1415,6 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  generateSlug?: T;
-  slug?: T;
-  parent?: T;
-  breadcrumbs?:
-    | T
-    | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -1400,6 +1436,19 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "worker-logs_select".
+ */
+export interface WorkerLogsSelect<T extends boolean = true> {
+  level?: T;
+  message?: T;
+  videoId?: T;
+  jobId?: T;
+  metadata?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

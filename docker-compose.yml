@@ -36,9 +36,11 @@ services:
       S3_ENDPOINT: http://rk_storage:9000
       NEXT_PUBLIC_CMS_URL: ${NEXT_PUBLIC_CMS_URL:-https://cmmadmin.alamiaai.com}
       NEXT_PUBLIC_PORTAL_URL: ${NEXT_PUBLIC_PORTAL_URL:-https://cmm.alamiaai.com}
+      REDIS_URL: redis://rk_redis:6379
     depends_on:
       - rk_db
       - rk_storage
+      - rk_redis
     networks:
       - alamia-network
 
@@ -62,9 +64,19 @@ services:
     container_name: rk_worker
     environment:
       S3_ENDPOINT: http://rk_storage:9000
+      REDIS_URL: redis://rk_redis:6379
+      CMS_API_URL: http://rk_cms:4000
     depends_on:
       - rk_storage
       - rk_db
+      - rk_redis
+      - rk_cms
+    networks:
+      - alamia-network
+
+  rk_redis:
+    image: redis:7-alpine
+    container_name: rk_redis
     networks:
       - alamia-network
 
