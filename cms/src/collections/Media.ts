@@ -27,7 +27,7 @@ export const Media: CollectionConfig = {
     update: anyone,
   },
   admin: {
-    group: 'Content Studio',
+    group: '2. Media & Assets',
   },
   fields: [
     {

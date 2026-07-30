@@ -41,7 +41,7 @@ export const Pages: CollectionConfig<'pages'> = {
     plural: 'Pages & Policy',
   },
   admin: {
-    group: 'Taxonomy & Governance',
+    group: '3. Platform Pages',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>
