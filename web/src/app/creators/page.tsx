@@ -47,6 +47,14 @@ export default function CreatorsPage() {
               Explore the Platform
             </Link>
           </div>
+
+          <div className="pt-8">
+            <Link href="/creators/travel" className="inline-flex items-center gap-3 bg-brand-surface/50 hover:bg-brand-surface border border-brand-accent/30 hover:border-brand-accent/70 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all group">
+              <span className="bg-brand-accent text-white px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">NEW</span>
+              Are you a Travel Agency or Vlogger? Explore the Travel Hub
+              <ArrowRight className="w-4 h-4 text-brand-accent group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 
