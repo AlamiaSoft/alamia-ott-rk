@@ -1,27 +1,25 @@
-[12:42:55] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-[12:42:55] INFO: Reading migration files from /app/src/migrations
-[12:42:55] INFO: Migrating: 20260730_121253
-[12:42:55] INFO: Migrated:  20260730_121253 (64ms)
-[12:42:55] INFO: Done.
+[12:53:14] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+[12:53:14] INFO: Reading migration files from /app/src/migrations
+[12:53:14] INFO: Done.
 ▲ Next.js 16.2.6
 - Local:         http://localhost:4000
 - Network:       http://172.20.0.7:4000
-✓ Ready in 232ms
-[12:43:03] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-(node:50) Warning: NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
+✓ Ready in 231ms
+[12:53:33] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+(node:49) Warning: NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
 versions published after the first week of January 2027
 will require node >=22. You are running node v20.20.2.
 To continue receiving updates to AWS services, bug fixes,
 and security updates please upgrade to node >=22.
 More information can be found at: https://a.co/c895JFp
 (Use `node --trace-warnings ...` to show where the warning was created)
-[12:45:41] ERROR: There was an error while uploading files corresponding to the collection media with filename Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4:
-[12:45:41] ERROR: Invalid Request (invalid hostname)
+[12:53:50] ERROR: There was an error while uploading files corresponding to the collection media with filename Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4:
+[12:53:50] ERROR: The specified bucket does not exist
     err: {
-      "type": "InvalidRequest",
-      "message": "Invalid Request (invalid hostname)",
+      "type": "NoSuchBucket",
+      "message": "The specified bucket does not exist",
       "stack":
-          InvalidRequest: Invalid Request (invalid hostname)
+          NoSuchBucket: The specified bucket does not exist
               at S3RestXmlProtocol.handleError (/app/node_modules/@aws-sdk/core/dist-cjs/submodules/protocols/index.js:2601:27)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
               at async S3RestXmlProtocol.deserializeResponse (/app/node_modules/@smithy/core/dist-cjs/submodules/protocols/index.js:357:13)
@@ -34,24 +32,26 @@ More information can be found at: https://a.co/c895JFp
               at async /app/node_modules/@aws-sdk/core/dist-cjs/submodules/client/index.js:125:26
       "$fault": "client",
       "$metadata": {
-        "httpStatusCode": 400,
-        "requestId": "18C711F9C0DE7BB7",
+        "httpStatusCode": 404,
+        "requestId": "18C7126B7AD35001",
         "extendedRequestId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8",
         "attempts": 1,
         "totalRetryDelay": 0
       },
-      "name": "InvalidRequest",
-      "Code": "InvalidRequest",
+      "name": "NoSuchBucket",
+      "Code": "NoSuchBucket",
+      "Key": "Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
+      "BucketName": "alamia-media",
       "Resource": "/alamia-media/Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
-      "RequestId": "18C711F9C0DE7BB7",
+      "RequestId": "18C7126B7AD35001",
       "HostId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8"
     }
-[12:45:41] ERROR: Invalid Request (invalid hostname)
+[12:53:50] ERROR: The specified bucket does not exist
     err: {
-      "type": "InvalidRequest",
-      "message": "Invalid Request (invalid hostname)",
+      "type": "NoSuchBucket",
+      "message": "The specified bucket does not exist",
       "stack":
-          InvalidRequest: Invalid Request (invalid hostname)
+          NoSuchBucket: The specified bucket does not exist
               at S3RestXmlProtocol.handleError (/app/node_modules/@aws-sdk/core/dist-cjs/submodules/protocols/index.js:2601:27)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
               at async S3RestXmlProtocol.deserializeResponse (/app/node_modules/@smithy/core/dist-cjs/submodules/protocols/index.js:357:13)
@@ -64,15 +64,17 @@ More information can be found at: https://a.co/c895JFp
               at async /app/node_modules/@aws-sdk/core/dist-cjs/submodules/client/index.js:125:26
       "$fault": "client",
       "$metadata": {
-        "httpStatusCode": 400,
-        "requestId": "18C711F9C0DE7BB7",
+        "httpStatusCode": 404,
+        "requestId": "18C7126B7AD35001",
         "extendedRequestId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8",
         "attempts": 1,
         "totalRetryDelay": 0
       },
-      "name": "InvalidRequest",
-      "Code": "InvalidRequest",
+      "name": "NoSuchBucket",
+      "Code": "NoSuchBucket",
+      "Key": "Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
+      "BucketName": "alamia-media",
       "Resource": "/alamia-media/Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
-      "RequestId": "18C711F9C0DE7BB7",
+      "RequestId": "18C7126B7AD35001",
       "HostId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8"
     }
