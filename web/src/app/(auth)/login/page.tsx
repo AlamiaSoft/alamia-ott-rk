@@ -37,11 +37,11 @@ export default function LoginPage() {
           <div className="w-16 h-16 bg-brand-card border border-brand-accent/30 rounded-2xl flex items-center justify-center mx-auto shadow-xl">
             <Crown className="w-8 h-8 text-brand-accent" />
           </div>
-          <h2 className="mt-6 text-3xl font-extrabold text-white">Welcome back</h2>
+          <h2 className="mt-6 text-3xl font-extrabold text-white">Login or create account</h2>
           <p className="mt-2 text-sm text-brand-muted">
-            Or{' '}
+            New here?{' '}
             <Link href="/register" className="font-medium text-brand-accent hover:text-brand-goldLight transition-colors">
-              create a new account
+              Create an account
             </Link>
           </p>
         </div>

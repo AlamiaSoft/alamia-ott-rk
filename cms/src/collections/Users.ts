@@ -3,6 +3,14 @@ import type { CollectionConfig } from 'payload'
 export const Users: CollectionConfig = {
   slug: 'users',
   auth: true,
+  access: {
+    create: () => true,
+    update: ({ req: { user }, id }) => {
+      if (user?.role === 'admin') return true;
+      if (user?.id === id) return true;
+      return false;
+    }
+  },
   admin: {
     useAsTitle: 'email',
   },
@@ -16,7 +24,7 @@ export const Users: CollectionConfig = {
         { label: 'Subscriber', value: 'subscriber' },
         { label: 'Guest', value: 'guest' },
       ],
-      defaultValue: 'subscriber',
+      defaultValue: 'guest',
       required: true,
     },
     {

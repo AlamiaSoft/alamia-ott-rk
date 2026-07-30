@@ -1,20 +1,43 @@
 'use client'
 
 import Link from 'next/link'
-import { Check, Crown, Zap } from 'lucide-react'
-import { getCurrentUser } from '@/app/actions/auth'
+import { useRouter } from 'next/navigation'
+import { Check, Crown, Zap, Loader2 } from 'lucide-react'
+import { getCurrentUser, upgradeToPremium } from '@/app/actions/auth'
 import { useEffect, useState } from 'react'
 
 export default function PremiumPage() {
   const [isSubscriber, setIsSubscriber] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [user, setUser] = useState<any>(null)
+  const router = useRouter()
 
   useEffect(() => {
     getCurrentUser().then(res => {
+      setUser(res.user)
       if (res.user && (res.user.role === 'subscriber' || res.user.role === 'admin')) {
         setIsSubscriber(true)
       }
     })
   }, [])
+
+  async function handleMockPayment() {
+    if (!user) {
+      router.push('/login')
+      return
+    }
+    
+    setLoading(true)
+    const res = await upgradeToPremium()
+    
+    if (res.success) {
+      setIsSubscriber(true)
+      router.refresh()
+    } else {
+      alert(res.error || 'Upgrade failed.')
+    }
+    setLoading(false)
+  }
 
   return (
     <div className="min-h-screen bg-brand-dark py-24 relative overflow-hidden">
@@ -77,16 +100,19 @@ export default function PremiumPage() {
                 </p>
               </div>
             ) : (
-              <Link 
-                href="/register" 
-                className="w-full flex items-center justify-center gap-2 gold-gradient-bg hover:bg-brand-goldLight text-black px-8 py-4 rounded-xl font-extrabold text-lg transition-all gold-glow-hover shadow-xl hover:-translate-y-1"
+              <button 
+                onClick={handleMockPayment}
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2 gold-gradient-bg hover:bg-brand-goldLight text-black px-8 py-4 rounded-xl font-extrabold text-lg transition-all gold-glow-hover shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
-                <Zap className="w-5 h-5" /> Subscribe Now
-              </Link>
+                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : (
+                  <><Zap className="w-5 h-5" /> Subscribe Now</>
+                )}
+              </button>
             )}
             
             <p className="text-center text-xs text-brand-muted mt-6">
-              * By clicking "Subscribe Now" you will be redirected to create an account and complete your payment securely. (Mock flow for demo)
+              * By clicking "Subscribe Now" you will be automatically upgraded as a mock payment. If you are not logged in, you will be redirected to Login.
             </p>
           </div>
         </div>

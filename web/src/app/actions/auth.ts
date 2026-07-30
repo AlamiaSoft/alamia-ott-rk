@@ -65,7 +65,7 @@ export async function registerUser(formData: FormData) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password, name, role: 'subscriber' }),
+      body: JSON.stringify({ email, password, name, role: 'guest' }),
     })
 
     const data = await res.json()
@@ -111,5 +111,31 @@ export async function getCurrentUser() {
   } catch (error) {
     console.error('[Auth Action] Get current user error:', error)
     return { user: null }
+  }
+}
+
+export async function upgradeToPremium() {
+  const token = cookies().get('payload-token')?.value
+  if (!token) return { success: false, error: 'Not logged in' }
+
+  const currentUserRes = await getCurrentUser()
+  if (!currentUserRes.user) return { success: false, error: 'User not found' }
+
+  try {
+    const res = await fetch(`${CMS_BASE_URL}/api/users/${currentUserRes.user.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `JWT ${token}`,
+      },
+      body: JSON.stringify({ role: 'subscriber' }),
+    })
+    
+    if (!res.ok) {
+       return { success: false, error: 'Failed to upgrade' }
+    }
+    return { success: true }
+  } catch (err) {
+    return { success: false, error: 'Network error' }
   }
 }
