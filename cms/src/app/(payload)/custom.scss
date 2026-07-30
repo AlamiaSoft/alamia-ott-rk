@@ -2,16 +2,14 @@
 :root {
   --theme-accent-500: #e5a823;
   --theme-accent-600: #9e7010;
+}
+
+[data-theme='dark'] {
   --theme-elevation-0: #0a0a0c;
   --theme-elevation-50: #141311;
   --theme-elevation-100: #1e1d19;
   --theme-elevation-150: #2e2a22;
   --theme-elevation-200: #38342c;
-}
-
-[data-theme='dark'] {
-  --theme-accent-500: #e5a823;
-  --theme-accent-600: #9e7010;
 }
 
 /* Sidebar Top Logo Header Container */
@@ -22,33 +20,4 @@
   background: transparent !important;
 }
 
-/* Nav Group Header Styling - Clean, Regal, Professional */
-.nav-group__toggle {
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  font-size: 0.7rem !important;
-  color: #a19e95 !important;
-  padding: 10px 12px 4px 12px !important;
-}
 
-.nav__link {
-  font-weight: 500 !important;
-  font-size: 0.85rem !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important;
-  color: #cbd5e1 !important;
-  transition: all 0.15s ease !important;
-}
-
-.nav__link:hover {
-  color: #ffd768 !important;
-  background-color: rgba(229, 168, 35, 0.08) !important;
-}
-
-.nav__link.active {
-  color: #ffffff !important;
-  background-color: rgba(229, 168, 35, 0.15) !important;
-  border-left: 2px solid #e5a823 !important;
-  font-weight: 600 !important;
-}
