@@ -1192,24 +1192,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
 
   const statements = sqlString.split(';').filter((s) => s.trim().length > 0)
   for (const statement of statements) {
-    try {
+    if (statement.includes('worker_logs')) {
       await db.execute(sql.raw(statement + ';'))
-    } catch (err: any) {
-      if (
-        err.message.includes('already exists') ||
-        err.message.includes('duplicate') ||
-        err.message.includes('multiple primary keys')
-      ) {
-        console.log('Skipping existing schema element...')
-      } else {
-        throw err
-      }
     }
-  }
 }
 
+
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
-  await db.execute(sql`
+  const sqlString = `
    DROP TABLE "pages_hero_links" CASCADE;
   DROP TABLE "pages_blocks_cta_links" CASCADE;
   DROP TABLE "pages_blocks_cta" CASCADE;
@@ -1312,5 +1302,13 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_payload_jobs_task_slug";
   DROP TYPE "public"."enum_payload_folders_folder_type";
   DROP TYPE "public"."enum_header_nav_items_link_type";
-  DROP TYPE "public"."enum_footer_nav_items_link_type";`)
+  DROP TYPE "public"."enum_footer_nav_items_link_type";`
+
+  const statements = sqlString.split(';').filter((s) => s.trim().length > 0)
+  for (const statement of statements) {
+    if (statement.includes('worker_logs')) {
+      await db.execute(sql.raw(statement + ';'))
+    }
+  }
 }
+
