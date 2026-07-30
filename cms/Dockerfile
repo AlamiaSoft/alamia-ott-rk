@@ -3,7 +3,7 @@ FROM node:20-alpine AS base
 WORKDIR /app
 
 # Install dependencies
-COPY package*.json ./
+COPY package*.json patch-sidebar.js ./
 RUN npm install --legacy-peer-deps
 
 COPY . .
