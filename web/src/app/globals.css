@@ -107,6 +107,12 @@ html.light .gold-gradient-bg {
   color: #0A0A0C !important;
 }
 
+html.light .bg-brand-accent.text-white,
+html.light .bg-emerald-600.text-white,
+html.light .bg-brand-border.text-white {
+  color: #FFFFFF !important;
+}
+
 html.light .bg-black,
 html.light .bg-slate-900,
 html.light [class*="bg-black"],

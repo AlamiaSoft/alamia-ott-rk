@@ -15,7 +15,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
             Global Digital Media Architecture: Hybrid News & Streaming Platform
           </h1>
-          <p className="text-muted-foreground text-base md:text-lg">
+          <p className="text-brand-muted text-base md:text-lg">
             Experience real-time news coverage, opinion analysis, and seamlessly embedded high-definition HLS video streams.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
@@ -48,11 +48,11 @@ export default function Home() {
               <span className="absolute top-3 left-3 bg-brand-accent text-white text-xs px-2 py-1 rounded font-bold">HLS STREAM</span>
             </div>
             <div className="p-5 space-y-2">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Technology & Media</span>
+              <span className="text-xs text-brand-muted uppercase tracking-wider font-semibold">Technology & Media</span>
               <h3 className="font-bold text-lg text-foreground group-hover:text-brand-accent transition-colors">
                 Decoupled Headless CMS & Custom Transcoding Pipelines
               </h3>
-              <p className="text-muted-foreground text-sm line-clamp-2">
+              <p className="text-brand-muted text-sm line-clamp-2">
                 Evaluation of modern digital news platforms matching BBC and Al Jazeera publishing standards.
               </p>
             </div>
@@ -65,11 +65,11 @@ export default function Home() {
               <span className="absolute top-3 left-3 bg-brand-border text-white text-xs px-2 py-1 rounded font-bold">SUBSCRIBER ONLY</span>
             </div>
             <div className="p-5 space-y-2">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Opinion & Politics</span>
+              <span className="text-xs text-brand-muted uppercase tracking-wider font-semibold">Opinion & Politics</span>
               <h3 className="font-bold text-lg text-foreground group-hover:text-brand-accent transition-colors">
                 Monetization & Membership Paywall Gate
               </h3>
-              <p className="text-muted-foreground text-sm line-clamp-2">
+              <p className="text-brand-muted text-sm line-clamp-2">
                 Simulating membership tiers and signed URL protection for premium editorial content.
               </p>
             </div>
@@ -82,11 +82,11 @@ export default function Home() {
               <span className="absolute top-3 left-3 bg-emerald-600 text-white text-xs px-2 py-1 rounded font-bold">FREE WATCH</span>
             </div>
             <div className="p-5 space-y-2">
-              <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Live Analysis</span>
+              <span className="text-xs text-brand-muted uppercase tracking-wider font-semibold">Live Analysis</span>
               <h3 className="font-bold text-lg text-foreground group-hover:text-brand-accent transition-colors">
                 Portainer Stack & Cloudflare Tunnel Architecture
               </h3>
-              <p className="text-muted-foreground text-sm line-clamp-2">
+              <p className="text-brand-muted text-sm line-clamp-2">
                 Deploying production container stacks directly from GitHub to Oracle VPS infrastructure.
               </p>
             </div>
