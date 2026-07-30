@@ -14,6 +14,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/alamia-media/:path*',
+        destination: 'http://minio:9000/alamia-media/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
