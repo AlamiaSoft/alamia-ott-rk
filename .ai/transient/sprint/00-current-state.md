@@ -32,3 +32,4 @@
 - [x] Converted `web/Dockerfile` and `cms/Dockerfile` into Multi-Stage Standalone Builds (~220MB and ~250MB image sizes).
 - [x] Preserved custom **Alamia Dark Theme Web Portal UI** on [`http://localhost:3000`](http://localhost:3000).
 - [x] **Fixed Portainer Deployments:** Resolved TypeScript build errors in the `Users` collection and elegantly split Docker configurations (`docker-compose.yml` for base, `docker-compose.prod.yml` for VPS, `docker-compose.local.yml` for local dev).
+- [x] **Resolved Drizzle/Payload Database Migration Errors:** Replaced failing auto-push schemas in `NODE_ENV=production` by implementing in-container formal migration generation using a `reset-db.js` schema wipe script for fresh staging deployments.
