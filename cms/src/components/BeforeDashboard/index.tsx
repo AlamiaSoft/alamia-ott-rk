@@ -29,7 +29,7 @@ const BeforeDashboard: React.FC = () => {
 
           <div style={{ display: 'flex', gap: '10px' }}>
             <a
-              href="http://localhost:3000"
+              href={process.env.NEXT_PUBLIC_PORTAL_URL || 'http://localhost:3000'}
               target="_blank"
               rel="noreferrer"
               style={{
