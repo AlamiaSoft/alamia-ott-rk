@@ -1,73 +1,78 @@
-[12:40:13] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-[12:40:13] INFO: Reading migration files from /app/src/migrations
-[12:40:13] INFO: Migrating: 20260730_121253
-[12:40:13] ERROR: Error running migration 20260730_121253 Failed query: 
-  
-  CREATE TABLE "payload_locked_documents_rels" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"order" integer,
-  	"parent_id" integer NOT NULL,
-  	"path" varchar NOT NULL,
-  	"pages_id" integer,
-  	"posts_id" integer,
-  	"videos_id" integer,
-  	"categories_id" integer,
-  	"media_id" integer,
-  	"users_id" integer,
-  	"worker_logs_id" integer,
-  	"redirects_id" integer,
-  	"forms_id" integer,
-  	"form_submissions_id" integer,
-  	"search_id" integer,
-  	"payload_folders_id" integer
-  );
-params: .
+[12:42:55] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+[12:42:55] INFO: Reading migration files from /app/src/migrations
+[12:42:55] INFO: Migrating: 20260730_121253
+[12:42:55] INFO: Migrated:  20260730_121253 (64ms)
+[12:42:55] INFO: Done.
+▲ Next.js 16.2.6
+- Local:         http://localhost:4000
+- Network:       http://172.20.0.7:4000
+✓ Ready in 232ms
+[12:43:03] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+(node:50) Warning: NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
+versions published after the first week of January 2027
+will require node >=22. You are running node v20.20.2.
+To continue receiving updates to AWS services, bug fixes,
+and security updates please upgrade to node >=22.
+More information can be found at: https://a.co/c895JFp
+(Use `node --trace-warnings ...` to show where the warning was created)
+[12:45:41] ERROR: There was an error while uploading files corresponding to the collection media with filename Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4:
+[12:45:41] ERROR: Invalid Request (invalid hostname)
     err: {
-      "type": "DrizzleQueryError",
-      "message": "Failed query: \n  \n  CREATE TABLE \"payload_locked_documents_rels\" (\n  \t\"id\" serial PRIMARY KEY NOT NULL,\n  \t\"order\" integer,\n  \t\"parent_id\" integer NOT NULL,\n  \t\"path\" varchar NOT NULL,\n  \t\"pages_id\" integer,\n  \t\"posts_id\" integer,\n  \t\"videos_id\" integer,\n  \t\"categories_id\" integer,\n  \t\"media_id\" integer,\n  \t\"users_id\" integer,\n  \t\"worker_logs_id\" integer,\n  \t\"redirects_id\" integer,\n  \t\"forms_id\" integer,\n  \t\"form_submissions_id\" integer,\n  \t\"search_id\" integer,\n  \t\"payload_folders_id\" integer\n  );\nparams: : relation \"payload_locked_documents_rels\" already exists",
+      "type": "InvalidRequest",
+      "message": "Invalid Request (invalid hostname)",
       "stack":
-          Error: Failed query: 
-
-            
-            CREATE TABLE "payload_locked_documents_rels" (
-            	"id" serial PRIMARY KEY NOT NULL,
-            	"order" integer,
-            	"parent_id" integer NOT NULL,
-            	"path" varchar NOT NULL,
-            	"pages_id" integer,
-            	"posts_id" integer,
-            	"videos_id" integer,
-            	"categories_id" integer,
-            	"media_id" integer,
-            	"users_id" integer,
-            	"worker_logs_id" integer,
-            	"redirects_id" integer,
-            	"forms_id" integer,
-            	"form_submissions_id" integer,
-            	"search_id" integer,
-            	"payload_folders_id" integer
-            );
-          params: 
-              at NodePgPreparedQuery.queryWithCache (/app/node_modules/src/pg-core/session.ts:73:11)
+          InvalidRequest: Invalid Request (invalid hostname)
+              at S3RestXmlProtocol.handleError (/app/node_modules/@aws-sdk/core/dist-cjs/submodules/protocols/index.js:2601:27)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async Object.up (/app/src/migrations/20260730_121253.ts:1196:7)
-              at async runMigrationFile (/app/node_modules/@payloadcms/drizzle/src/migrate.ts:99:5)
-              at async Object.migrate (/app/node_modules/@payloadcms/drizzle/src/migrate.ts:86:5)
-              at async migrate (/app/node_modules/payload/src/bin/migrate.ts:97:7)
-              at async runBinScript (/app/node_modules/payload/dist/bin/index.js:112:9)
-              at async bin (/app/node_modules/payload/dist/bin/index.js:46:29)
-              at async start (file:///app/node_modules/payload/bin.js:41:7)
-          caused by: error: relation "payload_locked_documents_rels" already exists
-              at /app/node_modules/pg/lib/client.js:631:17
+              at async S3RestXmlProtocol.deserializeResponse (/app/node_modules/@smithy/core/dist-cjs/submodules/protocols/index.js:357:13)
+              at async /app/node_modules/@smithy/core/dist-cjs/submodules/schema/index.js:23:24
+              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:365:20
+              at async /app/node_modules/@smithy/core/dist-cjs/submodules/retry/index.js:171:50
+              at async /app/node_modules/@aws-sdk/checksums/dist-cjs/submodules/flexible-checksums/index.js:234:24
+              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:62:28
+              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:89:20
+              at async /app/node_modules/@aws-sdk/core/dist-cjs/submodules/client/index.js:125:26
+      "$fault": "client",
+      "$metadata": {
+        "httpStatusCode": 400,
+        "requestId": "18C711F9C0DE7BB7",
+        "extendedRequestId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8",
+        "attempts": 1,
+        "totalRetryDelay": 0
+      },
+      "name": "InvalidRequest",
+      "Code": "InvalidRequest",
+      "Resource": "/alamia-media/Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
+      "RequestId": "18C711F9C0DE7BB7",
+      "HostId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8"
+    }
+[12:45:41] ERROR: Invalid Request (invalid hostname)
+    err: {
+      "type": "InvalidRequest",
+      "message": "Invalid Request (invalid hostname)",
+      "stack":
+          InvalidRequest: Invalid Request (invalid hostname)
+              at S3RestXmlProtocol.handleError (/app/node_modules/@aws-sdk/core/dist-cjs/submodules/protocols/index.js:2601:27)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async <anonymous> (/app/node_modules/src/node-postgres/session.ts:149:14)
-              at async NodePgPreparedQuery.queryWithCache (/app/node_modules/src/pg-core/session.ts:71:12)
-              at async Object.up (/app/src/migrations/20260730_121253.ts:1196:7)
-              at async runMigrationFile (/app/node_modules/@payloadcms/drizzle/src/migrate.ts:99:5)
-              at async Object.migrate (/app/node_modules/@payloadcms/drizzle/src/migrate.ts:86:5)
-              at async migrate (/app/node_modules/payload/src/bin/migrate.ts:97:7)
-              at async runBinScript (/app/node_modules/payload/dist/bin/index.js:112:9)
-              at async bin (/app/node_modules/payload/dist/bin/index.js:46:29)
-      "query": "\n  \n  CREATE TABLE \"payload_locked_documents_rels\" (\n  \t\"id\" serial PRIMARY KEY NOT NULL,\n  \t\"order\" integer,\n  \t\"parent_id\" integer NOT NULL,\n  \t\"path\" varchar NOT NULL,\n  \t\"pages_id\" integer,\n  \t\"posts_id\" integer,\n  \t\"videos_id\" integer,\n  \t\"categories_id\" integer,\n  \t\"media_id\" integer,\n  \t\"users_id\" integer,\n  \t\"worker_logs_id\" integer,\n  \t\"redirects_id\" integer,\n  \t\"forms_id\" integer,\n  \t\"form_submissions_id\" integer,\n  \t\"search_id\" integer,\n  \t\"payload_folders_id\" integer\n  );",
-      "params": []
+              at async S3RestXmlProtocol.deserializeResponse (/app/node_modules/@smithy/core/dist-cjs/submodules/protocols/index.js:357:13)
+              at async /app/node_modules/@smithy/core/dist-cjs/submodules/schema/index.js:23:24
+              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:365:20
+              at async /app/node_modules/@smithy/core/dist-cjs/submodules/retry/index.js:171:50
+              at async /app/node_modules/@aws-sdk/checksums/dist-cjs/submodules/flexible-checksums/index.js:234:24
+              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:62:28
+              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:89:20
+              at async /app/node_modules/@aws-sdk/core/dist-cjs/submodules/client/index.js:125:26
+      "$fault": "client",
+      "$metadata": {
+        "httpStatusCode": 400,
+        "requestId": "18C711F9C0DE7BB7",
+        "extendedRequestId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8",
+        "attempts": 1,
+        "totalRetryDelay": 0
+      },
+      "name": "InvalidRequest",
+      "Code": "InvalidRequest",
+      "Resource": "/alamia-media/Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
+      "RequestId": "18C711F9C0DE7BB7",
+      "HostId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8"
     }
