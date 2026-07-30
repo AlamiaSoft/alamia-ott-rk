@@ -33,3 +33,5 @@
 - [x] Preserved custom **Alamia Dark Theme Web Portal UI** on [`http://localhost:3000`](http://localhost:3000).
 - [x] **Fixed Portainer Deployments:** Resolved TypeScript build errors in the `Users` collection and elegantly split Docker configurations (`docker-compose.yml` for base, `docker-compose.prod.yml` for VPS, `docker-compose.local.yml` for local dev).
 - [x] **Resolved Drizzle/Payload Database Migration Errors:** Replaced failing auto-push schemas in `NODE_ENV=production` by implementing in-container formal migration generation using a `reset-db.js` schema wipe script for fresh staging deployments.
+- [x] **Sidebar Group Reorganization:** Replaced the array-sorting hack with `payload-sidebar-plugin` to correctly sort sidebar groups (Editorial -> Media -> Pages -> Nav -> Utilities) and add Lucide icons.
+- [x] **Fixed Docker Build Issue with lucide-react:** Hot-patched `payload-sidebar-plugin` using a `postinstall` script to remove the deprecated `Github` icon import (broken by `lucide-react` v1.0.0), and updated `cms/Dockerfile` to copy the patch script before `npm install` runs.
