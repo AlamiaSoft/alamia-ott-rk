@@ -103,7 +103,7 @@ export default function TravelCreatorsPage() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-br from-brand-card to-brand-surface border border-brand-border rounded-3xl p-10 relative overflow-hidden group shadow-2xl h-full flex flex-col justify-center">
+          <div className="bg-brand-card border border-brand-border rounded-3xl p-10 relative overflow-hidden group shadow-2xl h-full flex flex-col justify-center">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 blur-[80px] rounded-full pointer-events-none" />
             
             <div className="space-y-8 relative z-10">

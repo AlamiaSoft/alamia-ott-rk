@@ -90,7 +90,7 @@ export default function CreatorsPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* For Viewers */}
-          <div className="bg-gradient-to-br from-brand-card to-brand-surface border border-brand-border rounded-3xl p-10 md:p-14 space-y-8 relative overflow-hidden group hover:border-brand-accent/30 transition-colors">
+          <div className="bg-brand-card border border-brand-border rounded-3xl p-10 md:p-14 space-y-8 relative overflow-hidden group hover:border-brand-accent/30 transition-colors">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none" />
             <h3 className="text-3xl font-extrabold text-white flex items-center gap-3">
               <Users className="w-8 h-8 text-blue-400" /> For Viewers
@@ -111,7 +111,7 @@ export default function CreatorsPage() {
           </div>
 
           {/* For Creators */}
-          <div className="bg-gradient-to-br from-brand-card to-brand-surface border border-brand-accent/30 rounded-3xl p-10 md:p-14 space-y-8 relative overflow-hidden group hover:border-brand-accent/60 transition-colors shadow-2xl">
+          <div className="bg-brand-card border border-brand-accent/30 rounded-3xl p-10 md:p-14 space-y-8 relative overflow-hidden group hover:border-brand-accent/60 transition-colors shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 blur-[80px] rounded-full pointer-events-none" />
             <h3 className="text-3xl font-extrabold text-white flex items-center gap-3">
               <ShieldCheck className="w-8 h-8 text-brand-accent" /> For Creators
@@ -209,7 +209,7 @@ export default function CreatorsPage() {
               We're building a platform where trusted voices can inform, inspire, and build sustainable businesses around their work.
             </p>
             <div className="pt-8">
-              <button className="bg-brand-dark hover:bg-black text-white px-10 py-5 rounded-xl font-extrabold text-lg transition-all shadow-xl hover:-translate-y-1">
+              <button className="bg-black hover:bg-slate-900 text-white px-10 py-5 rounded-xl font-extrabold text-lg transition-all shadow-xl hover:-translate-y-1">
                 Start Your Independent Network
               </button>
             </div>
