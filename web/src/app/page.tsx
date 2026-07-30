@@ -12,23 +12,35 @@ export default async function Home() {
     <div className="max-w-7xl mx-auto px-6 py-10 space-y-16">
       {/* Hero Section */}
       <section className="relative rounded-2xl overflow-hidden bg-brand-card border border-brand-border p-8 md:p-12">
-        <div className="max-w-2xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold uppercase tracking-wider">
-            Official Digital Platform
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6 max-w-2xl relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold uppercase tracking-wider">
+              Official Digital Platform
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+              Stories That Matter. Conversations That Challenge. Journalism That Inspires.
+            </h1>
+            <p className="text-brand-muted text-base md:text-lg">
+              Follow Reham Khan's latest reporting, exclusive interviews, documentaries, opinion pieces, and premium video content—all in one destination.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link href="/videos" className="flex items-center gap-2 bg-brand-accent hover:bg-brand-goldLight text-black px-6 py-3 rounded-lg font-extrabold transition-all gold-glow-hover">
+                <Play className="w-4 h-4 fill-current" /> Watch Latest Story
+              </Link>
+              <Link href="/news" className="flex items-center gap-2 bg-brand-card hover:bg-brand-border text-foreground px-6 py-3 rounded-lg font-semibold border border-brand-border transition-all">
+                Read Latest Articles
+              </Link>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-            Stories That Matter. Conversations That Challenge. Journalism That Inspires.
-          </h1>
-          <p className="text-brand-muted text-base md:text-lg">
-            Follow Reham Khan's latest reporting, exclusive interviews, documentaries, opinion pieces, and premium video content—all in one destination.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Link href="/videos" className="flex items-center gap-2 bg-brand-accent hover:bg-brand-goldLight text-black px-6 py-3 rounded-lg font-extrabold transition-all gold-glow-hover">
-              <Play className="w-4 h-4 fill-current" /> Watch Latest Story
-            </Link>
-            <Link href="/news" className="flex items-center gap-2 bg-brand-card hover:bg-brand-border text-foreground px-6 py-3 rounded-lg font-semibold border border-brand-border transition-all">
-              Read Latest Articles
-            </Link>
+          
+          <div className="hidden lg:block relative h-[450px] w-full rounded-2xl overflow-hidden border border-brand-accent/20 shadow-2xl">
+            <img 
+              src="/reham-khan.jpg" 
+              alt="Reham Khan" 
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-card via-transparent to-transparent opacity-60" />
           </div>
         </div>
       </section>
