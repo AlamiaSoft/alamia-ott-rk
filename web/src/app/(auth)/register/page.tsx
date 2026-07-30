@@ -37,7 +37,7 @@ export default function RegisterPage() {
           <div className="w-16 h-16 bg-brand-card border border-brand-accent/30 rounded-2xl flex items-center justify-center mx-auto shadow-xl">
             <UserPlus className="w-8 h-8 text-brand-accent" />
           </div>
-          <h2 className="mt-6 text-3xl font-extrabold text-white">Create an account</h2>
+          <h2 className="mt-6 text-3xl font-extrabold text-foreground">Create an account</h2>
           <p className="mt-2 text-sm text-brand-muted">
             Or{' '}
             <Link href="/login" className="font-medium text-brand-accent hover:text-brand-goldLight transition-colors">
@@ -55,45 +55,45 @@ export default function RegisterPage() {
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-brand-muted mb-2">Full Name</label>
+              <label className="block text-sm font-medium text-foreground/80 mb-2">Full Name</label>
               <input
                 name="name"
                 type="text"
                 required
-                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
                 placeholder="John Doe"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-brand-muted mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-foreground/80 mb-2">Email Address</label>
               <input
                 name="email"
                 type="email"
                 required
-                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
                 placeholder="you@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-brand-muted mb-2">Password</label>
+              <label className="block text-sm font-medium text-foreground/80 mb-2">Password</label>
               <input
                 name="password"
                 type="password"
                 required
-                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
                 placeholder="••••••••"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-brand-muted mb-2">Confirm Password</label>
+              <label className="block text-sm font-medium text-foreground/80 mb-2">Confirm Password</label>
               <input
                 name="confirmPassword"
                 type="password"
                 required
-                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
                 placeholder="••••••••"
               />
             </div>

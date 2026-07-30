@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Check, Crown, Zap, Loader2 } from 'lucide-react'
+import { Check, Crown, Zap, Loader2, CreditCard, Lock, X } from 'lucide-react'
 import { getCurrentUser, upgradeToPremium } from '@/app/actions/auth'
 import { useEffect, useState } from 'react'
 
@@ -10,6 +10,7 @@ export default function PremiumPage() {
   const [isSubscriber, setIsSubscriber] = useState(false)
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState<any>(null)
+  const [showModal, setShowModal] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -21,17 +22,22 @@ export default function PremiumPage() {
     })
   }, [])
 
-  async function handleMockPayment() {
+  function handleSubscribeClick() {
     if (!user) {
       router.push('/login')
       return
     }
-    
+    setShowModal(true)
+  }
+
+  async function handleMockPayment(e: React.FormEvent) {
+    e.preventDefault()
     setLoading(true)
     const res = await upgradeToPremium()
     
     if (res.success) {
       setIsSubscriber(true)
+      setShowModal(false)
       router.refresh()
     } else {
       alert(res.error || 'Upgrade failed.')
@@ -101,23 +107,119 @@ export default function PremiumPage() {
               </div>
             ) : (
               <button 
-                onClick={handleMockPayment}
-                disabled={loading}
-                className="w-full flex items-center justify-center gap-2 gold-gradient-bg hover:bg-brand-goldLight text-black px-8 py-4 rounded-xl font-extrabold text-lg transition-all gold-glow-hover shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                onClick={handleSubscribeClick}
+                className="w-full flex items-center justify-center gap-2 gold-gradient-bg hover:bg-brand-goldLight text-black px-8 py-4 rounded-xl font-extrabold text-lg transition-all gold-glow-hover shadow-xl hover:-translate-y-1"
               >
-                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : (
-                  <><Zap className="w-5 h-5" /> Subscribe Now</>
-                )}
+                <Zap className="w-5 h-5" /> Subscribe Now
               </button>
             )}
             
             <p className="text-center text-xs text-brand-muted mt-6">
-              * By clicking "Subscribe Now" you will be automatically upgraded as a mock payment. If you are not logged in, you will be redirected to Login.
+              * By clicking "Subscribe Now" a secure mock checkout will initiate.
             </p>
           </div>
         </div>
 
       </div>
+
+      {/* Mock Payment Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
+          
+          <div className="relative bg-brand-card border border-brand-border rounded-3xl w-full max-w-md shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+            <div className="p-6 border-b border-brand-border flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
+                  <Crown className="w-4 h-4 text-brand-accent" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Complete Payment</h3>
+              </div>
+              <button 
+                onClick={() => setShowModal(false)}
+                className="p-2 text-brand-muted hover:text-white rounded-full hover:bg-brand-surface transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleMockPayment} className="p-6 space-y-6">
+              <div className="bg-brand-surface border border-brand-border rounded-xl p-4 flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-bold text-white">Checkmate Pro Subscription</p>
+                  <p className="text-xs text-brand-muted">Billed monthly</p>
+                </div>
+                <div className="text-lg font-extrabold text-white">$9.99</div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Card Number</label>
+                  <div className="relative">
+                    <CreditCard className="w-5 h-5 text-brand-muted absolute left-3 top-1/2 -translate-y-1/2" />
+                    <input 
+                      type="text" 
+                      required
+                      placeholder="0000 0000 0000 0000" 
+                      defaultValue="4242 4242 4242 4242"
+                      className="w-full bg-brand-surface border border-brand-border rounded-xl pl-10 pr-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Expiry</label>
+                    <input 
+                      type="text" 
+                      required
+                      placeholder="MM/YY" 
+                      defaultValue="12/28"
+                      className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">CVC</label>
+                    <input 
+                      type="text" 
+                      required
+                      placeholder="123" 
+                      defaultValue="123"
+                      className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors font-mono"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-xs font-medium text-brand-muted mb-2 uppercase tracking-wider">Name on Card</label>
+                  <input 
+                    type="text" 
+                    required
+                    placeholder="John Doe" 
+                    defaultValue={user?.name || "Jane Doe"}
+                    className="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <button 
+                  type="submit"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 gold-gradient-bg hover:bg-brand-goldLight text-black px-6 py-4 rounded-xl font-extrabold text-lg transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : (
+                    <><Lock className="w-4 h-4" /> Pay $9.99 & Subscribe</>
+                  )}
+                </button>
+                <p className="text-center text-xs text-brand-muted mt-4">
+                  This is a secure mock payment. No real card is charged.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
