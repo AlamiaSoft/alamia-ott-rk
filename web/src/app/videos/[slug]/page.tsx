@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getVideoBySlug } from '@/app/actions/content'
+import { getCurrentUser } from '@/app/actions/auth'
 import HlsVideoPlayer from '@/components/HlsVideoPlayer'
 
 export const dynamic = 'force-dynamic'
@@ -20,6 +21,8 @@ export default async function VideoPage(props: VideoPageProps) {
   }
 
   const video = res.data
+  const { user } = await getCurrentUser()
+  const hasAccess = user && (user.role === 'admin' || user.role === 'subscriber')
 
   const videoJsOptions = {
     autoplay: false,
@@ -52,6 +55,7 @@ export default async function VideoPage(props: VideoPageProps) {
             options={videoJsOptions} 
             isPremium={video.isPremium || false}
             previewDuration={video.durationSeconds || 30}
+            hasAccess={hasAccess}
           />
         ) : (
           <div className="aspect-video w-full flex flex-col items-center justify-center space-y-4 bg-brand-card/50 rounded-lg">

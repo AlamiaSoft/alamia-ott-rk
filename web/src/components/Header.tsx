@@ -1,8 +1,12 @@
 import Link from 'next/link';
-import { PlaySquare, Newspaper, User, Search } from 'lucide-react';
+import { PlaySquare, Newspaper, User, Search, Crown } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
+import { getCurrentUser } from '@/app/actions/auth';
+import AuthButtons from './AuthButtons';
 
-export default function Header() {
+export default async function Header() {
+  const { user } = await getCurrentUser();
+
   return (
     <header className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-brand-border px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -29,7 +33,9 @@ export default function Header() {
           <Link href="/creators" className="hover:text-brand-accent transition-colors flex items-center gap-1.5 font-bold text-white">
             <User className="w-4 h-4 text-brand-accent" /> For Creators
           </Link>
-          <Link href="/opinion" className="hover:text-brand-goldLight transition-colors">Opinion</Link>
+          <Link href="/premium" className="hover:text-brand-goldLight transition-colors flex items-center gap-1.5 font-bold text-brand-accent">
+            <Crown className="w-4 h-4" /> Premium
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-4">
@@ -39,9 +45,7 @@ export default function Header() {
             <Search className="w-5 h-5" />
           </button>
           
-          <Link href="/login" className="flex items-center gap-2 text-sm font-semibold gold-gradient-bg text-brand-dark px-4 py-2 rounded-md gold-glow gold-glow-hover transition-all">
-            <User className="w-4 h-4" /> Log In
-          </Link>
+          <AuthButtons user={user} />
         </div>
       </div>
     </header>

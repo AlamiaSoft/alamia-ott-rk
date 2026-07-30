@@ -21,9 +21,10 @@ interface HlsVideoPlayerProps {
   }
   isPremium?: boolean
   previewDuration?: number
+  hasAccess?: boolean
 }
 
-export default function HlsVideoPlayer({ options, isPremium = false, previewDuration = 30 }: HlsVideoPlayerProps) {
+export default function HlsVideoPlayer({ options, isPremium = false, previewDuration = 30, hasAccess = false }: HlsVideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const playerRef = useRef<Player | null>(null)
   const [showPaywall, setShowPaywall] = useState(false)
@@ -38,7 +39,7 @@ export default function HlsVideoPlayer({ options, isPremium = false, previewDura
       })
 
       // Add Paywall listener
-      if (isPremium && playerRef.current) {
+      if (isPremium && !hasAccess && playerRef.current) {
         playerRef.current.on('timeupdate', () => {
           const player = playerRef.current
           if (!player) return
@@ -61,7 +62,7 @@ export default function HlsVideoPlayer({ options, isPremium = false, previewDura
       player.src(options.sources)
       if (options.poster) player.poster(options.poster)
     }
-  }, [options, isPremium, previewDuration, videoRef])
+  }, [options, isPremium, previewDuration, hasAccess, videoRef])
 
   useEffect(() => {
     const player = playerRef.current
