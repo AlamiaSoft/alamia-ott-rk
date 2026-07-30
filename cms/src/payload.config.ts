@@ -4,7 +4,7 @@ import sharp from 'sharp'
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
-
+import { payloadSidebar } from 'payload-sidebar-plugin'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -101,6 +101,29 @@ export default buildConfig({
   collections: [Posts, Videos, Categories, Media, Pages, Users],
   globals: [Header, Footer],
   plugins: [
+    payloadSidebar({
+      groupOrder: {
+        'Editorial': 1,
+        'Media & Assets': 2,
+        'Platform Pages': 3,
+        'Navigation': 4,
+        'System & Utilities': 5,
+      },
+      icons: {
+        posts: 'file-pen',
+        videos: 'video',
+        categories: 'folder-tree',
+        media: 'images',
+        pages: 'layout',
+        users: 'users-round',
+        header: 'panel-top',
+        footer: 'panel-bottom',
+        redirects: 'corner-up-right',
+        forms: 'clipboard-list',
+        'form-submissions': 'inbox',
+        search: 'search',
+      },
+    }),
     ...plugins,
   ],
   secret: process.env.PAYLOAD_SECRET || 'dev_secret_key_change_in_production',
