@@ -12,5 +12,5 @@ repobrain, conventions, rules, ask, context   repobrain_engine
 docker, postgres, minio, container, compose   infrastructure_and_docker
 cms, payload, article, collection, editor     editorial_cms
 ffmpeg, hls, transcode, video pipeline, m3u8  video_pipeline
-nextjs, web, frontend, video.js, UI, auth     web_frontend
+nextjs, web, frontend, video.js, UI, auth, jwt, paywall, login, register, premium  web_frontend
 ```
