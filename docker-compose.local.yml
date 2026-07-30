@@ -17,12 +17,8 @@ services:
     ports:
       - "24000:4000"
     environment:
-      DATABASE_URI: "postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres_dev_password}@rk_db:5432/${POSTGRES_DB:-alamia_ott}"
-      PAYLOAD_DB_PUSH: "true"
+      NEXT_PUBLIC_PORTAL_URL: http://localhost:3000
     command: ["npm", "run", "dev"]
-    depends_on:
-      - rk_storage
-      - rk_db
 
   rk_web:
     ports:

@@ -20,7 +20,7 @@ services:
     ports:
       - "24000:4000"
     environment:
-      PAYLOAD_DB_PUSH: 'true'
+      NEXT_PUBLIC_PORTAL_URL: https://cmm.alamiaai.com
 
   rk_web:
     restart: unless-stopped

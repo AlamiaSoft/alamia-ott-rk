@@ -11,6 +11,8 @@
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 4000",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "build:start": "cross-env NODE_OPTIONS=--no-deprecation next build && next start -p 4000",
+    "db:migrate:create": "cross-env DATABASE_URI=postgres://dummy npx payload migrate:create",
+    "db:migrate": "npx payload migrate",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",

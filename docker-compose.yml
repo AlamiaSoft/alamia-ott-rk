@@ -33,7 +33,6 @@ services:
     environment:
       DATABASE_URI: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres_dev_password}@rk_db:5432/${POSTGRES_DB:-alamia_ott}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dev_secret_key_change_in_production}
-      PAYLOAD_DB_PUSH: "true"
       S3_ENDPOINT: http://rk_storage:9000
       NEXT_PUBLIC_CMS_URL: ${NEXT_PUBLIC_CMS_URL:-https://cmmadmin.alamiaai.com}
       NEXT_PUBLIC_PORTAL_URL: ${NEXT_PUBLIC_PORTAL_URL:-https://cmm.alamiaai.com}
