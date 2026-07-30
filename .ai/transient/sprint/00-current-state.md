@@ -11,8 +11,8 @@
 | :--- | :--- | :---: | :--- |
 | **Sprint 0** | **Project Foundation** | 🟢 **COMPLETED** | Portainer Stack (`docker-compose.yml`), Postgres, MinIO, Payload CMS 3 (Next 15), Next.js Web, FFmpeg worker |
 | **Sprint 1** | **Payload 3 Template & Checkmate Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), Checkmate Media golden king branding, clean typography (no emojis), multi-tenant SaaS metrics panel, Auto/Dark/Light theme switchers, live video stream rendering, multi-stage standalone builds (~220MB-250MB), REST APIs, fixed `Users` collection TS issue, and elegant Docker configuration split (`docker-compose.yml`, `docker-compose.prod.yml`, `docker-compose.local.yml`) for Portainer vs Local dev. Custom Alamia Dark Theme web portal (`web/`) connected via API. |
-| **Sprint 2** | **Video Pipeline & Storage** | 🟡 **NEXT SESSION FOCUS** | Direct video uploader, MinIO S3 bucket integration, FFmpeg worker queue, HLS transcoding, video player stream page (`/videos/[slug]`). |
-| **Sprint 3** | **Public Website Polish** | ⚪ Pending | Next.js portal pages (News feed, Video player, Article reader, Search) |
+| **Sprint 2** | **Video Pipeline & Storage** | 🟢 **COMPLETED** | Direct video uploader, MinIO S3 bucket auto-provisioning (`rk_storage_init`), FFmpeg worker queue with BullMQ, HLS transcoding, video player stream page (`/videos/[slug]`), and Creators Landing Page (`/creators`). |
+| **Sprint 3** | **Public Website Polish** | 🟡 **NEXT SESSION FOCUS** | Next.js portal pages (News feed, Article reader, Search), embed external video sources (YouTube/FB/Insta Option 1 support). |
 | **Sprint 4** | **Membership & Paywall** | ⚪ Pending | Auth (Login/Register), JWT tokens, subscriber middleware, premium badges |
 | **Sprint 5** | **Polish & Demo Prep** | ⚪ Pending | Cloudflare Tunnel verification, SEO metadata, demo content population |
 
