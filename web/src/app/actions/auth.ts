@@ -71,7 +71,11 @@ export async function registerUser(formData: FormData) {
     const data = await res.json()
 
     if (!res.ok) {
-      return { success: false, error: data.errors?.[0]?.message || 'Failed to create account' }
+      let errorMessage = data.errors?.[0]?.message || 'Failed to create account'
+      if (errorMessage.toLowerCase().includes('this field is invalid: email')) {
+        errorMessage = 'An account with this email address already exists.'
+      }
+      return { success: false, error: errorMessage }
     }
 
     // Immediately log them in

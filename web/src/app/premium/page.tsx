@@ -1,17 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { Check, Crown, Zap, Loader2, CreditCard, Lock, X } from 'lucide-react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { Check, Crown, Zap, Loader2, CreditCard, Lock, X, PlayCircle } from 'lucide-react'
 import { getCurrentUser, upgradeToPremium } from '@/app/actions/auth'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 
-export default function PremiumPage() {
+function PremiumContent() {
   const [isSubscriber, setIsSubscriber] = useState(false)
+  const [justSubscribed, setJustSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState<any>(null)
   const [showModal, setShowModal] = useState(false)
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const redirectUrl = searchParams.get('redirect')
 
   useEffect(() => {
     getCurrentUser().then(res => {
@@ -37,8 +40,17 @@ export default function PremiumPage() {
     
     if (res.success) {
       setIsSubscriber(true)
+      setJustSubscribed(true)
       setShowModal(false)
-      router.refresh()
+      
+      // Auto-redirect after a short delay if a redirect URL exists
+      if (redirectUrl) {
+        setTimeout(() => {
+          router.push(redirectUrl)
+        }, 5000)
+      } else {
+        router.refresh()
+      }
     } else {
       alert(res.error || 'Upgrade failed.')
     }
@@ -99,7 +111,38 @@ export default function PremiumPage() {
               ))}
             </ul>
 
-            {isSubscriber ? (
+            {justSubscribed ? (
+              <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="text-center p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl">
+                  <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Check className="w-6 h-6 text-emerald-500" />
+                  </div>
+                  <h4 className="text-emerald-500 font-bold text-lg mb-1">Payment Successful!</h4>
+                  <p className="text-emerald-500/80 text-sm">You are now a Checkmate Pro subscriber.</p>
+                </div>
+                
+                {redirectUrl ? (
+                  <Link 
+                    href={redirectUrl}
+                    className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-xl font-extrabold text-lg transition-all shadow-xl hover:-translate-y-1"
+                  >
+                    <PlayCircle className="w-5 h-5" /> Continue Watching
+                  </Link>
+                ) : (
+                  <Link 
+                    href="/"
+                    className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-xl font-extrabold text-lg transition-all shadow-xl hover:-translate-y-1"
+                  >
+                    Return Home
+                  </Link>
+                )}
+                {redirectUrl && (
+                  <p className="text-center text-xs text-brand-muted mt-2">
+                    Redirecting you automatically in 5 seconds...
+                  </p>
+                )}
+              </div>
+            ) : isSubscriber ? (
               <div className="text-center p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
                 <p className="text-emerald-500 font-bold flex items-center justify-center gap-2">
                   <Check className="w-5 h-5" /> You are already subscribed!
@@ -221,5 +264,13 @@ export default function PremiumPage() {
         </div>
       )}
     </div>
+  )
+}
+
+export default function PremiumPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-brand-dark flex items-center justify-center"><Loader2 className="w-10 h-10 animate-spin text-brand-accent" /></div>}>
+      <PremiumContent />
+    </Suspense>
   )
 }
