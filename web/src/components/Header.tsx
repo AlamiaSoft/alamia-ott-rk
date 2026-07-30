@@ -26,6 +26,9 @@ export default function Header() {
           <Link href="/videos" className="hover:text-brand-goldLight transition-colors flex items-center gap-1.5">
             <PlaySquare className="w-4 h-4" /> Videos & OTT
           </Link>
+          <Link href="/creators" className="hover:text-brand-accent transition-colors flex items-center gap-1.5 font-bold text-white">
+            <User className="w-4 h-4 text-brand-accent" /> For Creators
+          </Link>
           <Link href="/opinion" className="hover:text-brand-goldLight transition-colors">Opinion</Link>
         </nav>
 
