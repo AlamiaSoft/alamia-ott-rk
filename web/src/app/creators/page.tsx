@@ -24,7 +24,7 @@ export default function CreatorsPage() {
             <Globe className="w-4 h-4" /> Pakistan's Next Independent Media Network
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold font-cinzel leading-tight tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
             Beyond a Channel.<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-goldLight via-brand-accent to-amber-700">
               Build a Media Business.
@@ -149,7 +149,7 @@ export default function CreatorsPage() {
       <section className="px-6 py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl font-extrabold text-white font-cinzel">Built for Growth</h2>
+            <h2 className="text-4xl font-extrabold text-white">Built for Growth</h2>
             <p className="text-lg text-brand-muted">
               The platform is designed to evolve alongside your vision. What starts as one creator can become an entire media ecosystem.
             </p>
@@ -194,7 +194,7 @@ export default function CreatorsPage() {
         <div className="max-w-5xl mx-auto rounded-3xl gold-gradient-bg p-12 md:p-20 text-center space-y-8 shadow-2xl relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
           <div className="relative z-10 space-y-8">
-            <h2 className="text-4xl md:text-6xl font-extrabold text-brand-dark font-cinzel leading-tight">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-brand-dark leading-tight">
               Join the Movement
             </h2>
             <p className="text-xl md:text-2xl text-brand-dark/80 font-medium max-w-3xl mx-auto">

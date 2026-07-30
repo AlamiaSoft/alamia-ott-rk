@@ -12,7 +12,7 @@ export default async function VideosPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-10 space-y-8">
       <div>
-        <h1 className="text-3xl font-extrabold text-white font-cinzel">Videos & OTT Streaming Library</h1>
+        <h1 className="text-3xl font-extrabold text-white">Videos & OTT Streaming Library</h1>
         <p className="text-brand-muted mt-2">Explore high-definition HLS video streams, interviews, and documentaries.</p>
       </div>
 

@@ -12,7 +12,7 @@ export default function Header() {
             alt="Checkmate Media Logo"
             className="w-9 h-9 rounded-md object-cover border border-brand-accent/50 shadow-sm"
           />
-          <div className="flex items-center gap-1.5 font-cinzel">
+          <div className="flex items-center gap-1.5 font-sans">
             <span className="text-white uppercase tracking-wider font-bold">CHECKMATE</span>
             <span className="text-brand-accent uppercase tracking-wider font-bold">MEDIA</span>
           </div>

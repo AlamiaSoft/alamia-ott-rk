@@ -21,10 +21,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.font-cinzel {
-  font-family: 'Cinzel', serif;
-}
-
 .gold-gradient-bg {
   background: linear-gradient(135deg, #FFD768 0%, #E5A823 100%);
 }
