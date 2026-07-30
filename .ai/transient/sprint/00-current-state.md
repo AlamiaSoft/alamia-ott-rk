@@ -13,8 +13,21 @@
 | **Sprint 1** | **Payload 3 Template & Checkmate Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), Checkmate Media golden king branding, clean typography (no emojis), multi-tenant SaaS metrics panel, Auto/Dark/Light theme switchers, live video stream rendering, multi-stage standalone builds (~220MB-250MB), REST APIs, fixed `Users` collection TS issue, and elegant Docker configuration split (`docker-compose.yml`, `docker-compose.prod.yml`, `docker-compose.local.yml`) for Portainer vs Local dev. Custom Alamia Dark Theme web portal (`web/`) connected via API. |
 | **Sprint 2** | **Video Pipeline & Storage** | 🟢 **COMPLETED** | Direct video uploader, MinIO S3 bucket auto-provisioning (`rk_storage_init`), FFmpeg worker queue with BullMQ, HLS transcoding, video player stream page (`/videos/[slug]`), and Creators Landing Page (`/creators`). |
 | **Sprint 3** | **Public Website Polish** | 🟡 **NEXT SESSION FOCUS** | Next.js portal pages (News feed, Article reader, Search), embed external video sources (YouTube/FB/Insta Option 1 support). |
-| **Sprint 4** | **Membership & Paywall** | ⚪ Pending | Auth (Login/Register), JWT tokens, subscriber middleware, premium badges |
+| **Sprint 4** | **Membership & Paywall** | 🟢 **COMPLETED** | Auth (Login/Register), JWT tokens stored in HTTP-only cookies, subscriber role logic, Premium Page with mock payment flow & upgrade workflow, responsive mobile navigation, and light/dark theme contrast fixes. |
 | **Sprint 5** | **Polish & Demo Prep** | ⚪ Pending | Cloudflare Tunnel verification, SEO metadata, demo content population |
+
+---
+
+## 3. Sprint 4 Completed Milestones
+
+- [x] Configured Payload `Users` collection to allow public registration via REST API.
+- [x] Built secure Server Actions (`web/src/app/actions/auth.ts`) for Login, Register, Logout, and User retrieval using `payload-token` HTTP-only cookies.
+- [x] Created `/login` and `/register` pages with form validation and intelligent duplicate email handling.
+- [x] Added `upgradeToPremium` action to patch the user's role to `subscriber` via the CMS API.
+- [x] Built the `/premium` page with a professional Mock Payment Modal for simulated checkouts.
+- [x] Integrated auto-redirect functionality from the Paywall (`?redirect=...`) so users land back on their video after subscribing.
+- [x] Fixed light mode color contrasts across all forms (ensuring inputs and labels are fully readable on white backgrounds).
+- [x] Added hamburger mobile menu to the Header and synced Footer branding to match Header perfectly.
 
 ---
 
