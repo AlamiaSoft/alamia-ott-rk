@@ -74,7 +74,7 @@ export const Videos: CollectionConfig<'videos'> = {
         { label: 'Ready / Published', value: 'ready' },
         { label: 'Failed', value: 'failed' },
       ],
-      defaultValue: 'ready',
+      defaultValue: 'pending',
       required: true,
     },
     {
