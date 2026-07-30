@@ -91,7 +91,16 @@ html.light .text-white {
 }
 
 html.light .text-brand-muted {
-  color: #475569 !important;
+  color: #334155 !important;
+}
+
+html.light label {
+  color: #0F172A !important;
+  font-weight: 600;
+}
+
+html.light input::placeholder {
+  color: #64748B !important;
 }
 
 html.light .border-brand-border {
