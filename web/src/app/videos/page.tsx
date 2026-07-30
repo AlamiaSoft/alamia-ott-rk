@@ -26,7 +26,8 @@ export default async function VideosPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {videos.map((video: any) => (
-            <div
+            <Link
+              href={`/videos/${video.slug}`}
               key={video.id}
               className="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-lg hover:border-brand-accent/50 transition-all group flex flex-col justify-between"
             >
@@ -83,7 +84,7 @@ export default async function VideosPage() {
                 )}
                 <span>{new Date(video.publishedAt).toLocaleDateString()}</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}
