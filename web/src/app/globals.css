@@ -59,7 +59,8 @@ html.light .bg-brand-dark {
   color: #0F172A !important;
 }
 
-html.light .bg-brand-card {
+html.light .bg-brand-card,
+html.light .bg-brand-card\/80 {
   background-color: #FFFFFF !important;
   border-color: #CBD5E1 !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
