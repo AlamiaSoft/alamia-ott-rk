@@ -14,7 +14,7 @@
 | **Sprint 2** | **Video Pipeline & Storage** | 🟢 **COMPLETED** | Direct video uploader, MinIO S3 bucket auto-provisioning (`rk_storage_init`), FFmpeg worker queue with BullMQ, HLS transcoding, video player stream page (`/videos/[slug]`), and Creators Landing Page (`/creators`). |
 | **Sprint 3** | **Public Website Polish** | 🟢 **COMPLETED** | Next.js portal pages (News feed, Article reader, Search, Social Feeds, Bulk Import), embed external video sources (YouTube/FB/Insta Option 1 support). |
 | **Sprint 4** | **Membership & Paywall** | 🟢 **COMPLETED** | Auth (Login/Register), JWT tokens stored in HTTP-only cookies, subscriber role logic, Premium Page with mock payment flow & upgrade workflow, responsive mobile navigation, and light/dark theme contrast fixes. |
-| **Sprint 5** | **Polish & Demo Prep** | 🟡 **NEXT SESSION FOCUS** | Cloudflare Tunnel verification, SEO metadata, demo content population |
+| **Sprint 5** | **Polish & Demo Prep** | 🟡 **NEXT SESSION FOCUS** | Cloudflare Tunnel verification, SEO metadata, demo content population, and auto-generated video thumbnails (via FFmpeg for uploads or YouTube API for external). |
 
 ---
 
