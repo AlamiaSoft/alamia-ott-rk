@@ -64,7 +64,23 @@ export default async function VideoPage(props: VideoPageProps) {
               </div>
             ) : null}
             <iframe 
-              src={video.externalEmbedUrl}
+              src={(() => {
+                const url = video.externalEmbedUrl || '';
+                if (!url) return '';
+                try {
+                  if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                    const videoId = url.includes('v=') ? new URL(url).searchParams.get('v') : url.split('youtu.be/')[1]?.split('?')[0];
+                    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+                  }
+                  if (url.includes('vimeo.com')) {
+                    const videoId = url.split('vimeo.com/')[1]?.split('/')[0];
+                    return videoId ? `https://player.vimeo.com/video/${videoId}` : url;
+                  }
+                  return url;
+                } catch(e) {
+                  return url;
+                }
+              })()}
               className="w-full h-full"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
