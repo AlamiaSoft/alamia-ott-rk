@@ -9,6 +9,16 @@ export const SocialFeeds: CollectionConfig = {
   access: {
     read: () => true,
   },
+  endpoints: [
+    {
+      path: '/:id/sync',
+      method: 'post',
+      handler: async (req) => {
+        const { syncFeedHandler } = await import('../endpoints/sync-feed')
+        return syncFeedHandler(req)
+      },
+    },
+  ],
   fields: [
     {
       name: 'name',
@@ -45,6 +55,16 @@ export const SocialFeeds: CollectionConfig = {
     {
       name: 'description',
       type: 'textarea',
-    }
+    },
+    {
+      name: 'syncAction',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '@/components/SyncFeedButton#SyncFeedButton',
+        },
+        position: 'sidebar',
+      },
+    },
   ],
 }

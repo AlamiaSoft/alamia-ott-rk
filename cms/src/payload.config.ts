@@ -147,4 +147,26 @@ export default buildConfig({
     },
     tasks: [],
   },
+  onInit: async (payload) => {
+    // Only schedule background syncing in production so it doesn't spam during local dev
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        const { syncSocialFeeds } = await import('./utilities/syncFeeds')
+        
+        // Initial sync 1 minute after boot
+        setTimeout(() => {
+          payload.logger.info('Running initial Social Feeds background sync...')
+          syncSocialFeeds(payload).catch(err => payload.logger.error(`Social Feed Sync Error: ${err}`))
+        }, 1000 * 60)
+
+        // Then every 1 hour
+        setInterval(() => {
+          payload.logger.info('Running hourly Social Feeds background sync...')
+          syncSocialFeeds(payload).catch(err => payload.logger.error(`Social Feed Sync Error: ${err}`))
+        }, 1000 * 60 * 60)
+      } catch (err) {
+        payload.logger.error('Failed to initialize Social Feed sync schedule.')
+      }
+    }
+  },
 })
