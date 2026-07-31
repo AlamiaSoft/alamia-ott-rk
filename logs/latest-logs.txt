@@ -1,80 +1,100 @@
-[12:53:14] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-[12:53:14] INFO: Reading migration files from /app/src/migrations
-[12:53:14] INFO: Done.
-▲ Next.js 16.2.6
-- Local:         http://localhost:4000
-- Network:       http://172.20.0.7:4000
-✓ Ready in 231ms
-[12:53:33] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-(node:49) Warning: NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
-versions published after the first week of January 2027
-will require node >=22. You are running node v20.20.2.
-To continue receiving updates to AWS services, bug fixes,
-and security updates please upgrade to node >=22.
-More information can be found at: https://a.co/c895JFp
-(Use `node --trace-warnings ...` to show where the warning was created)
-[12:53:50] ERROR: There was an error while uploading files corresponding to the collection media with filename Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4:
-[12:53:50] ERROR: The specified bucket does not exist
-    err: {
-      "type": "NoSuchBucket",
-      "message": "The specified bucket does not exist",
       "stack":
-          NoSuchBucket: The specified bucket does not exist
-              at S3RestXmlProtocol.handleError (/app/node_modules/@aws-sdk/core/dist-cjs/submodules/protocols/index.js:2601:27)
+          Error: Failed query: select "id", "title", "description", "video_file_id", "thumbnail_id", "duration_seconds", "category_id", "status", "is_premium", "external_embed_url", "external_provider", "hls_playlist_url", "published_at", "generate_slug", "slug", "updated_at", "created_at" from "videos" "videos" where "videos"."status" = $1 order by "videos"."created_at" desc limit $2
+          params: ready,100
+              at f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22857)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async S3RestXmlProtocol.deserializeResponse (/app/node_modules/@smithy/core/dist-cjs/submodules/protocols/index.js:357:13)
-              at async /app/node_modules/@smithy/core/dist-cjs/submodules/schema/index.js:23:24
-              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:365:20
-              at async /app/node_modules/@smithy/core/dist-cjs/submodules/retry/index.js:171:50
-              at async /app/node_modules/@aws-sdk/checksums/dist-cjs/submodules/flexible-checksums/index.js:234:24
-              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:62:28
-              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:89:20
-              at async /app/node_modules/@aws-sdk/core/dist-cjs/submodules/client/index.js:125:26
-      "$fault": "client",
-      "$metadata": {
-        "httpStatusCode": 404,
-        "requestId": "18C7126B7AD35001",
-        "extendedRequestId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8",
-        "attempts": 1,
-        "totalRetryDelay": 0
-      },
-      "name": "NoSuchBucket",
-      "Code": "NoSuchBucket",
-      "Key": "Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
-      "BucketName": "alamia-media",
-      "Resource": "/alamia-media/Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
-      "RequestId": "18C7126B7AD35001",
-      "HostId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8"
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
+              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
+              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
+              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
+              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
+              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
+              at async rW.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20926)
+              at async rW.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:25781)
+          caused by: error: column "external_embed_url" does not exist
+              at /app/node_modules/pg-pool/index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26631
+              at async f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22832)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
+              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
+              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
+              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
+              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
+              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
+      "query": "select \"id\", \"title\", \"description\", \"video_file_id\", \"thumbnail_id\", \"duration_seconds\", \"category_id\", \"status\", \"is_premium\", \"external_embed_url\", \"external_provider\", \"hls_playlist_url\", \"published_at\", \"generate_slug\", \"slug\", \"updated_at\", \"created_at\" from \"videos\" \"videos\" where \"videos\".\"status\" = $1 order by \"videos\".\"created_at\" desc limit $2",
+      "params": [
+        "ready",
+        100
+      ]
     }
-[12:53:50] ERROR: The specified bucket does not exist
+[22:12:46] ERROR: Failed query: select "posts"."id", "posts"."title", "posts"."is_premium", "posts"."excerpt", "posts"."hero_image_id", "posts"."content", "posts"."meta_title", "posts"."meta_image_id", "posts"."meta_description", "posts"."published_at", "posts"."generate_slug", "posts"."slug", "posts"."updated_at", "posts"."created_at", "posts"."_status", "posts_populatedAuthors"."data" as "populatedAuthors", "posts__rels"."data" as "_rels" from "posts" "posts" left join lateral (select coalesce(json_agg(json_build_array("posts_populatedAuthors"."_order", "posts_populatedAuthors"."id", "posts_populatedAuthors"."name") order by "posts_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "posts_populated_authors" "posts_populatedAuthors" where "posts_populatedAuthors"."_parent_id" = "posts"."id" order by "posts_populatedAuthors"."_order" asc) "posts_populatedAuthors") "posts_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("posts__rels"."order", "posts__rels"."path", "posts__rels"."posts_id", "posts__rels"."categories_id", "posts__rels"."users_id") order by "posts__rels"."order" asc), '[]'::json) as "data" from (select * from "posts_rels" "posts__rels" where "posts__rels"."parent_id" = "posts"."id" order by "posts__rels"."order" asc) "posts__rels") "posts__rels" on true where "posts"."_status" = $1 order by "posts"."created_at" desc limit $2
+params: published,100
     err: {
-      "type": "NoSuchBucket",
-      "message": "The specified bucket does not exist",
+      "type": "c",
+      "message": "Failed query: select \"posts\".\"id\", \"posts\".\"title\", \"posts\".\"is_premium\", \"posts\".\"excerpt\", \"posts\".\"hero_image_id\", \"posts\".\"content\", \"posts\".\"meta_title\", \"posts\".\"meta_image_id\", \"posts\".\"meta_description\", \"posts\".\"published_at\", \"posts\".\"generate_slug\", \"posts\".\"slug\", \"posts\".\"updated_at\", \"posts\".\"created_at\", \"posts\".\"_status\", \"posts_populatedAuthors\".\"data\" as \"populatedAuthors\", \"posts__rels\".\"data\" as \"_rels\" from \"posts\" \"posts\" left join lateral (select coalesce(json_agg(json_build_array(\"posts_populatedAuthors\".\"_order\", \"posts_populatedAuthors\".\"id\", \"posts_populatedAuthors\".\"name\") order by \"posts_populatedAuthors\".\"_order\" asc), '[]'::json) as \"data\" from (select * from \"posts_populated_authors\" \"posts_populatedAuthors\" where \"posts_populatedAuthors\".\"_parent_id\" = \"posts\".\"id\" order by \"posts_populatedAuthors\".\"_order\" asc) \"posts_populatedAuthors\") \"posts_populatedAuthors\" on true left join lateral (select coalesce(json_agg(json_build_array(\"posts__rels\".\"order\", \"posts__rels\".\"path\", \"posts__rels\".\"posts_id\", \"posts__rels\".\"categories_id\", \"posts__rels\".\"users_id\") order by \"posts__rels\".\"order\" asc), '[]'::json) as \"data\" from (select * from \"posts_rels\" \"posts__rels\" where \"posts__rels\".\"parent_id\" = \"posts\".\"id\" order by \"posts__rels\".\"order\" asc) \"posts__rels\") \"posts__rels\" on true where \"posts\".\"_status\" = $1 order by \"posts\".\"created_at\" desc limit $2\nparams: published,100: column posts.is_premium does not exist",
       "stack":
-          NoSuchBucket: The specified bucket does not exist
-              at S3RestXmlProtocol.handleError (/app/node_modules/@aws-sdk/core/dist-cjs/submodules/protocols/index.js:2601:27)
+          Error: Failed query: select "posts"."id", "posts"."title", "posts"."is_premium", "posts"."excerpt", "posts"."hero_image_id", "posts"."content", "posts"."meta_title", "posts"."meta_image_id", "posts"."meta_description", "posts"."published_at", "posts"."generate_slug", "posts"."slug", "posts"."updated_at", "posts"."created_at", "posts"."_status", "posts_populatedAuthors"."data" as "populatedAuthors", "posts__rels"."data" as "_rels" from "posts" "posts" left join lateral (select coalesce(json_agg(json_build_array("posts_populatedAuthors"."_order", "posts_populatedAuthors"."id", "posts_populatedAuthors"."name") order by "posts_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "posts_populated_authors" "posts_populatedAuthors" where "posts_populatedAuthors"."_parent_id" = "posts"."id" order by "posts_populatedAuthors"."_order" asc) "posts_populatedAuthors") "posts_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("posts__rels"."order", "posts__rels"."path", "posts__rels"."posts_id", "posts__rels"."categories_id", "posts__rels"."users_id") order by "posts__rels"."order" asc), '[]'::json) as "data" from (select * from "posts_rels" "posts__rels" where "posts__rels"."parent_id" = "posts"."id" order by "posts__rels"."order" asc) "posts__rels") "posts__rels" on true where "posts"."_status" = $1 order by "posts"."created_at" desc limit $2
+          params: published,100
+              at f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22857)
               at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async S3RestXmlProtocol.deserializeResponse (/app/node_modules/@smithy/core/dist-cjs/submodules/protocols/index.js:357:13)
-              at async /app/node_modules/@smithy/core/dist-cjs/submodules/schema/index.js:23:24
-              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:365:20
-              at async /app/node_modules/@smithy/core/dist-cjs/submodules/retry/index.js:171:50
-              at async /app/node_modules/@aws-sdk/checksums/dist-cjs/submodules/flexible-checksums/index.js:234:24
-              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:62:28
-              at async /app/node_modules/@aws-sdk/middleware-sdk-s3/dist-cjs/submodules/s3/index.js:89:20
-              at async /app/node_modules/@aws-sdk/core/dist-cjs/submodules/client/index.js:125:26
-      "$fault": "client",
-      "$metadata": {
-        "httpStatusCode": 404,
-        "requestId": "18C7126B7AD35001",
-        "extendedRequestId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8",
-        "attempts": 1,
-        "totalRetryDelay": 0
-      },
-      "name": "NoSuchBucket",
-      "Code": "NoSuchBucket",
-      "Key": "Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
-      "BucketName": "alamia-media",
-      "Resource": "/alamia-media/Dashboard - Google Chrome 2026-03-17 14-26-37-converted.mp4",
-      "RequestId": "18C7126B7AD35001",
-      "HostId": "dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8"
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
+              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
+              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
+              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
+              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
+              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
+              at async rW.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20926)
+              at async rW.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:25781)
+          caused by: error: column posts.is_premium does not exist
+              at /app/node_modules/pg-pool/index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26631
+              at async f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22832)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
+              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
+              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
+              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
+              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
+              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
+      "query": "select \"posts\".\"id\", \"posts\".\"title\", \"posts\".\"is_premium\", \"posts\".\"excerpt\", \"posts\".\"hero_image_id\", \"posts\".\"content\", \"posts\".\"meta_title\", \"posts\".\"meta_image_id\", \"posts\".\"meta_description\", \"posts\".\"published_at\", \"posts\".\"generate_slug\", \"posts\".\"slug\", \"posts\".\"updated_at\", \"posts\".\"created_at\", \"posts\".\"_status\", \"posts_populatedAuthors\".\"data\" as \"populatedAuthors\", \"posts__rels\".\"data\" as \"_rels\" from \"posts\" \"posts\" left join lateral (select coalesce(json_agg(json_build_array(\"posts_populatedAuthors\".\"_order\", \"posts_populatedAuthors\".\"id\", \"posts_populatedAuthors\".\"name\") order by \"posts_populatedAuthors\".\"_order\" asc), '[]'::json) as \"data\" from (select * from \"posts_populated_authors\" \"posts_populatedAuthors\" where \"posts_populatedAuthors\".\"_parent_id\" = \"posts\".\"id\" order by \"posts_populatedAuthors\".\"_order\" asc) \"posts_populatedAuthors\") \"posts_populatedAuthors\" on true left join lateral (select coalesce(json_agg(json_build_array(\"posts__rels\".\"order\", \"posts__rels\".\"path\", \"posts__rels\".\"posts_id\", \"posts__rels\".\"categories_id\", \"posts__rels\".\"users_id\") order by \"posts__rels\".\"order\" asc), '[]'::json) as \"data\" from (select * from \"posts_rels\" \"posts__rels\" where \"posts__rels\".\"parent_id\" = \"posts\".\"id\" order by \"posts__rels\".\"order\" asc) \"posts__rels\") \"posts__rels\" on true where \"posts\".\"_status\" = $1 order by \"posts\".\"created_at\" desc limit $2",
+      "params": [
+        "published",
+        100
+      ]
+    }
+[22:12:51] ERROR: Failed query: select "id", "title", "description", "video_file_id", "thumbnail_id", "duration_seconds", "category_id", "status", "is_premium", "external_embed_url", "external_provider", "hls_playlist_url", "published_at", "generate_slug", "slug", "updated_at", "created_at" from "videos" "videos" where "videos"."status" = $1 order by "videos"."created_at" desc limit $2
+params: ready,100
+    err: {
+      "type": "c",
+      "message": "Failed query: select \"id\", \"title\", \"description\", \"video_file_id\", \"thumbnail_id\", \"duration_seconds\", \"category_id\", \"status\", \"is_premium\", \"external_embed_url\", \"external_provider\", \"hls_playlist_url\", \"published_at\", \"generate_slug\", \"slug\", \"updated_at\", \"created_at\" from \"videos\" \"videos\" where \"videos\".\"status\" = $1 order by \"videos\".\"created_at\" desc limit $2\nparams: ready,100: column \"external_embed_url\" does not exist",
+      "stack":
+          Error: Failed query: select "id", "title", "description", "video_file_id", "thumbnail_id", "duration_seconds", "category_id", "status", "is_premium", "external_embed_url", "external_provider", "hls_playlist_url", "published_at", "generate_slug", "slug", "updated_at", "created_at" from "videos" "videos" where "videos"."status" = $1 order by "videos"."created_at" desc limit $2
+          params: ready,100
+              at f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22857)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
+              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
+              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
+              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
+              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
+              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
+              at async rW.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20926)
+              at async rW.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:25781)
+          caused by: error: column "external_embed_url" does not exist
+              at /app/node_modules/pg-pool/index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26631
+              at async f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22832)
+              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
+              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
+              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
+              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
+              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
+              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
+      "query": "select \"id\", \"title\", \"description\", \"video_file_id\", \"thumbnail_id\", \"duration_seconds\", \"category_id\", \"status\", \"is_premium\", \"external_embed_url\", \"external_provider\", \"hls_playlist_url\", \"published_at\", \"generate_slug\", \"slug\", \"updated_at\", \"created_at\" from \"videos\" \"videos\" where \"videos\".\"status\" = $1 order by \"videos\".\"created_at\" desc limit $2",
+      "params": [
+        "ready",
+        100
+      ]
     }
