@@ -1,8 +1,48 @@
 {
   "version": 1,
-  "generated_at": "2026-07-30T16:27:13.822Z",
-  "entry_count": 4,
+  "generated_at": "2026-07-31T22:08:41.350Z",
+  "entry_count": 5,
   "entries": [
+    {
+      "id": "2026-07-31-feat-complete-sprint-3-features-including-global-220841114",
+      "relativePath": "goals/2026-07-31-feat-complete-sprint-3-features-including-global-220841114.md",
+      "title": "feat: complete Sprint 3 features including global search, news feed migration to Posts,",
+      "summary": "feat: complete Sprint 3 features including global search, news feed migration to Posts, social feeds engine, and external video embeds",
+      "tags": [
+        "brain",
+        "db",
+        "goal",
+        "migration",
+        "sprint",
+        "transient"
+      ],
+      "risk_level": "low",
+      "path_scope": [
+        ".ai/transient/sprint/**",
+        ".brain/**",
+        ".repobrain/decisions/**",
+        "cms/src/collections/Posts/**"
+      ],
+      "files": [
+        ".ai/transient/sprint/00-current-state.md",
+        ".brain/index.md",
+        ".brain/memory-index.json",
+        ".repobrain/decisions/log.md",
+        "cms/src/collections/Posts/index.ts"
+      ],
+      "token_size": 88,
+      "updated_at": "2026-08-01",
+      "date": "2026-07-31T22:08:41.114Z",
+      "type": "goal",
+      "status": "active",
+      "stale": false,
+      "review_state": "unset",
+      "superseded_by": null,
+      "valid_from": "2026-07-31",
+      "valid_until": null,
+      "expires": null,
+      "source_mtime_ms": 1785535721320.0906
+    },
     {
       "id": "2026-07-29-docs-complete-sprint-1-handoff-and-set-sprint-2--112232575",
       "relativePath": "patterns/2026-07-29-docs-complete-sprint-1-handoff-and-set-sprint-2--112232575.md",

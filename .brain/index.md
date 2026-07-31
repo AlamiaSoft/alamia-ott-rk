@@ -1,8 +1,8 @@
 # Project Brain Index
 
-Updated: 2026-07-30T16:27:13.820Z
-Total memories: 4
-Last memory date: 2026-07-29T11:22:32.575Z
+Updated: 2026-07-31T22:08:41.344Z
+Total memories: 5
+Last memory date: 2026-07-31T22:08:41.114Z
 
 ## Decisions
 
@@ -28,4 +28,4 @@ _No memories yet._
 
 ## Goals
 
-_No memories yet._
+- [medium] feat: complete Sprint 3 features including global search, news feed migration to Posts, (2026-07-31T22:08:41.114Z) - feat: complete Sprint 3 features including global search, news feed migration to Posts, social feeds engine, and external video embeds | tags: brain, db, goal, migration, sprint, transient | status: active
