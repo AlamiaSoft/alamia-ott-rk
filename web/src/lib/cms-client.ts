@@ -57,6 +57,8 @@ export interface CmsVideo {
   category?: string | CmsCategory;
   status: 'pending' | 'processing' | 'ready' | 'failed';
   isPremium: boolean;
+  externalEmbedUrl?: string;
+  externalProvider?: string;
   hlsPlaylistUrl?: string;
   publishedAt?: string;
   createdAt: string;

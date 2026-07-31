@@ -65,6 +65,22 @@ export const Posts: CollectionConfig<'posts'> = {
       required: true,
     },
     {
+      name: 'isPremium',
+      type: 'checkbox',
+      defaultValue: false,
+      label: 'Premium / Member Only',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'excerpt',
+      type: 'textarea',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       type: 'tabs',
       tabs: [
         {

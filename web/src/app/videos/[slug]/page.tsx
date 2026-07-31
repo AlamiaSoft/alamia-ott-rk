@@ -50,7 +50,28 @@ export default async function VideoPage(props: VideoPageProps) {
       </div>
 
       <div className="bg-black/50 border border-brand-border rounded-xl p-2 md:p-4">
-        {video.status === 'ready' && video.hlsPlaylistUrl ? (
+        {video.externalEmbedUrl ? (
+          <div className="aspect-video w-full rounded-lg overflow-hidden relative bg-black">
+            {(!hasAccess && video.isPremium) ? (
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm text-center p-6 space-y-4">
+                <p className="text-white font-bold text-xl">Premium Video</p>
+                <p className="text-brand-muted text-sm max-w-md">
+                  This video is exclusive to Checkmate Pro subscribers. Upgrade your account to watch.
+                </p>
+                <a href={`/premium?redirect=/videos/${video.slug}`} className="mt-4 bg-brand-accent text-white px-6 py-2.5 rounded-lg font-bold hover:bg-brand-accent/90 transition">
+                  Upgrade Now
+                </a>
+              </div>
+            ) : null}
+            <iframe 
+              src={video.externalEmbedUrl}
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : video.status === 'ready' && video.hlsPlaylistUrl ? (
           <HlsVideoPlayer 
             options={videoJsOptions} 
             isPremium={video.isPremium || false}

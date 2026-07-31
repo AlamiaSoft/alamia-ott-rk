@@ -4,6 +4,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 import { getCurrentUser } from '@/app/actions/auth';
 import AuthButtons from './AuthButtons';
 import MobileMenu from './MobileMenu';
+import SearchInput from './SearchInput';
 
 export default async function Header() {
   const { user } = await getCurrentUser();
@@ -44,9 +45,7 @@ export default async function Header() {
         <div className="flex items-center gap-3 sm:gap-4">
           <div className="hidden md:flex items-center gap-3 sm:gap-4">
             <ThemeToggle />
-            <button className="p-2 text-brand-muted hover:text-white transition-colors rounded-full hover:bg-brand-card">
-              <Search className="w-5 h-5" />
-            </button>
+            <SearchInput />
             <AuthButtons user={user} />
           </div>
           <div className="md:hidden">

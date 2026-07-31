@@ -84,6 +84,30 @@ export const Videos: CollectionConfig<'videos'> = {
       label: 'Premium / Member Only Video',
     },
     {
+      name: 'externalEmbedUrl',
+      type: 'text',
+      admin: {
+        components: {
+          Field: '@/components/ExternalVideoField/Component#ExternalVideoField'
+        }
+      }
+    },
+    {
+      name: 'externalProvider',
+      type: 'select',
+      options: [
+        { label: 'YouTube', value: 'youtube' },
+        { label: 'Facebook', value: 'facebook' },
+        { label: 'Instagram', value: 'instagram' },
+        { label: 'Vimeo', value: 'vimeo' },
+        { label: 'Other', value: 'other' }
+      ],
+      admin: {
+        // We hide this from the UI since the custom field controls it, but it's saved to the DB
+        hidden: true,
+      }
+    },
+    {
       name: 'hlsPlaylistUrl',
       type: 'text',
     },

@@ -12,13 +12,25 @@
 | **Sprint 0** | **Project Foundation** | 🟢 **COMPLETED** | Portainer Stack (`docker-compose.yml`), Postgres, MinIO, Payload CMS 3 (Next 15), Next.js Web, FFmpeg worker |
 | **Sprint 1** | **Payload 3 Template & Checkmate Studio** | 🟢 **COMPLETED** | Official Payload 3 template setup in `cms/` serving unbroken Admin UI (`/admin`), Checkmate Media golden king branding, clean typography (no emojis), multi-tenant SaaS metrics panel, Auto/Dark/Light theme switchers, live video stream rendering, multi-stage standalone builds (~220MB-250MB), REST APIs, fixed `Users` collection TS issue, and elegant Docker configuration split (`docker-compose.yml`, `docker-compose.prod.yml`, `docker-compose.local.yml`) for Portainer vs Local dev. Custom Alamia Dark Theme web portal (`web/`) connected via API. |
 | **Sprint 2** | **Video Pipeline & Storage** | 🟢 **COMPLETED** | Direct video uploader, MinIO S3 bucket auto-provisioning (`rk_storage_init`), FFmpeg worker queue with BullMQ, HLS transcoding, video player stream page (`/videos/[slug]`), and Creators Landing Page (`/creators`). |
-| **Sprint 3** | **Public Website Polish** | 🟡 **NEXT SESSION FOCUS** | Next.js portal pages (News feed, Article reader, Search), embed external video sources (YouTube/FB/Insta Option 1 support). |
+| **Sprint 3** | **Public Website Polish** | 🟢 **COMPLETED** | Next.js portal pages (News feed, Article reader, Search, Social Feeds, Bulk Import), embed external video sources (YouTube/FB/Insta Option 1 support). |
 | **Sprint 4** | **Membership & Paywall** | 🟢 **COMPLETED** | Auth (Login/Register), JWT tokens stored in HTTP-only cookies, subscriber role logic, Premium Page with mock payment flow & upgrade workflow, responsive mobile navigation, and light/dark theme contrast fixes. |
-| **Sprint 5** | **Polish & Demo Prep** | ⚪ Pending | Cloudflare Tunnel verification, SEO metadata, demo content population |
+| **Sprint 5** | **Polish & Demo Prep** | 🟡 **NEXT SESSION FOCUS** | Cloudflare Tunnel verification, SEO metadata, demo content population |
 
 ---
 
-## 3. Sprint 4 Completed Milestones
+## 3. Sprint 3 Completed Milestones
+
+- [x] **Intelligent Custom Video Embeds**: Built a Custom Payload Component for `externalEmbedUrl` that auto-detects video providers (YouTube, FB, Insta, Vimeo) and renders a live preview directly in the CMS admin panel.
+- [x] **Frontend Video Player**: Updated `/videos/[slug]` to seamlessly render external iframe embeds.
+- [x] **High-Fidelity News Hub**: Migrated news feed to use Payload's native `Posts` collection instead of legacy `Articles`.
+- [x] **News Pages**: Built beautiful `/news` feed and `/news/[slug]` reader pages with elegant glassmorphism paywalls for premium content.
+- [x] **Global Search**: Created unified `/search` page querying both Videos and Posts, and added interactive `SearchInput` to the main navigation Header.
+- [x] **Social Feeds Engine**: Added `SocialFeeds` collection to CMS and built a `/feeds` grid layout on the frontend to aggregate YouTube channels, Twitter timelines, and Instagram profiles.
+- [x] **Bulk Import Script**: Created an admin utility (`cms/src/scripts/import-posts.ts`) to programmatically ingest RSS feeds into the `Posts` collection.
+
+---
+
+## 4. Sprint 4 Completed Milestones
 
 - [x] Configured Payload `Users` collection to allow public registration via REST API.
 - [x] Built secure Server Actions (`web/src/app/actions/auth.ts`) for Login, Register, Logout, and User retrieval using `payload-token` HTTP-only cookies.
@@ -31,7 +43,7 @@
 
 ---
 
-## 3. Sprint 1 Completed Milestones
+## 5. Sprint 1 Completed Milestones
 
 - [x] Cloned and analyzed official template repo `alirazasilverantmarketing/payload-cms`.
 - [x] Replaced `cms/` with official Payload 3 website template scaffold.

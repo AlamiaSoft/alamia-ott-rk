@@ -96,6 +96,8 @@ export async function getVideoBySlug(slug: string) {
         ...videoData,
         thumbnailUrl: normalizeCmsUrl(rawThumb),
         videoUrl: normalizeCmsUrl(rawFile),
+        externalEmbedUrl: videoData.externalEmbedUrl || null,
+        externalProvider: videoData.externalProvider || null,
       },
     }
   } catch (error) {

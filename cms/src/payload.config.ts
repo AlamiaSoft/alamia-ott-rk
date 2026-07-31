@@ -9,6 +9,7 @@ import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
+import { SocialFeeds } from './collections/SocialFeeds'
 import { Users } from './collections/Users'
 import { Videos } from './collections/Videos'
 import { WorkerLogs } from './collections/WorkerLogs'
@@ -99,7 +100,7 @@ export default buildConfig({
       },
       push: true,
     }),
-  collections: [Pages, Posts, Videos, Categories, Media, Users, WorkerLogs],
+  collections: [Pages, Posts, Videos, Categories, Media, Users, WorkerLogs, SocialFeeds],
   globals: [Header, Footer],
   plugins: [
     payloadSidebar({
