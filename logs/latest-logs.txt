@@ -1,100 +1,56 @@
-      "stack":
-          Error: Failed query: select "id", "title", "description", "video_file_id", "thumbnail_id", "duration_seconds", "category_id", "status", "is_premium", "external_embed_url", "external_provider", "hls_playlist_url", "published_at", "generate_slug", "slug", "updated_at", "created_at" from "videos" "videos" where "videos"."status" = $1 order by "videos"."created_at" desc limit $2
-          params: ready,100
-              at f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22857)
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
-              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
-              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
-              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
-              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
-              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
-              at async rW.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20926)
-              at async rW.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:25781)
-          caused by: error: column "external_embed_url" does not exist
-              at /app/node_modules/pg-pool/index.js:45:11
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26631
-              at async f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22832)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
-              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
-              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
-              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
-              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
-              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
-      "query": "select \"id\", \"title\", \"description\", \"video_file_id\", \"thumbnail_id\", \"duration_seconds\", \"category_id\", \"status\", \"is_premium\", \"external_embed_url\", \"external_provider\", \"hls_playlist_url\", \"published_at\", \"generate_slug\", \"slug\", \"updated_at\", \"created_at\" from \"videos\" \"videos\" where \"videos\".\"status\" = $1 order by \"videos\".\"created_at\" desc limit $2",
-      "params": [
-        "ready",
-        100
-      ]
-    }
-[22:12:46] ERROR: Failed query: select "posts"."id", "posts"."title", "posts"."is_premium", "posts"."excerpt", "posts"."hero_image_id", "posts"."content", "posts"."meta_title", "posts"."meta_image_id", "posts"."meta_description", "posts"."published_at", "posts"."generate_slug", "posts"."slug", "posts"."updated_at", "posts"."created_at", "posts"."_status", "posts_populatedAuthors"."data" as "populatedAuthors", "posts__rels"."data" as "_rels" from "posts" "posts" left join lateral (select coalesce(json_agg(json_build_array("posts_populatedAuthors"."_order", "posts_populatedAuthors"."id", "posts_populatedAuthors"."name") order by "posts_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "posts_populated_authors" "posts_populatedAuthors" where "posts_populatedAuthors"."_parent_id" = "posts"."id" order by "posts_populatedAuthors"."_order" asc) "posts_populatedAuthors") "posts_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("posts__rels"."order", "posts__rels"."path", "posts__rels"."posts_id", "posts__rels"."categories_id", "posts__rels"."users_id") order by "posts__rels"."order" asc), '[]'::json) as "data" from (select * from "posts_rels" "posts__rels" where "posts__rels"."parent_id" = "posts"."id" order by "posts__rels"."order" asc) "posts__rels") "posts__rels" on true where "posts"."_status" = $1 order by "posts"."created_at" desc limit $2
-params: published,100
-    err: {
-      "type": "c",
-      "message": "Failed query: select \"posts\".\"id\", \"posts\".\"title\", \"posts\".\"is_premium\", \"posts\".\"excerpt\", \"posts\".\"hero_image_id\", \"posts\".\"content\", \"posts\".\"meta_title\", \"posts\".\"meta_image_id\", \"posts\".\"meta_description\", \"posts\".\"published_at\", \"posts\".\"generate_slug\", \"posts\".\"slug\", \"posts\".\"updated_at\", \"posts\".\"created_at\", \"posts\".\"_status\", \"posts_populatedAuthors\".\"data\" as \"populatedAuthors\", \"posts__rels\".\"data\" as \"_rels\" from \"posts\" \"posts\" left join lateral (select coalesce(json_agg(json_build_array(\"posts_populatedAuthors\".\"_order\", \"posts_populatedAuthors\".\"id\", \"posts_populatedAuthors\".\"name\") order by \"posts_populatedAuthors\".\"_order\" asc), '[]'::json) as \"data\" from (select * from \"posts_populated_authors\" \"posts_populatedAuthors\" where \"posts_populatedAuthors\".\"_parent_id\" = \"posts\".\"id\" order by \"posts_populatedAuthors\".\"_order\" asc) \"posts_populatedAuthors\") \"posts_populatedAuthors\" on true left join lateral (select coalesce(json_agg(json_build_array(\"posts__rels\".\"order\", \"posts__rels\".\"path\", \"posts__rels\".\"posts_id\", \"posts__rels\".\"categories_id\", \"posts__rels\".\"users_id\") order by \"posts__rels\".\"order\" asc), '[]'::json) as \"data\" from (select * from \"posts_rels\" \"posts__rels\" where \"posts__rels\".\"parent_id\" = \"posts\".\"id\" order by \"posts__rels\".\"order\" asc) \"posts__rels\") \"posts__rels\" on true where \"posts\".\"_status\" = $1 order by \"posts\".\"created_at\" desc limit $2\nparams: published,100: column posts.is_premium does not exist",
-      "stack":
-          Error: Failed query: select "posts"."id", "posts"."title", "posts"."is_premium", "posts"."excerpt", "posts"."hero_image_id", "posts"."content", "posts"."meta_title", "posts"."meta_image_id", "posts"."meta_description", "posts"."published_at", "posts"."generate_slug", "posts"."slug", "posts"."updated_at", "posts"."created_at", "posts"."_status", "posts_populatedAuthors"."data" as "populatedAuthors", "posts__rels"."data" as "_rels" from "posts" "posts" left join lateral (select coalesce(json_agg(json_build_array("posts_populatedAuthors"."_order", "posts_populatedAuthors"."id", "posts_populatedAuthors"."name") order by "posts_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "posts_populated_authors" "posts_populatedAuthors" where "posts_populatedAuthors"."_parent_id" = "posts"."id" order by "posts_populatedAuthors"."_order" asc) "posts_populatedAuthors") "posts_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("posts__rels"."order", "posts__rels"."path", "posts__rels"."posts_id", "posts__rels"."categories_id", "posts__rels"."users_id") order by "posts__rels"."order" asc), '[]'::json) as "data" from (select * from "posts_rels" "posts__rels" where "posts__rels"."parent_id" = "posts"."id" order by "posts__rels"."order" asc) "posts__rels") "posts__rels" on true where "posts"."_status" = $1 order by "posts"."created_at" desc limit $2
-          params: published,100
-              at f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22857)
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
-              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
-              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
-              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
-              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
-              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
-              at async rW.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20926)
-              at async rW.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:25781)
-          caused by: error: column posts.is_premium does not exist
-              at /app/node_modules/pg-pool/index.js:45:11
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26631
-              at async f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22832)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
-              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
-              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
-              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
-              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
-              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
-      "query": "select \"posts\".\"id\", \"posts\".\"title\", \"posts\".\"is_premium\", \"posts\".\"excerpt\", \"posts\".\"hero_image_id\", \"posts\".\"content\", \"posts\".\"meta_title\", \"posts\".\"meta_image_id\", \"posts\".\"meta_description\", \"posts\".\"published_at\", \"posts\".\"generate_slug\", \"posts\".\"slug\", \"posts\".\"updated_at\", \"posts\".\"created_at\", \"posts\".\"_status\", \"posts_populatedAuthors\".\"data\" as \"populatedAuthors\", \"posts__rels\".\"data\" as \"_rels\" from \"posts\" \"posts\" left join lateral (select coalesce(json_agg(json_build_array(\"posts_populatedAuthors\".\"_order\", \"posts_populatedAuthors\".\"id\", \"posts_populatedAuthors\".\"name\") order by \"posts_populatedAuthors\".\"_order\" asc), '[]'::json) as \"data\" from (select * from \"posts_populated_authors\" \"posts_populatedAuthors\" where \"posts_populatedAuthors\".\"_parent_id\" = \"posts\".\"id\" order by \"posts_populatedAuthors\".\"_order\" asc) \"posts_populatedAuthors\") \"posts_populatedAuthors\" on true left join lateral (select coalesce(json_agg(json_build_array(\"posts__rels\".\"order\", \"posts__rels\".\"path\", \"posts__rels\".\"posts_id\", \"posts__rels\".\"categories_id\", \"posts__rels\".\"users_id\") order by \"posts__rels\".\"order\" asc), '[]'::json) as \"data\" from (select * from \"posts_rels\" \"posts__rels\" where \"posts__rels\".\"parent_id\" = \"posts\".\"id\" order by \"posts__rels\".\"order\" asc) \"posts__rels\") \"posts__rels\" on true where \"posts\".\"_status\" = $1 order by \"posts\".\"created_at\" desc limit $2",
-      "params": [
-        "published",
-        100
-      ]
-    }
-[22:12:51] ERROR: Failed query: select "id", "title", "description", "video_file_id", "thumbnail_id", "duration_seconds", "category_id", "status", "is_premium", "external_embed_url", "external_provider", "hls_playlist_url", "published_at", "generate_slug", "slug", "updated_at", "created_at" from "videos" "videos" where "videos"."status" = $1 order by "videos"."created_at" desc limit $2
-params: ready,100
-    err: {
-      "type": "c",
-      "message": "Failed query: select \"id\", \"title\", \"description\", \"video_file_id\", \"thumbnail_id\", \"duration_seconds\", \"category_id\", \"status\", \"is_premium\", \"external_embed_url\", \"external_provider\", \"hls_playlist_url\", \"published_at\", \"generate_slug\", \"slug\", \"updated_at\", \"created_at\" from \"videos\" \"videos\" where \"videos\".\"status\" = $1 order by \"videos\".\"created_at\" desc limit $2\nparams: ready,100: column \"external_embed_url\" does not exist",
-      "stack":
-          Error: Failed query: select "id", "title", "description", "video_file_id", "thumbnail_id", "duration_seconds", "category_id", "status", "is_premium", "external_embed_url", "external_provider", "hls_playlist_url", "published_at", "generate_slug", "slug", "updated_at", "created_at" from "videos" "videos" where "videos"."status" = $1 order by "videos"."created_at" desc limit $2
-          params: ready,100
-              at f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22857)
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
-              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
-              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
-              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
-              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
-              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
-              at async rW.do (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20926)
-              at async rW.handle (/app/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:25781)
-          caused by: error: column "external_embed_url" does not exist
-              at /app/node_modules/pg-pool/index.js:45:11
-              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26631
-              at async f.queryWithCache (/app/.next/server/chunks/_0t39dvb._.js:291:22832)
-              at async /app/.next/server/chunks/_0t39dvb._.js:291:26416
-              at async u (/app/.next/server/chunks/_0t39dvb._.js:259:2620)
-              at async eb (/app/.next/server/chunks/_0t39dvb._.js:130:33236)
-              at async tY (/app/.next/server/chunks/_0t39dvb._.js:331:79787)
-              at async y (/app/.next/server/chunks/node_modules_0x146mc._.js:1:9372)
-              at async /app/.next/server/chunks/node_modules_0x146mc._.js:1:22492
-      "query": "select \"id\", \"title\", \"description\", \"video_file_id\", \"thumbnail_id\", \"duration_seconds\", \"category_id\", \"status\", \"is_premium\", \"external_embed_url\", \"external_provider\", \"hls_playlist_url\", \"published_at\", \"generate_slug\", \"slug\", \"updated_at\", \"created_at\" from \"videos\" \"videos\" where \"videos\".\"status\" = $1 order by \"videos\".\"created_at\" desc limit $2",
-      "params": [
-        "ready",
-        100
-      ]
-    }
+[22:53:33] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+[22:53:33] INFO: Reading migration files from /app/src/migrations
+[22:53:34] INFO: Done.
+▲ Next.js 16.2.6
+- Local:         http://localhost:4000
+- Network:       http://172.20.0.8:4000
+✓ Ready in 220ms
+[22:53:44] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+[22:54:44] INFO: Running initial Social Feeds background sync...
+[22:54:44] INFO: Revalidating post at path: /posts/pakistan-nukes--trump-threatens-to-blow-oman--america-looses-war
+Failed to sync feed YT: Error: Route /admin/[[...segments]] used "revalidatePath /posts/pakistan-nukes--trump-threatens-to-blow-oman--america-looses-war" during render which is unsupported. To ensure revalidation is performed consistently it must always happen outside of renders and cached functions. See more info here: https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering
+    at q (.next/server/chunks/ssr/_0_s.i.t._.js:349:41408)
+    at p (.next/server/chunks/ssr/_0_s.i.t._.js:349:41044)
+    at cH (.next/server/chunks/ssr/_0_s.i.t._.js:350:7047)
+    at ks (.next/server/chunks/ssr/_0_s.i.t._.js:324:157057)
+    at async c (.next/server/chunks/ssr/_06l.49~._.js:3:28)
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+getFromImportMap: PayloadComponent not found in importMap {
+  key: '@/components/SyncFeedButton#SyncFeedButton',
+  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
+  schemaPath: ''
+} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.

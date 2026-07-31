@@ -80,7 +80,10 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
                   direction: 'ltr',
                 },
               }
-            } as any
+            } as any,
+            context: {
+              disableRevalidate: true
+            }
           })
           importedCount++
         }
