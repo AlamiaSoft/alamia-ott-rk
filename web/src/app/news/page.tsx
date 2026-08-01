@@ -30,7 +30,7 @@ export default async function NewsFeedPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post: any) => {
-            let displayThumbnail = post.featuredImage
+            let displayThumbnail = post.featuredImage || post.externalImageUrl
             if (!displayThumbnail && post.externalEmbedUrl) {
               const url = post.externalEmbedUrl
               if (url.includes('youtube.com') || url.includes('youtu.be')) {

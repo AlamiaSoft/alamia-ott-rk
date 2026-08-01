@@ -91,6 +91,14 @@ export const Posts: CollectionConfig<'posts'> = {
       },
     },
     {
+      name: 'externalImageUrl',
+      type: 'text',
+      label: 'External Image URL (Hotlink)',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'externalProvider',
       type: 'select',
       options: [

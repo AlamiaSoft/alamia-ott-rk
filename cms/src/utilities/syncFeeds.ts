@@ -38,11 +38,6 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
             excerpt = excerpt.substring(0, 147) + '...'
           }
 
-          let contentText = item.content || item.contentSnippet || item.description || ''
-          if (item.link) {
-            contentText += `\n\nOriginal link: ${item.link}`
-          }
-
           // Detect video provider for RSS item
           let externalEmbedUrl: string | undefined = undefined
           let externalProvider: string | undefined = undefined
@@ -63,6 +58,69 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
             externalProvider = 'instagram'
           }
 
+          // Robust RSS thumbnail parsing (saved as external URL hotlink to avoid large disk space usage)
+          let imageUrl = ''
+
+          if (item.enclosure && item.enclosure.url && item.enclosure.type?.startsWith('image/')) {
+            imageUrl = item.enclosure.url
+          } else {
+            const mediaContent = (item as any)['media:content'] || (item as any)['media:thumbnail']
+            if (mediaContent) {
+              if (Array.isArray(mediaContent)) {
+                const firstImage = mediaContent.find((m: any) => m.$?.url || m.url)
+                if (firstImage) imageUrl = firstImage.$?.url || firstImage.url
+              } else {
+                imageUrl = mediaContent.$?.url || mediaContent.url
+              }
+            }
+          }
+
+          // Build structured Lexical content nodes supporting hyperlinked original link
+          const lexicalParagraphChildren: any[] = [
+            {
+              detail: 0,
+              format: 0,
+              mode: 'normal',
+              style: '',
+              text: item.content || item.contentSnippet || item.description || '',
+              type: 'text',
+              version: 1,
+            }
+          ]
+
+          if (item.link) {
+            lexicalParagraphChildren.push({
+              detail: 0,
+              format: 0,
+              mode: 'normal',
+              style: '',
+              text: '\n\nOriginal link: ',
+              type: 'text',
+              version: 1,
+            })
+
+            lexicalParagraphChildren.push({
+              type: 'link',
+              version: 2,
+              fields: {
+                url: item.link,
+                newTab: true,
+                linkType: 'custom',
+              },
+              children: [
+                {
+                  detail: 0,
+                  format: 0,
+                  mode: 'normal',
+                  style: '',
+                  text: item.link,
+                  type: 'text',
+                  version: 1,
+                }
+              ]
+            })
+          }
+
           await payload.create({
             collection: 'posts',
             draft: false,
@@ -74,6 +132,7 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
               publishedAt: item.isoDate || item.pubDate || new Date().toISOString(),
               externalEmbedUrl: externalEmbedUrl,
               externalProvider: externalProvider,
+              externalImageUrl: imageUrl || null,
               content: {
                 root: {
                   type: 'root',
@@ -86,17 +145,7 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
                       format: '',
                       indent: 0,
                       version: 1,
-                      children: [
-                        {
-                          detail: 0,
-                          format: 0,
-                          mode: 'normal',
-                          style: '',
-                          text: contentText,
-                          type: 'text',
-                          version: 1,
-                        },
-                      ],
+                      children: lexicalParagraphChildren,
                       direction: 'ltr',
                     },
                   ],

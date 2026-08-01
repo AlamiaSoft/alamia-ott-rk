@@ -43,6 +43,7 @@ export interface CmsArticle {
   isPremium: boolean;
   externalEmbedUrl?: string;
   externalProvider?: string;
+  externalImageUrl?: string;
   publishedAt?: string;
   createdAt: string;
   updatedAt: string;

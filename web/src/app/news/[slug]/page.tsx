@@ -5,6 +5,71 @@ import { getCurrentUser } from '@/app/actions/auth'
 
 export const dynamic = 'force-dynamic'
 
+function renderLexicalNode(node: any, idx: number): React.ReactNode {
+  if (!node) return null
+
+  // If it's a simple text node
+  if (node.type === 'text') {
+    let content: React.ReactNode = node.text
+    if (node.format & 1) content = <strong key={idx}>{content}</strong> // Bold
+    if (node.format & 2) content = <em key={idx}>{content}</em> // Italic
+    if (node.format & 8) content = <u key={idx}>{content}</u> // Underline
+    if (node.format & 16) content = <code key={idx}>{content}</code> // Code
+    return content
+  }
+
+  // If it's a link node
+  if (node.type === 'link') {
+    const url = node.fields?.url || node.url || ''
+    const children = node.children?.map((child: any, cidx: number) => renderLexicalNode(child, cidx))
+    return (
+      <a 
+        key={idx} 
+        href={url} 
+        target={node.fields?.newTab ? '_blank' : undefined} 
+        rel={node.fields?.newTab ? 'noopener noreferrer' : undefined}
+        className="text-brand-accent hover:underline font-semibold break-all"
+      >
+        {children}
+      </a>
+    )
+  }
+
+  // If it's a paragraph
+  if (node.type === 'paragraph') {
+    const children = node.children?.map((child: any, cidx: number) => renderLexicalNode(child, cidx))
+    const hasContent = node.children?.some((c: any) => c.text?.trim() || c.type === 'link')
+    if (!hasContent) return null
+    return (
+      <p key={idx} className="leading-relaxed mb-6 whitespace-pre-wrap">
+        {children}
+      </p>
+    )
+  }
+
+  // If it's a heading
+  if (node.type === 'heading') {
+    const Tag = (node.tag || 'h2') as keyof JSX.IntrinsicElements
+    const children = node.children?.map((child: any, cidx: number) => renderLexicalNode(child, cidx))
+    return (
+      <Tag key={idx} className="font-bold text-white mt-8 mb-4">
+        {children}
+      </Tag>
+    )
+  }
+
+  // Fallback for lists/quotes/unknown types
+  if (node.children) {
+    return (
+      <div key={idx}>
+        {node.children.map((child: any, cidx: number) => renderLexicalNode(child, cidx))}
+      </div>
+    )
+  }
+
+  return null
+}
+
 function renderLexicalContent(content: any) {
   if (!content) return null
 
@@ -18,21 +83,7 @@ function renderLexicalContent(content: any) {
   }
 
   if (content?.root?.children) {
-    return content.root.children.map((paragraph: any, idx: number) => {
-      const textContent = paragraph.children?.map((child: any) => child.text || '').join('') || ''
-      if (!textContent.trim()) return null
-      
-      if (paragraph.type === 'heading') {
-        const Tag = paragraph.tag as keyof JSX.IntrinsicElements
-        return <Tag key={idx} className="font-bold text-white mt-8 mb-4">{textContent}</Tag>
-      }
-      
-      return (
-        <p key={idx} className="leading-relaxed mb-6">
-          {textContent}
-        </p>
-      )
-    })
+    return content.root.children.map((node: any, idx: number) => renderLexicalNode(node, idx))
   }
 
   return <p className="leading-relaxed">{String(content)}</p>
@@ -118,10 +169,10 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             allowFullScreen
           />
         </div>
-      ) : article.featuredImage ? (
+      ) : (article.featuredImage || article.externalImageUrl) ? (
         <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-brand-border bg-brand-dark">
           <img 
-            src={article.featuredImage} 
+            src={article.featuredImage || article.externalImageUrl} 
             alt={article.title}
             className="w-full h-full object-cover"
           />
