@@ -64,15 +64,32 @@ async function run() {
             contentText += `\n\nOriginal link: ${item.link}`
           }
 
+          // Detect video provider for RSS item
+          let externalEmbedUrl: string | undefined = undefined
+          let externalProvider: string | undefined = undefined
+
+          const linkUrl = item.link || ''
+          const urlLower = linkUrl.toLowerCase()
+          if (feed.platform === 'youtube' || urlLower.includes('youtube.com') || urlLower.includes('youtu.be')) {
+            externalEmbedUrl = linkUrl
+            externalProvider = 'youtube'
+          } else if (urlLower.includes('vimeo.com')) {
+            externalEmbedUrl = linkUrl
+            externalProvider = 'vimeo'
+          }
+
           // Create in payload
           const created = await payload.create({
             collection: 'posts',
+            draft: false,
             data: {
               title: item.title || 'Untitled Post',
               _status: 'published',
               isPremium: false,
               excerpt: excerpt,
               publishedAt: item.isoDate || item.pubDate || new Date().toISOString(),
+              externalEmbedUrl: externalEmbedUrl,
+              externalProvider: externalProvider,
               content: {
                 root: {
                   type: 'root',

@@ -43,14 +43,37 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
             contentText += `\n\nOriginal link: ${item.link}`
           }
 
+          // Detect video provider for RSS item
+          let externalEmbedUrl: string | undefined = undefined
+          let externalProvider: string | undefined = undefined
+
+          const linkUrl = item.link || ''
+          const urlLower = linkUrl.toLowerCase()
+          if (feed.platform === 'youtube' || urlLower.includes('youtube.com') || urlLower.includes('youtu.be')) {
+            externalEmbedUrl = linkUrl
+            externalProvider = 'youtube'
+          } else if (urlLower.includes('vimeo.com')) {
+            externalEmbedUrl = linkUrl
+            externalProvider = 'vimeo'
+          } else if (urlLower.includes('facebook.com')) {
+            externalEmbedUrl = linkUrl
+            externalProvider = 'facebook'
+          } else if (urlLower.includes('instagram.com')) {
+            externalEmbedUrl = linkUrl
+            externalProvider = 'instagram'
+          }
+
           await payload.create({
             collection: 'posts',
+            draft: false,
             data: {
               title: item.title || 'Untitled Post',
               _status: 'published',
               isPremium: false,
               excerpt: excerpt,
               publishedAt: item.isoDate || item.pubDate || new Date().toISOString(),
+              externalEmbedUrl: externalEmbedUrl,
+              externalProvider: externalProvider,
               content: {
                 root: {
                   type: 'root',

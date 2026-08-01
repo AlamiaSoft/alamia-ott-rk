@@ -88,7 +88,7 @@ export const Videos: CollectionConfig<'videos'> = {
       type: 'text',
       admin: {
         components: {
-          Field: '@/components/ExternalVideoField/Component#ExternalVideoField'
+          Field: '@/components/VideoPreviewField#VideoPreviewField'
         }
       }
     },

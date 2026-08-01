@@ -81,6 +81,30 @@ export const Posts: CollectionConfig<'posts'> = {
       },
     },
     {
+      name: 'externalEmbedUrl',
+      type: 'text',
+      admin: {
+        components: {
+          Field: '@/components/VideoPreviewField#VideoPreviewField',
+        },
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'externalProvider',
+      type: 'select',
+      options: [
+        { label: 'YouTube', value: 'youtube' },
+        { label: 'Facebook', value: 'facebook' },
+        { label: 'Instagram', value: 'instagram' },
+        { label: 'Vimeo', value: 'vimeo' },
+        { label: 'Other', value: 'other' },
+      ],
+      admin: {
+        hidden: true,
+      },
+    },
+    {
       type: 'tabs',
       tabs: [
         {

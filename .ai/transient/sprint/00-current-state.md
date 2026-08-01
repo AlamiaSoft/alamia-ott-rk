@@ -40,6 +40,8 @@
 - [x] Integrated auto-redirect functionality from the Paywall (`?redirect=...`) so users land back on their video after subscribing.
 - [x] Fixed light mode color contrasts across all forms (ensuring inputs and labels are fully readable on white backgrounds).
 - [x] Added hamburger mobile menu to the Header and synced Footer branding to match Header perfectly.
+- [x] **Unified Admin Video Preview**: Built a `VideoPreviewField` component in the CMS to render YouTube/Vimeo embeds or HTML5 video tags for raw uploads in a live player preview box.
+- [x] **RSS Feed Publishing & Video Rendering**: Resolved the Payload 3 drafts bug for synced RSS posts by passing `draft: false` to force immediate publishing. Extended the `Posts` collection to support external video URLs and updated the frontend news detail page to display a video player when an embed URL is present.
 
 ---
 

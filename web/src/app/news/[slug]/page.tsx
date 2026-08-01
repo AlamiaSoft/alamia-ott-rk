@@ -93,7 +93,32 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         )}
       </div>
 
-      {article.featuredImage && (
+      {article.externalEmbedUrl ? (
+        <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-brand-border bg-black relative">
+          <iframe 
+            src={(() => {
+              const url = article.externalEmbedUrl;
+              try {
+                if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                  const videoId = url.includes('v=') ? new URL(url).searchParams.get('v') : url.split('youtu.be/')[1]?.split('?')[0];
+                  return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+                }
+                if (url.includes('vimeo.com')) {
+                  const videoId = url.split('vimeo.com/')[1]?.split('/')[0];
+                  return videoId ? `https://player.vimeo.com/video/${videoId}` : url;
+                }
+                return url;
+              } catch(e) {
+                return url;
+              }
+            })()}
+            className="w-full h-full"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      ) : article.featuredImage ? (
         <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-brand-border bg-brand-dark">
           <img 
             src={article.featuredImage} 
@@ -101,7 +126,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             className="w-full h-full object-cover"
           />
         </div>
-      )}
+      ) : null}
 
       {showPaywall ? (
         <div className="relative">

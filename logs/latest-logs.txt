@@ -1,56 +1,23 @@
-[22:53:33] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-[22:53:33] INFO: Reading migration files from /app/src/migrations
-[22:53:34] INFO: Done.
-▲ Next.js 16.2.6
-- Local:         http://localhost:4000
-- Network:       http://172.20.0.8:4000
-✓ Ready in 220ms
-[22:53:44] WARN: No email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-[22:54:44] INFO: Running initial Social Feeds background sync...
-[22:54:44] INFO: Revalidating post at path: /posts/pakistan-nukes--trump-threatens-to-blow-oman--america-looses-war
-Failed to sync feed YT: Error: Route /admin/[[...segments]] used "revalidatePath /posts/pakistan-nukes--trump-threatens-to-blow-oman--america-looses-war" during render which is unsupported. To ensure revalidation is performed consistently it must always happen outside of renders and cached functions. See more info here: https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering
-    at q (.next/server/chunks/ssr/_0_s.i.t._.js:349:41408)
-    at p (.next/server/chunks/ssr/_0_s.i.t._.js:349:41044)
-    at cH (.next/server/chunks/ssr/_0_s.i.t._.js:350:7047)
-    at ks (.next/server/chunks/ssr/_0_s.i.t._.js:324:157057)
-    at async c (.next/server/chunks/ssr/_06l.49~._.js:3:28)
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
-getFromImportMap: PayloadComponent not found in importMap {
-  key: '@/components/SyncFeedButton#SyncFeedButton',
-  PayloadComponent: '@/components/SyncFeedButton#SyncFeedButton',
-  schemaPath: ''
-} You may need to run the `payload generate:importmap` command to generate the importMap ahead of runtime.
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/admin/collections/media/payload-folders/1?page=1&search=:1 Access to fetch at 'https://www.youtube.com/watch?v=mUfsyDRcG5I' from origin 'https://cmmadmin.alamiaai.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+www.youtube.com/watch?v=mUfsyDRcG5I:1  Failed to load resource: net::ERR_FAILED
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
