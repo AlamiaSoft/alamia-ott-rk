@@ -29,32 +29,46 @@ export default async function NewsFeedPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post: any) => (
-            <Link key={post.id} href={`/news/${post.slug}`} className="group">
-              <article className="h-full bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-accent/50 hover:shadow-2xl hover:shadow-brand-accent/10 transition-all duration-300 flex flex-col group-hover:-translate-y-1">
-                {post.featuredImage ? (
-                  <div className="relative aspect-[16/10] overflow-hidden bg-brand-dark">
-                    <img 
-                      src={post.featuredImage} 
-                      alt={post.title}
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                    />
-                    {post.isPremium && (
-                      <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-brand-accent text-brand-accent text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full z-10">
-                        Premium
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="relative aspect-[16/10] bg-brand-dark flex items-center justify-center border-b border-brand-border/50">
-                    <FileText className="w-12 h-12 text-brand-muted/30" />
-                    {post.isPremium && (
-                      <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-brand-accent text-brand-accent text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full z-10">
-                        Premium
-                      </div>
-                    )}
-                  </div>
-                )}
+          {posts.map((post: any) => {
+            let displayThumbnail = post.featuredImage
+            if (!displayThumbnail && post.externalEmbedUrl) {
+              const url = post.externalEmbedUrl
+              if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                try {
+                  const videoId = url.includes('v=') ? new URL(url).searchParams.get('v') : url.split('youtu.be/')[1]?.split('?')[0];
+                  if (videoId) {
+                    displayThumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                  }
+                } catch(e) {}
+              }
+            }
+
+            return (
+              <Link key={post.id} href={`/news/${post.slug}`} className="group">
+                <article className="h-full bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-accent/50 hover:shadow-2xl hover:shadow-brand-accent/10 transition-all duration-300 flex flex-col group-hover:-translate-y-1">
+                  {displayThumbnail ? (
+                    <div className="relative aspect-[16/10] overflow-hidden bg-brand-dark">
+                      <img 
+                        src={displayThumbnail} 
+                        alt={post.title}
+                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      />
+                      {post.isPremium && (
+                        <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-brand-accent text-brand-accent text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full z-10">
+                          Premium
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="relative aspect-[16/10] bg-brand-dark flex items-center justify-center border-b border-brand-border/50">
+                      <FileText className="w-12 h-12 text-brand-muted/30" />
+                      {post.isPremium && (
+                        <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-brand-accent text-brand-accent text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full z-10">
+                          Premium
+                        </div>
+                      )}
+                    </div>
+                  )}
                 
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div className="space-y-4">
@@ -83,8 +97,9 @@ export default async function NewsFeedPage() {
                   </div>
                 </div>
               </article>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       )}
     </div>

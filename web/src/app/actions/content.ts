@@ -14,6 +14,8 @@ export async function getPublishedArticles(categoryId?: string) {
         excerpt: a.excerpt,
         featuredImage: normalizeCmsUrl(rawImg),
         isPremium: a.isPremium || false,
+        externalEmbedUrl: a.externalEmbedUrl || null,
+        externalProvider: a.externalProvider || null,
         publishedAt: a.publishedAt ? new Date(a.publishedAt) : new Date(a.createdAt),
         category: typeof a.category === 'object' ? a.category : undefined,
       }
