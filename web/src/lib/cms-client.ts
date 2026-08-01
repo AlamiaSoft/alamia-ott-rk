@@ -41,6 +41,8 @@ export interface CmsArticle {
   categories?: (string | CmsCategory)[];
   status: 'draft' | 'published';
   isPremium: boolean;
+  externalEmbedUrl?: string;
+  externalProvider?: string;
   publishedAt?: string;
   createdAt: string;
   updatedAt: string;

@@ -145,7 +145,7 @@ export const VideoPreviewField: React.FC<{ path: string }> = ({ path }) => {
           backgroundColor: 'var(--theme-elevation-50)',
         }}
       >
-        <div style={{ fontSize: '11px', textTransform: 'uppercase', tracking: '1px', color: 'var(--theme-text-muted)', marginBottom: '8px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--theme-text-muted)', marginBottom: '8px', fontWeight: 'bold' }}>
           Live Player Preview
         </div>
 
