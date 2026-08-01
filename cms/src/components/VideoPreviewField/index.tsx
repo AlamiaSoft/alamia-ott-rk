@@ -7,9 +7,17 @@ export const VideoPreviewField: React.FC<{ path: string }> = ({ path }) => {
   const { value: externalEmbedUrl = '', setValue: setExternalEmbedUrl } = useField<string>({ path })
   const { value: storedProvider, setValue: setStoredProvider } = useField<string>({ path: 'externalProvider' })
 
-  // Use useFormFields to watch videoFile and hlsPlaylistUrl from the rest of the form
-  const videoFileField = useFormFields(([fields]) => fields.videoFile)
-  const hlsPlaylistUrlField = useFormFields(([fields]) => fields.hlsPlaylistUrl)
+  // Use useFormFields to watch videoFile and hlsPlaylistUrl safely
+  const videoFileField = useFormFields((state) => {
+    if (!state || !Array.isArray(state)) return undefined
+    const [fields] = state
+    return fields?.videoFile
+  })
+  const hlsPlaylistUrlField = useFormFields((state) => {
+    if (!state || !Array.isArray(state)) return undefined
+    const [fields] = state
+    return fields?.hlsPlaylistUrl
+  })
 
   const videoFileId = videoFileField?.value as string
   const hlsPlaylistUrl = hlsPlaylistUrlField?.value as string
