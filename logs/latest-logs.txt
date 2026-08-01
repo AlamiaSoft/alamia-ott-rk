@@ -1,23 +1,100 @@
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/admin/collections/media/payload-folders/1?page=1&search=:1 Access to fetch at 'https://www.youtube.com/watch?v=mUfsyDRcG5I' from origin 'https://cmmadmin.alamiaai.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-www.youtube.com/watch?v=mUfsyDRcG5I:1  Failed to load resource: net::ERR_FAILED
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
-/api/nav/pinned:1  Failed to load resource: the server responded with a status of 404 ()
+    at async eb (.next/server/chunks/_00f~j~w._.js:130:33236)
+    at async r (.next/server/chunks/_0yy8k~e._.js:1:144971) {
+  query: `select "posts"."id", "posts"."title", "posts"."is_premium", "posts"."excerpt", "posts"."external_embed_url", "posts"."external_provider", "posts"."hero_image_id", "posts"."content", "posts"."meta_title", "posts"."meta_image_id", "posts"."meta_description", "posts"."published_at", "posts"."generate_slug", "posts"."slug", "posts"."updated_at", "posts"."created_at", "posts"."_status", "posts_populatedAuthors"."data" as "populatedAuthors", "posts__rels"."data" as "_rels" from "posts" "posts" left join lateral (select coalesce(json_agg(json_build_array("posts_populatedAuthors"."_order", "posts_populatedAuthors"."id", "posts_populatedAuthors"."name") order by "posts_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "posts_populated_authors" "posts_populatedAuthors" where "posts_populatedAuthors"."_parent_id" = "posts"."id" order by "posts_populatedAuthors"."_order" asc) "posts_populatedAuthors") "posts_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("posts__rels"."order", "posts__rels"."path", "posts__rels"."posts_id", "posts__rels"."categories_id", "posts__rels"."users_id") order by "posts__rels"."order" asc), '[]'::json) as "data" from (select * from "posts_rels" "posts__rels" where "posts__rels"."parent_id" = "posts"."id" order by "posts__rels"."order" asc) "posts__rels") "posts__rels" on true where "posts"."title" = $1 order by "posts"."created_at" desc limit $2`,
+  params: [
+    'Pakistan Nukes | Trump threatens to blow Oman | America looses war',
+    1
+  ],
+  [cause]: error: column posts.external_embed_url does not exist
+      at async (.next/server/chunks/_00f~j~w._.js:291:26631)
+      at async f.queryWithCache (.next/server/chunks/_00f~j~w._.js:291:22832)
+      at async (.next/server/chunks/_00f~j~w._.js:291:26416)
+      at async u (.next/server/chunks/_00f~j~w._.js:259:2620)
+      at async eb (.next/server/chunks/_00f~j~w._.js:130:33236)
+      at async r (.next/server/chunks/_0yy8k~e._.js:1:144971) {
+    length: 122,
+    severity: 'ERROR',
+    code: '42703',
+    detail: undefined,
+    hint: undefined,
+    position: '80',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '3722',
+    routine: 'errorMissingColumn'
+  }
+}
+[10:03:23] ERROR: There was an error fetching the list view data for collection posts
+    err: {
+      "type": "c",
+      "message": "Failed query: select \"_posts_v\".\"id\", \"_posts_v\".\"parent_id\", \"_posts_v\".\"version_title\", \"_posts_v\".\"version_is_premium\", \"_posts_v\".\"version_excerpt\", \"_posts_v\".\"version_external_embed_url\", \"_posts_v\".\"version_external_provider\", \"_posts_v\".\"version_hero_image_id\", \"_posts_v\".\"version_content\", \"_posts_v\".\"version_meta_title\", \"_posts_v\".\"version_meta_image_id\", \"_posts_v\".\"version_meta_description\", \"_posts_v\".\"version_published_at\", \"_posts_v\".\"version_generate_slug\", \"_posts_v\".\"version_slug\", \"_posts_v\".\"version_updated_at\", \"_posts_v\".\"version_created_at\", \"_posts_v\".\"version__status\", \"_posts_v\".\"created_at\", \"_posts_v\".\"updated_at\", \"_posts_v\".\"latest\", \"_posts_v\".\"autosave\", \"_posts_v_version_populatedAuthors\".\"data\" as \"version_populatedAuthors\", \"_posts_v__rels\".\"data\" as \"_rels\" from \"_posts_v\" \"_posts_v\" left join lateral (select coalesce(json_agg(json_build_array(\"_posts_v_version_populatedAuthors\".\"_order\", \"_posts_v_version_populatedAuthors\".\"id\", \"_posts_v_version_populatedAuthors\".\"_uuid\", \"_posts_v_version_populatedAuthors\".\"name\") order by \"_posts_v_version_populatedAuthors\".\"_order\" asc), '[]'::json) as \"data\" from (select * from \"_posts_v_version_populated_authors\" \"_posts_v_version_populatedAuthors\" where \"_posts_v_version_populatedAuthors\".\"_parent_id\" = \"_posts_v\".\"id\" order by \"_posts_v_version_populatedAuthors\".\"_order\" asc) \"_posts_v_version_populatedAuthors\") \"_posts_v_version_populatedAuthors\" on true left join lateral (select coalesce(json_agg(json_build_array(\"_posts_v__rels\".\"order\", \"_posts_v__rels\".\"path\", \"_posts_v__rels\".\"posts_id\", \"_posts_v__rels\".\"categories_id\", \"_posts_v__rels\".\"users_id\") order by \"_posts_v__rels\".\"order\" asc), '[]'::json) as \"data\" from (select * from \"_posts_v_rels\" \"_posts_v__rels\" where \"_posts_v__rels\".\"parent_id\" = \"_posts_v\".\"id\" order by \"_posts_v__rels\".\"order\" asc) \"_posts_v__rels\") \"_posts_v__rels\" on true where \"_posts_v\".\"latest\" = $1 order by \"_posts_v\".\"version_created_at\" desc, \"_posts_v\".\"created_at\" desc limit $2\nparams: true,10: column _posts_v.version_external_embed_url does not exist",
+      "stack":
+          Error: Failed query: select "_posts_v"."id", "_posts_v"."parent_id", "_posts_v"."version_title", "_posts_v"."version_is_premium", "_posts_v"."version_excerpt", "_posts_v"."version_external_embed_url", "_posts_v"."version_external_provider", "_posts_v"."version_hero_image_id", "_posts_v"."version_content", "_posts_v"."version_meta_title", "_posts_v"."version_meta_image_id", "_posts_v"."version_meta_description", "_posts_v"."version_published_at", "_posts_v"."version_generate_slug", "_posts_v"."version_slug", "_posts_v"."version_updated_at", "_posts_v"."version_created_at", "_posts_v"."version__status", "_posts_v"."created_at", "_posts_v"."updated_at", "_posts_v"."latest", "_posts_v"."autosave", "_posts_v_version_populatedAuthors"."data" as "version_populatedAuthors", "_posts_v__rels"."data" as "_rels" from "_posts_v" "_posts_v" left join lateral (select coalesce(json_agg(json_build_array("_posts_v_version_populatedAuthors"."_order", "_posts_v_version_populatedAuthors"."id", "_posts_v_version_populatedAuthors"."_uuid", "_posts_v_version_populatedAuthors"."name") order by "_posts_v_version_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "_posts_v_version_populated_authors" "_posts_v_version_populatedAuthors" where "_posts_v_version_populatedAuthors"."_parent_id" = "_posts_v"."id" order by "_posts_v_version_populatedAuthors"."_order" asc) "_posts_v_version_populatedAuthors") "_posts_v_version_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("_posts_v__rels"."order", "_posts_v__rels"."path", "_posts_v__rels"."posts_id", "_posts_v__rels"."categories_id", "_posts_v__rels"."users_id") order by "_posts_v__rels"."order" asc), '[]'::json) as "data" from (select * from "_posts_v_rels" "_posts_v__rels" where "_posts_v__rels"."parent_id" = "_posts_v"."id" order by "_posts_v__rels"."order" asc) "_posts_v__rels") "_posts_v__rels" on true where "_posts_v"."latest" = $1 order by "_posts_v"."version_created_at" desc, "_posts_v"."created_at" desc limit $2
+          params: true,10
+              at f.queryWithCache (/app/.next/server/chunks/_00f~j~w._.js:291:22857)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /app/.next/server/chunks/_00f~j~w._.js:291:26416
+              at async u (/app/.next/server/chunks/_00f~j~w._.js:259:2620)
+              at async Object.n [as queryDrafts] (/app/.next/server/chunks/_00f~j~w._.js:266:25283)
+              at async eb (/app/.next/server/chunks/_00f~j~w._.js:130:32912)
+              at async y (/app/.next/server/chunks/ssr/node_modules_10dx8pj._.js:1:56484)
+              at async z (/app/.next/server/chunks/ssr/node_modules_10dx8pj._.js:1:60347)
+          caused by: error: column _posts_v.version_external_embed_url does not exist
+              at /app/node_modules/pg-pool/index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+              at async /app/.next/server/chunks/_00f~j~w._.js:291:26631
+              at async f.queryWithCache (/app/.next/server/chunks/_00f~j~w._.js:291:22832)
+              at async /app/.next/server/chunks/_00f~j~w._.js:291:26416
+              at async u (/app/.next/server/chunks/_00f~j~w._.js:259:2620)
+              at async Object.n [as queryDrafts] (/app/.next/server/chunks/_00f~j~w._.js:266:25283)
+              at async eb (/app/.next/server/chunks/_00f~j~w._.js:130:32912)
+              at async y (/app/.next/server/chunks/ssr/node_modules_10dx8pj._.js:1:56484)
+              at async z (/app/.next/server/chunks/ssr/node_modules_10dx8pj._.js:1:60347)
+      "query": "select \"_posts_v\".\"id\", \"_posts_v\".\"parent_id\", \"_posts_v\".\"version_title\", \"_posts_v\".\"version_is_premium\", \"_posts_v\".\"version_excerpt\", \"_posts_v\".\"version_external_embed_url\", \"_posts_v\".\"version_external_provider\", \"_posts_v\".\"version_hero_image_id\", \"_posts_v\".\"version_content\", \"_posts_v\".\"version_meta_title\", \"_posts_v\".\"version_meta_image_id\", \"_posts_v\".\"version_meta_description\", \"_posts_v\".\"version_published_at\", \"_posts_v\".\"version_generate_slug\", \"_posts_v\".\"version_slug\", \"_posts_v\".\"version_updated_at\", \"_posts_v\".\"version_created_at\", \"_posts_v\".\"version__status\", \"_posts_v\".\"created_at\", \"_posts_v\".\"updated_at\", \"_posts_v\".\"latest\", \"_posts_v\".\"autosave\", \"_posts_v_version_populatedAuthors\".\"data\" as \"version_populatedAuthors\", \"_posts_v__rels\".\"data\" as \"_rels\" from \"_posts_v\" \"_posts_v\" left join lateral (select coalesce(json_agg(json_build_array(\"_posts_v_version_populatedAuthors\".\"_order\", \"_posts_v_version_populatedAuthors\".\"id\", \"_posts_v_version_populatedAuthors\".\"_uuid\", \"_posts_v_version_populatedAuthors\".\"name\") order by \"_posts_v_version_populatedAuthors\".\"_order\" asc), '[]'::json) as \"data\" from (select * from \"_posts_v_version_populated_authors\" \"_posts_v_version_populatedAuthors\" where \"_posts_v_version_populatedAuthors\".\"_parent_id\" = \"_posts_v\".\"id\" order by \"_posts_v_version_populatedAuthors\".\"_order\" asc) \"_posts_v_version_populatedAuthors\") \"_posts_v_version_populatedAuthors\" on true left join lateral (select coalesce(json_agg(json_build_array(\"_posts_v__rels\".\"order\", \"_posts_v__rels\".\"path\", \"_posts_v__rels\".\"posts_id\", \"_posts_v__rels\".\"categories_id\", \"_posts_v__rels\".\"users_id\") order by \"_posts_v__rels\".\"order\" asc), '[]'::json) as \"data\" from (select * from \"_posts_v_rels\" \"_posts_v__rels\" where \"_posts_v__rels\".\"parent_id\" = \"_posts_v\".\"id\" order by \"_posts_v__rels\".\"order\" asc) \"_posts_v__rels\") \"_posts_v__rels\" on true where \"_posts_v\".\"latest\" = $1 order by \"_posts_v\".\"version_created_at\" desc, \"_posts_v\".\"created_at\" desc limit $2",
+      "params": [
+        true,
+        10
+      ]
+    }
+Error: Failed query: select "_posts_v"."id", "_posts_v"."parent_id", "_posts_v"."version_title", "_posts_v"."version_is_premium", "_posts_v"."version_excerpt", "_posts_v"."version_external_embed_url", "_posts_v"."version_external_provider", "_posts_v"."version_hero_image_id", "_posts_v"."version_content", "_posts_v"."version_meta_title", "_posts_v"."version_meta_image_id", "_posts_v"."version_meta_description", "_posts_v"."version_published_at", "_posts_v"."version_generate_slug", "_posts_v"."version_slug", "_posts_v"."version_updated_at", "_posts_v"."version_created_at", "_posts_v"."version__status", "_posts_v"."created_at", "_posts_v"."updated_at", "_posts_v"."latest", "_posts_v"."autosave", "_posts_v_version_populatedAuthors"."data" as "version_populatedAuthors", "_posts_v__rels"."data" as "_rels" from "_posts_v" "_posts_v" left join lateral (select coalesce(json_agg(json_build_array("_posts_v_version_populatedAuthors"."_order", "_posts_v_version_populatedAuthors"."id", "_posts_v_version_populatedAuthors"."_uuid", "_posts_v_version_populatedAuthors"."name") order by "_posts_v_version_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "_posts_v_version_populated_authors" "_posts_v_version_populatedAuthors" where "_posts_v_version_populatedAuthors"."_parent_id" = "_posts_v"."id" order by "_posts_v_version_populatedAuthors"."_order" asc) "_posts_v_version_populatedAuthors") "_posts_v_version_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("_posts_v__rels"."order", "_posts_v__rels"."path", "_posts_v__rels"."posts_id", "_posts_v__rels"."categories_id", "_posts_v__rels"."users_id") order by "_posts_v__rels"."order" asc), '[]'::json) as "data" from (select * from "_posts_v_rels" "_posts_v__rels" where "_posts_v__rels"."parent_id" = "_posts_v"."id" order by "_posts_v__rels"."order" asc) "_posts_v__rels") "_posts_v__rels" on true where "_posts_v"."latest" = $1 order by "_posts_v"."version_created_at" desc, "_posts_v"."created_at" desc limit $2
+params: true,10
+    at f.queryWithCache (.next/server/chunks/_00f~j~w._.js:291:22857)
+    at async (.next/server/chunks/_00f~j~w._.js:291:26416)
+    at async u (.next/server/chunks/_00f~j~w._.js:259:2620)
+    at async Object.n [as queryDrafts] (.next/server/chunks/_00f~j~w._.js:266:25283)
+    at async eb (.next/server/chunks/_00f~j~w._.js:130:32912) {
+  query: `select "_posts_v"."id", "_posts_v"."parent_id", "_posts_v"."version_title", "_posts_v"."version_is_premium", "_posts_v"."version_excerpt", "_posts_v"."version_external_embed_url", "_posts_v"."version_external_provider", "_posts_v"."version_hero_image_id", "_posts_v"."version_content", "_posts_v"."version_meta_title", "_posts_v"."version_meta_image_id", "_posts_v"."version_meta_description", "_posts_v"."version_published_at", "_posts_v"."version_generate_slug", "_posts_v"."version_slug", "_posts_v"."version_updated_at", "_posts_v"."version_created_at", "_posts_v"."version__status", "_posts_v"."created_at", "_posts_v"."updated_at", "_posts_v"."latest", "_posts_v"."autosave", "_posts_v_version_populatedAuthors"."data" as "version_populatedAuthors", "_posts_v__rels"."data" as "_rels" from "_posts_v" "_posts_v" left join lateral (select coalesce(json_agg(json_build_array("_posts_v_version_populatedAuthors"."_order", "_posts_v_version_populatedAuthors"."id", "_posts_v_version_populatedAuthors"."_uuid", "_posts_v_version_populatedAuthors"."name") order by "_posts_v_version_populatedAuthors"."_order" asc), '[]'::json) as "data" from (select * from "_posts_v_version_populated_authors" "_posts_v_version_populatedAuthors" where "_posts_v_version_populatedAuthors"."_parent_id" = "_posts_v"."id" order by "_posts_v_version_populatedAuthors"."_order" asc) "_posts_v_version_populatedAuthors") "_posts_v_version_populatedAuthors" on true left join lateral (select coalesce(json_agg(json_build_array("_posts_v__rels"."order", "_posts_v__rels"."path", "_posts_v__rels"."posts_id", "_posts_v__rels"."categories_id", "_posts_v__rels"."users_id") order by "_posts_v__rels"."order" asc), '[]'::json) as "data" from (select * from "_posts_v_rels" "_posts_v__rels" where "_posts_v__rels"."parent_id" = "_posts_v"."id" order by "_posts_v__rels"."order" asc) "_posts_v__rels") "_posts_v__rels" on true where "_posts_v"."latest" = $1 order by "_posts_v"."version_created_at" desc, "_posts_v"."created_at" desc limit $2`,
+  params: [ true, 10 ],
+  [cause]: error: column _posts_v.version_external_embed_url does not exist
+      at async (.next/server/chunks/_00f~j~w._.js:291:26631)
+      at async f.queryWithCache (.next/server/chunks/_00f~j~w._.js:291:22832)
+      at async (.next/server/chunks/_00f~j~w._.js:291:26416)
+      at async u (.next/server/chunks/_00f~j~w._.js:259:2620)
+      at async Object.n [as queryDrafts] (.next/server/chunks/_00f~j~w._.js:266:25283)
+      at async eb (.next/server/chunks/_00f~j~w._.js:130:32912) {
+    length: 134,
+    severity: 'ERROR',
+    code: '42703',
+    detail: undefined,
+    hint: undefined,
+    position: '140',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '3722',
+    routine: 'errorMissingColumn'
+  }
+}
