@@ -42,6 +42,9 @@
 - [x] Added hamburger mobile menu to the Header and synced Footer branding to match Header perfectly.
 - [x] **Unified Admin Video Preview**: Built a `VideoPreviewField` component in the CMS to render YouTube/Vimeo embeds or HTML5 video tags for raw uploads in a live player preview box.
 - [x] **RSS Feed Publishing & Video Rendering**: Resolved the Payload 3 drafts bug for synced RSS posts by passing `draft: false` to force immediate publishing. Extended the `Posts` collection to support external video URLs and updated the frontend news detail page to display a video player when an embed URL is present.
+- [x] **Lightweight RSS Image Hotlinking**: Added `externalImageUrl` to `Posts` collection and updated the sync engines (`syncFeeds.ts`, `import-posts.ts`) to hotlink feed thumbnails directly without downloading them (preventing MinIO storage bloat).
+- [x] **Lexical Link Node Hyperlinking**: Replaced string-based URL appends with nested Lexical `link` nodes. Implemented a recursive Lexical node parser (`renderLexicalNode`) on the frontend to render proper hyperlinks (and support bold, italics, etc.).
+- [x] **Resolved Next.js Compile and Drizzle Migration Issues**: Fixed TypeScript interface conflicts on `CmsArticle`, corrected invalid inline styles in `VideoPreviewField`, and generated a clean DB migration `20260801_102947.ts` for database consistency.
 
 ---
 
