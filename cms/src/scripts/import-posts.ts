@@ -37,17 +37,26 @@ async function run() {
         const latestItems = parsedFeed.items.slice(0, 10)
 
         for (const item of latestItems) {
-          // Check if post already exists based on title to avoid duplicates
+          const cleanTitle = item.title || 'Untitled Post'
+          const computedSlug = cleanTitle
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '') || `post-${Date.now()}`
+
+          // Check if post already exists based on title or slug to avoid duplicates
           const existing = await payload.find({
             collection: 'posts',
             where: {
-              title: { equals: item.title }
+              or: [
+                { title: { equals: cleanTitle } },
+                { slug: { equals: computedSlug } }
+              ]
             },
             limit: 1
           })
 
           if (existing.docs.length > 0) {
-            console.log(`Post already exists: ${item.title} (Skipping)`)
+            console.log(`Post already exists: ${cleanTitle} (Skipping)`)
             continue
           }
 
@@ -139,7 +148,8 @@ async function run() {
             collection: 'posts',
             draft: false,
             data: {
-              title: item.title || 'Untitled Post',
+              title: cleanTitle,
+              slug: computedSlug,
               _status: 'published',
               isPremium: false,
               excerpt: excerpt,

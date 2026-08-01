@@ -25,9 +25,20 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
         const latestItems = parsedFeed.items.slice(0, 10)
 
         for (const item of latestItems) {
+          const cleanTitle = item.title || 'Untitled Post'
+          const computedSlug = cleanTitle
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '') || `post-${Date.now()}`
+
           const existing = await payload.find({
             collection: 'posts',
-            where: { title: { equals: item.title } },
+            where: {
+              or: [
+                { title: { equals: cleanTitle } },
+                { slug: { equals: computedSlug } }
+              ]
+            },
             limit: 1,
           })
 
@@ -125,7 +136,8 @@ export async function syncSocialFeeds(payload: Payload, feedId?: string) {
             collection: 'posts',
             draft: false,
             data: {
-              title: item.title || 'Untitled Post',
+              title: cleanTitle,
+              slug: computedSlug,
               _status: 'published',
               isPremium: false,
               excerpt: excerpt,
