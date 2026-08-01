@@ -29,18 +29,45 @@ export async function getPublishedArticles(categoryId?: string) {
   }
 }
 
+function resolveVideoThumbnail(thumbnail: any, externalEmbedUrl?: string): string | null {
+  const rawThumb = typeof thumbnail === 'object' ? thumbnail?.url : thumbnail
+  let resolvedThumbUrl = normalizeCmsUrl(rawThumb)
+  
+  if (!resolvedThumbUrl && externalEmbedUrl) {
+    const url = externalEmbedUrl.toLowerCase()
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      try {
+        const videoId = externalEmbedUrl.includes('v=')
+          ? new URL(externalEmbedUrl).searchParams.get('v')
+          : externalEmbedUrl.split('youtu.be/')[1]?.split('?')[0]
+        if (videoId) {
+          return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+        }
+      } catch (e) {}
+    } else if (url.includes('vimeo.com')) {
+      try {
+        const videoId = externalEmbedUrl.split('vimeo.com/')[1]?.split('/')[0]
+        if (videoId) {
+          return `https://vumbnail.com/${videoId}.jpg`
+        }
+      } catch (e) {}
+    }
+  }
+  
+  return resolvedThumbUrl || null
+}
+
 export async function getPublishedVideos(categoryId?: string) {
   try {
     const videos = await getCmsVideos({ publishedOnly: true, categoryId })
     const formatted = videos.map((v: any) => {
-      const rawThumb = typeof v.thumbnail === 'object' ? v.thumbnail?.url : v.thumbnail
       const rawFile = typeof v.videoFile === 'object' ? v.videoFile?.url : v.videoFile
       return {
         id: v.id,
         title: v.title,
         slug: v.slug,
         description: v.description,
-        thumbnailUrl: normalizeCmsUrl(rawThumb),
+        thumbnailUrl: resolveVideoThumbnail(v.thumbnail, v.externalEmbedUrl),
         videoUrl: normalizeCmsUrl(rawFile),
         duration: v.durationSeconds,
         isPremium: v.isPremium || false,
@@ -90,14 +117,13 @@ export async function getVideoBySlug(slug: string) {
       return { success: false, error: 'Video not found' }
     }
 
-    const rawThumb = typeof videoData.thumbnail === 'object' ? videoData.thumbnail?.url : videoData.thumbnail
     const rawFile = typeof videoData.videoFile === 'object' ? videoData.videoFile?.url : videoData.videoFile
 
     return {
       success: true,
       data: {
         ...videoData,
-        thumbnailUrl: normalizeCmsUrl(rawThumb),
+        thumbnailUrl: resolveVideoThumbnail(videoData.thumbnail, videoData.externalEmbedUrl),
         videoUrl: normalizeCmsUrl(rawFile),
         externalEmbedUrl: videoData.externalEmbedUrl || null,
         externalProvider: videoData.externalProvider || null,

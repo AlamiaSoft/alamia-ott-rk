@@ -35,7 +35,7 @@ export default async function VideoPage(props: VideoPageProps) {
         type: 'application/x-mpegURL',
       },
     ],
-    poster: video.thumbnailUrl,
+    poster: video.thumbnailUrl || undefined,
   }
 
   return (
